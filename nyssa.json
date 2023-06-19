@@ -1,0 +1,17 @@
+{
+  "name": "bladelang.com", 
+  "version": "1.0.0", 
+  "description": "The official website of the Blade programming language.", 
+  "homepage": "https://bladelang.com", 
+  "tags": [
+    "blade", 
+    "documentation", 
+    "website"
+  ], 
+  "author": "Richard Ore and Blade Contributors", 
+  "license": "MIT", 
+  "sources": [
+    "https://nyssa.bladelang.com"
+  ], 
+  "deps": {}
+}
