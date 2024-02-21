@@ -1,0 +1,99 @@
+:root {
+  --scheme-color: #ff5722;  
+}
+
+.content h4 {
+  margin: 2rem 0 .5rem 0;
+  color: var(--scheme-color);
+  font-size: 1.18rem;
+}
+
+.content h4 ~ p {
+  padding-left: 1rem;
+  margin-top: .5rem;
+}
+
+.content h4 ~ pre, 
+.content h4 ~ blockquote, 
+.content h4 ~ img, 
+.content h4 ~ table, 
+.content h4 ~ ul, 
+.content h4 ~ h5 {
+  margin-left: 1rem;
+}
+
+.content h1 code, .content h2 code, .content h3 code {
+  font-size: 1.4rem;
+  padding: 0 0.3rem;
+}
+
+.content h5 {
+  font-size: 1rem;
+  margin-bottom: 0;
+  margin-top: 1rem;
+}
+
+.content h5 ~ ul {
+  margin: 0.5rem 0 0.5rem 2rem;
+}
+
+.content ul li p:first-child {
+  margin-top: 0;
+}
+
+.content ul li p:last-child {
+  margin-bottom: 0;
+}
+
+/* .content p ~ p {
+  margin-bottom: 0;
+} */
+
+ul li {
+  list-style: disc;
+}
+
+h2[id], h3[id], h4[id] {
+  position: relative;
+}
+
+h2[id]::after, h3[id]::after, h4[id]::after {
+  content: "#";
+  position: absolute;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  right: 0;
+  line-height: 1em;
+  color: color-mix(in srgb, var(--static-color), white 30%);
+  display: none;
+  cursor: pointer;
+}
+
+h2[id]:hover::after, h3[id]:hover::after, h4[id]:hover::after {
+  display: inline;
+}
+
+.menu-list li > ul {
+  display: none;
+}
+
+.menu-list li.is-active ul,
+.menu-list li > ul:has(> li.is-active),
+.menu-list li.expanded > ul {
+  display: block;
+}
+
+/* .menu-list li.is-active ul {
+  color: initial;
+} */
+
+.menu-list li.is-active ul li a {
+  color: var(--static-color);
+  font-weight: initial;
+}
+
+@media (prefers-color-scheme: dark) {
+  h2[id]::after, h3[id]::after, h4[id]::after {
+    color: color-mix(in srgb, var(--static-color), black 60%);
+  }
+}

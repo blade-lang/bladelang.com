@@ -15,3 +15,6 @@
 
 # log files
 *.log
+
+_cache/
+_data/sitemap.json.backup
