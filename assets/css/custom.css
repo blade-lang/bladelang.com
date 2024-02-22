@@ -2,6 +2,11 @@
   --scheme-color: #ff5722;  
 }
 
+div {
+  display: block;
+  width: 100%;
+}
+
 .content h4 {
   margin: 2rem 0 .5rem 0;
   color: var(--scheme-color);
@@ -92,8 +97,31 @@ h2[id]:hover::after, h3[id]:hover::after, h4[id]:hover::after {
   font-weight: initial;
 }
 
+.btn, .btn:hover {
+  padding: 0.5em 1.25em;
+  display: inline-flex;
+  background: linear-gradient(to bottom, var(--scheme-color), color-mix(in srgb, var(--scheme-color), black 15%));
+  text-decoration: none;
+  border-radius: 0.35rem;
+  color: var(--alt-text-color) !important;
+  font-weight: bold;
+  font-size: .85rem;
+}
+
+.btn.btn-red, .btn.btn-red:hover {
+  background: linear-gradient(to bottom, #d73a4a, #cc2736);
+}
+
+.btn.btn-green, .btn.btn-green:hover {
+  background: linear-gradient(to bottom, #54bb9c, #3daa89);
+}
+
 @media (prefers-color-scheme: dark) {
   h2[id]::after, h3[id]::after, h4[id]::after {
     color: color-mix(in srgb, var(--static-color), black 60%);
+  }
+
+  .btn, .btn:hover {
+    color: var(--text-color) !important;
   }
 }

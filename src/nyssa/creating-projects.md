@@ -7,7 +7,7 @@ Nyssa projecs are typical Blade  applications.
 1. Create a new directory for your project and open a terminal/command window in the directory and run the `nyssa init` command.
 2. Fill in the responses to the prompted questions. `name` and `version` are required so nyssa will suggest an appropriate value for you. You can leave them blank to allow nyssa use the default values or replace them with other values of your choice.
   
-  See [Package layout](/docs/package-layout) for the structure of the command output.
+  See [Package layout](/nyssa/package-layout) for the structure of the command output.
 
   > The default `name` will be the name of current directory and the default version will be `1.0.0`. It is conventional to keep the version name semantic.
 

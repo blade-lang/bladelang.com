@@ -3,7 +3,7 @@
 
 Welcome! This is the official documentation for Blade 0.0.86-alpha.
 
-For documentation on the official package manager, test runner and repository server &mdash; [Nyssa](https://nyssa.bladelang.com), visit [https://nyssa.bladelang.com/docs](https://nyssa.bladelang.com/docs).
+> For the official package manager, test runner and repository server &mdash; [Nyssa](https://nyssa.bladelang.com), visit [https://nyssa.bladelang.com](https://nyssa.bladelang.com).
 
 <div style="color:red">This documentation is a work in progress!</div>
 
@@ -12,6 +12,8 @@ For documentation on the official package manager, test runner and repository se
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/blade-lang/blade/blob/master/LICENSE)
 [![Coverage Status](https://coveralls.io/repos/github/blade-lang/blade/badge.svg?branch=main)](https://coveralls.io/github/blade-lang/blade?branch=main)
 [![Version](https://img.shields.io/badge/version-0.0.86-alpha-green)](https://github.com/blade-lang/blade)
+
+
 
 <div class="fs-8">
 <a href="#download" class="btn btn-primary fs-4 mb-4 mb-md-0 mr-2">Installation <i class="fa-regular fa-circle-down"></i></a>

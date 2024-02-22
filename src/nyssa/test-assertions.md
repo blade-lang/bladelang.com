@@ -205,7 +205,7 @@ it('should contain lime', @() {
 })
 ```
 
-### to_throw(error)
+### to_throw(error?)
 
 Use `.to_throw` to test that a function throws when it is called. For example, if we want to test that `drink_flavor('octopus')` throws, because octopus flavor is too disgusting to drink, we could write:
 
@@ -281,7 +281,7 @@ expect(A()).to_be_instance_of(A)
 expect(A()).to_be_instance_of(Exception) # fails
 ```
 
-### to_be_function(value)
+### to_be_function(value?)
 
 Use `.to_be_function` when you want to check if a value is a function or a closure. For example, if `do_something()` is a function looking like this:
 
