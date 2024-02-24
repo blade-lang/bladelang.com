@@ -2,9 +2,11 @@
 
 ## Installing Nyssa
 
-Nyssa comes prepackaged with all Blade versions since `v0.0.86` and needs no further installation action. You'll need to upgrade your Blade installation you are on a Blade version lower than `v0.0.86`.
+Nyssa comes prepackaged with all Blade versions since `v0.0.86` and needs no further installation action. You'll need to upgrade your Blade installation if you are on a version of Blade lower than `v0.0.86`.
 
-The best way to enjoy the power of Nyssa is to add your Blade installation path to your shell/terminal environment. Various operating systems provides different mechanisms for adding a path to the environment so the steps may vary for your specific operating system.
+The best way to enjoy the power of Nyssa is to add your Blade installation path to your shell/terminal environment. If yo have installed Blade on a UNIX/Linux device using the installation link, you should already have `blade` and `nyssa` in your path. 
+
+Various operating systems provides different mechanisms for adding a path to the environment so the steps may vary for your specific operating system.
 
 Here's a few links for different operating systems showing how to do this.
 

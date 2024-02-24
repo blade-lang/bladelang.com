@@ -12,8 +12,8 @@ follows:
   or more package is installed.
 - `app`: The directory contains the main application/package code.
 - `index.b`: The default Blade package index file.
-- `README.md`: The README.md file will be contain the main documentation 
-  for your package.
+- `README.md`: The README.md file should contain the main introduction to or 
+  documentation for your package.
   > **NOTE:**
   > If your packages adheres to Blade standard multiline comment 
   > documentation format as shown in the Blade standard library 

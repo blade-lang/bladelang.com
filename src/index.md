@@ -99,7 +99,7 @@ Blade currently supports and have been tested on the Linux, OSX and Windows oper
 If you are on a Unix, OSX or Linux machine, you can use the automated install tool by running the command below in your favorite terminal.
 
 ```terminal
-$ bash <(curl -s https://raw.githubusercontent.com/blade-lang/blade/main/scripts/install.sh)
+$ bash <(curl https://raw.githubusercontent.com/blade-lang/blade/main/scripts/install.sh)
 ```
 
 

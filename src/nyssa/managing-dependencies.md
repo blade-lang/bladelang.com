@@ -2,9 +2,9 @@
 
 As a package manager, one of the core responsibilities of nyssa is to help you manage dependencies for your application. In Blade, there are three (3) scopes of libraries that exist.
 
-- **Builtin libraries**: This libraries are the Blade core libraries from which all other libraries are built on and are not meant to be managed by any third party application. Managing or modifying this packages yourself can break your installation and/or make your installation incompartible with other installations.
-- **Global libraries**: This are packages located in Blade's global packages directory (typically `$BLADE_INSTALL_DIR/vendor`) and are available to all applications in Blade and can be imported in the same way as the core libraries, but not part of the core packages.
-- **Local libraries**: This are packages located in your application, package or library's local packages directory (typically `$APPLICATION_DIR/.blade/libs`) and are available to all modules in your application and can be imported in the same way as the core libraries.
+- **Builtin libraries**: These libraries are the Blade core libraries from which all other libraries are built on and are not meant to be managed by any third party application. Managing or modifying this packages yourself can break your installation and/or make your installation incompartible with other installations.
+- **Global libraries**: These are packages located in Blade's global packages directory (typically `$BLADE_INSTALL_DIR/apps`) and are available to all applications in Blade and can be imported in the same way as the core libraries, but are not part of the core packages.
+- **Local libraries**: These are packages located in your application, package or library's local packages directory (typically `$APPLICATION_DIR/.blade/libs`) and are available to all modules in your application and can be imported in the same way as the core libraries.
 
 Nyssa lets you install both global and local libraries for your application. The default behavior is to install a package locally.
 
