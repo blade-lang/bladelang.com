@@ -17,6 +17,7 @@ they are the primary medium of reading and writing binary data into and from the
       - [append(item: _any_)](#appenditem-any)
       - [clone()](#clone)
       - [extend(item: _bytes2_)](#extenditem-bytes2)
+      - [index\_of(byte: _number_ \[, start\_index: _number_\])](#index_ofbyte-number--start_index-number)
       - [pop()](#pop)
       - [remove(index: _number_)](#removeindex-number)
       - [reverse()](#reverse)
@@ -33,6 +34,7 @@ they are the primary medium of reading and writing binary data into and from the
       - [dispose()](#dispose)
       - [to\_list()](#to_list)
       - [to\_string()](#to_string)
+
 
 
 ## Creating a Byte stream
@@ -186,12 +188,12 @@ Adds the content of byte stream 2 into byte stream.<br>
 
   > **@note:** `extend()` is an in-place action so the original 
   > byte stream will be modified.
-  ```
 
 #### index_of(byte: _number_ [, start_index: _number_])
 
-Returns the index position of the first occurrence of the byte _`byte`_ in the binary data (bytes). If
-  the _byte_ cannot be found anywhere in _byte array_, it returns -1. If the `start_index` parameter is argument is given, it will start scanning from the given index.
+Returns the index position of the first occurrence of the byte _`byte`_ in the binary data (bytes). 
+
+If the _byte_ cannot be found anywhere in _byte array_, it returns -1. If the `start_index` parameter is argument is given, it will start scanning from the given index.
 
   For example:
 
@@ -203,7 +205,7 @@ Returns the index position of the first occurrence of the byte _`byte`_ in the b
   %> bytes([1, 2, 3]).index_of(5)
   -1
   ```
- 
+
 #### pop()
 
 Removes the last item in a byte stream and returns it.<br>
