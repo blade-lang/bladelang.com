@@ -137,7 +137,7 @@ import markdown
 var md = markdown()
 
 # enable everything
-md.validate_link = @(){ return true; }
+md.validate_link = @{ return true; }
 ```
 
 @param {string} url
@@ -519,8 +519,8 @@ rules if you create plugin and adds new token types.
 ##### Example
 ```blade
 import markdown as md
-md.renderer.rules.strong_open  = @() { return '<b>' }
-md.renderer.rules.strong_close = @() { return '</b>' }
+md.renderer.rules.strong_open  = @{ return '<b>' }
+md.renderer.rules.strong_close = @{ return '</b>' }
 var result = md.render_inline(...)
 ```
 Each rule is called as independent static function with fixed signature:

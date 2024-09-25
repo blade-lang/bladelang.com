@@ -58,6 +58,7 @@ available types.)
 - **char\_ptr** &#8674; _ptr_: C char_ptr type
 - **uchar\_ptr** &#8674; _ptr_: C uchar_ptr type
 - **ptr** &#8674; _ptr_: C ptr type
+- **function** &#8674; _ptr_: C closure/callback type
 
 ## Functions
 
@@ -82,8 +83,8 @@ it will be automatically added.
 Creates a new C value for the specified clib type with the given values.
 ##### Parameters
 
-- _{type}_ **type**
-- _any..._ **values**
+- _{clib_type}_ **type**
+- _{any...}_ **values**
 
 ##### Returns
 
@@ -102,7 +103,7 @@ automatically be returned with the values mapped to the names of the
 structure elements.
 ##### Parameters
 
-- _{type}_ **type**
+- _{clib_type}_ **type**
 - _{string|bytes}_ **data**
 
 ##### Returns
@@ -119,9 +120,9 @@ Get the value at the given index of a pointer based
 on the given CLib type.
 ##### Parameters
 
-- _ptr_ **pointer**
-- _{type}_ **clib_type**
-- _number_ **index**
+- _{ptr}_ **pointer**
+- _{clib_type}_ **type**
+- _{number}_ **index**
 
 ##### Returns
 
@@ -135,10 +136,10 @@ Sets the value at the given index of a pointer based
 on the given CLib type to the given value.
 ##### Parameters
 
-- _ptr_ **pointer**
-- _{type}_ **clib_type**
-- _number_ **index**
-- _any_ **value**
+- _{ptr}_ **pointer**
+- _{clib_type}_ **type**
+- _{number}_ **index**
+- _{any}_ **value**
 
 ##### Returns
 
@@ -168,12 +169,65 @@ int (*my_ptr)(int a, void *b);
 ##### Parameters
 
 - _ptr_ **handle**
-- _{type}_ **return_type**
-- _{type...}_ **arg_types**
+- _{clib_type}_ **return_type**
+- _{clib_type...}_ **arg_types**
 
 ##### Returns
 
 - function
+
+
+
+#### create\_callback(closure, return_type, ...)
+
+Creates a callback to be passed to C functions expecting a callback.
+
+For example, imagine a C function defined as below:
+
+```c
+void ex_puts(const char *name, void (*fn)(char *req, char *res));
+```
+
+To pass the callback (second parameter) to this function, you'll need to 
+wrap a blade function with `create_callback()` to properly define the 
+callback return type and parameters.
+
+The above function can be defined as:
+
+```blade
+var fn lib.define('ex_puts', clib.void, clib.char_ptr, clib.function)
+```
+
+To call this function and pass a Blade function that can be called when C 
+triggers the callback, the second argument to the function will need to be 
+wrapped in `create_callback()`. Thus, the above function can be called 
+like this:
+
+```blade
+fn(
+   'Blade Callbacks', 
+   clib.create_callback(
+     @(req, res) {
+       echo 'Request is: ' + req
+       echo 'Response is: ' + res
+     }, 
+     clib.void, # The return type of the callback
+     clib.char_ptr, clib.char_ptr  # the parameters of the callback
+   )
+)
+```
+
+> **NOTE:** A callback can only be passed to a parameter previously defined 
+> as function.
+##### Parameters
+
+- _{function}_ **closure**
+- _{clib_type}_ **return_type**
+- _{clib_type...}_ **types**
+
+##### Returns
+
+- {clib_callback}
 
 
 
@@ -288,8 +342,8 @@ int myfunc(int a, voidb);
 ##### Parameters
 
 - _string_ **name**
-- _{type}_ **return_type**
-- _{type...}_ **types**
+- _{clib_type}_ **return_type**
+- _{clib_type...}_ **types**
 
 ##### Returns
 

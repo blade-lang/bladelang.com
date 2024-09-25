@@ -118,11 +118,15 @@ Anonymous functions differ from standard functions only by syntax.
 
 - Anonymous function are not defined by any keyword such as `def`.
 - Their parameter list are preceeded by the `@` sign.
+- The parameter list is optional and may be omitted altogether. This is the 
+  convention when writing anonymous functions that take no parameters.
 
 For example:
 
 ```blade-repl
-%> @() {} # empty anonymous function
+%> @{} # empty anonymous function
+<function @(0) at 0x147711160>
+%> @{} # another empty anonymous function
 <function @(0) at 0x127305120>
 %> @(name) {     # anonymous function accepting parameter name
 ..   echo name  # function body

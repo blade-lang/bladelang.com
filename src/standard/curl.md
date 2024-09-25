@@ -115,23 +115,14 @@ to begin.
 This time-stamp includes all pre-transfer commands and negotiations that are
 specific to the particular protocol(s) involved. It includes the sending of the
 protocol- specific protocol instructions that triggers a transfer.
-- **SIZE\_UPLOAD** &#8674; _static_: The total amount of bytes that were  uploaded.
-- **SIZE\_UPLOAD\_T** &#8674; _static_: The total amount of bytes that were uploaded.
+- **SIZE\_UPLOAD** &#8674; _static_: The total amount of bytes that were uploaded.
 - **SIZE\_DOWNLOAD** &#8674; _static_: The total amount of bytes that were  downloaded.  The amount is only for the
-latest transfer and will be reset again for each new transfer. This counts actual
-payload data, what's also commonly called body. All meta and header data are
-excluded and will not be counted in this number.
-- **SIZE\_DOWNLOAD\_T** &#8674; _static_: The total amount of bytes that were  downloaded.  The amount is only for the
 latest transfer and will be reset again for each new transfer. This counts actual
 payload data, what's also commonly called body. All meta and header data are
 excluded and will not be counted in this number.
 - **SPEED\_DOWNLOAD** &#8674; _static_: The average download speed that curl measured for the complete download. Measured
 in bytes/second.
-- **SPEED\_DOWNLOAD\_T** &#8674; _static_: The average download speed that curl measured for the complete download. Measured
-in bytes/second.
 - **SPEED\_UPLOAD** &#8674; _static_: The average upload speed that curl measured for the complete upload. Measured
-in bytes/second.
-- **SPEED\_UPLOAD\_T** &#8674; _static_: The average upload speed that curl measured for the complete upload. Measured
 in bytes/second.
 - **HEADER\_SIZE** &#8674; _static_: The total size of all the headers received. Measured in number of bytes.
 - **REQUEST\_SIZE** &#8674; _static_: The total size of the issued requests. This is so far only for HTTP requests.
@@ -144,27 +135,9 @@ tells document time etc) and the time of the document is unknown.
 
 You _MUST_ to collect this information before the transfer is made, by using the
 `Options.FILETIME` option to `set_option()` or you will unconditionally get a -1 back.
-
-
-> Consider using `FILETIME_T` to be able to extract dates beyond the year 2038 on
-> systems using 32 bit longs.
-- **FILETIME\_T** &#8674; _static_: The remote time of the retrieved document (in number of seconds since 1 jan 1970
-in the GMT/UTC time zone). If you get -1, it can be because of many reasons (it might
-be unknown, the server might hide it or the server doesn't support the command that
-tells document time etc) and the time of the document is unknown.
-
-You _MUST_ to collect this information before the transfer is made, by using the
-`Options.FILETIME` option to `set_option()` or you will unconditionally get a -1 back.
-
-
-> This option is an alternative to `FILETIME` to allow systems with 32 bit long
-> variables to extract dates outside of the 32bit timestamp range.
 - **CONTENT\_LENGTH\_DOWNLOAD** &#8674; _static_: The content-length of the download. This is the value read from the `Content-Length:`
 field. It is -1 if the size isn't known.
-- **CONTENT\_LENGTH\_DOWNLOAD\_T** &#8674; _static_: The content-length of the download. This is the value read from the `Content-Length:`
-field. It is -1 if the size isn't known.
 - **CONTENT\_LENGTH\_UPLOAD** &#8674; _static_: The content-length of the upload. It is -1 if the size isn't known.
-- **CONTENT\_LENGTH\_UPLOAD\_T** &#8674; _static_: The content-length of the upload. It is -1 if the size isn't known.
 - **STARTTRANSFER\_TIME** &#8674; _static_: The time, in seconds, it took from the start until the first byte is received by
 `curl`. This includes `PRETRANSFER_TIME` and also the time the server needs to
 calculate the result.
@@ -647,9 +620,6 @@ operation slower and is less friendly for the network.
 - **FORBID\_REUSE** &#8674; _static_: Set to explicitly forbid the upcoming transfer's connection to be re-used
 when done. Do not use this unless you're absolutely sure of this, as it
 makes the operation slower and is less friendly for the network.
-- **RANDOM\_FILE** &#8674; _static_: Set to a file name that contains random data for libcurl to use to
-seed the random engine when doing SSL connects.
-- **EGDSOCKET** &#8674; _static_: Set to the Entropy Gathering Daemon socket pathname
 - **CONNECTTIMEOUT** &#8674; _static_: Time-out connect operations after this amount of seconds, if connects are
 OK within this time, then fine... This only aborts the connect phase.
 - **HTTPGET** &#8674; _static_: Set this to force the HTTP request to get back to GET. Only really usable

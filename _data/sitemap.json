@@ -238,63 +238,71 @@
       "/standard/zlib": {
         "source": "/standard/zlib", 
         "title": "zlib"
+      },
+      "/standard/imagine": {
+        "source": "/standard/imagine", 
+        "title": "imagine"
+      }, 
+      "/standard/numberackup": {
+        "source": "/standard/numberackup", 
+        "title": "numberackup"
       }
     }
-  },
+  }, 
   "/nyssa": {
     "source": "nyssa/index", 
-    "title": "Nyssa Package Manager",
+    "title": "Nyssa Package Manager", 
     "children": {
       "/nyssa/getting-started": {
-        "source": "/nyssa/getting-started",
+        "source": "/nyssa/getting-started", 
         "title": "Getting started"
-      },
+      }, 
       "/nyssa/projects": {
-        "source": "/nyssa/creating-projects",
+        "source": "/nyssa/creating-projects", 
         "title": "Creating Projects"
-      },
+      }, 
       "/nyssa/package-layout": {
-        "source": "/nyssa/package-layout",
+        "source": "/nyssa/package-layout", 
         "title": "Package layout"
-      },
+      }, 
       "/nyssa/managing-dependencies": {
-        "source": "/nyssa/managing-dependencies",
+        "source": "/nyssa/managing-dependencies", 
         "title": "Managing dependencies"
-      },
+      }, 
       "/nyssa/testing": {
-        "source": "/nyssa/testing",
+        "source": "/nyssa/testing", 
         "title": "Testing"
-      },
+      }, 
       "/nyssa/test-globals": {
-        "source": "/nyssa/test-globals",
+        "source": "/nyssa/test-globals", 
         "title": "Test Globals"
-      },
+      }, 
       "/nyssa/test-assertions": {
-        "source": "/nyssa/test-assertions",
+        "source": "/nyssa/test-assertions", 
         "title": "Test Assertions"
-      },
+      }, 
       "/nyssa/install-and-uninstall-actions": {
-        "source": "/nyssa/install-and-uninstall-actions",
+        "source": "/nyssa/install-and-uninstall-actions", 
         "title": "Install and Uninstall actions"
-      },
+      }, 
       "/nyssa/publishing-packages": {
-        "source": "/nyssa/publishing-packages",
+        "source": "/nyssa/publishing-packages", 
         "title": "Publishing packages"
-      },
+      }, 
       "/nyssa/getting-project-info": {
-        "source": "/nyssa/getting-project-info",
+        "source": "/nyssa/getting-project-info", 
         "title": "Getting project information"
-      },
+      }, 
       "/nyssa/hosting-a-private-repository": {
-        "source": "/nyssa/hosting-a-private-repository",
+        "source": "/nyssa/hosting-a-private-repository", 
         "title": "Hosting a private repository"
-      },
+      }, 
       "/nyssa/publishers-account": {
-        "source": "/nyssa/publishers-account",
+        "source": "/nyssa/publishers-account", 
         "title": "Publishers account"
-      },
+      }, 
       "/nyssa/cleaning-cache-and-logs": {
-        "source": "/nyssa/cleaning-cache-and-logs",
+        "source": "/nyssa/cleaning-cache-and-logs", 
         "title": "Cleaning cache and log files"
       }
     }

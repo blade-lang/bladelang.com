@@ -62,7 +62,7 @@ them which prevent the closing tag from auto-closing.
 For example: in `<li><ul><li></ul></li>`, the top-level `<li>`
 should not auto-close.
 - **void\_tags** &#8674; _readonly_ _list_: Tags which do not need the closing tag
-For example: `<img>` does not need `</img>`
+For example: `<img>` does not need `</img>`.
 
 ## Functions
 

@@ -15,6 +15,20 @@ Converts hexadecimal string of any length to bytes.
 
 
 
+#### bytes\_to\_hex(data)
+
+Converts binary data (byes) of any length to hexadecimal string 
+representation.
+##### Parameters
+
+- _bytes_ **data**
+
+##### Returns
+
+- string
+
+
+
 #### decimal\_to\_hex(n)
 
 Converts the given decimal based number to an hexadeccimal string.

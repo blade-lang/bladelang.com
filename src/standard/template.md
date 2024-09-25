@@ -370,7 +370,7 @@ invoked quite differently. To invoke a template function, you need to wrap them 
 For example, consider the following template function defined to return the base url of a website.
 
 ```blade
-tpl.register_function('base_url', @() {
+tpl.register_function('base_url', @{
   return  'https://localhost:8000'
 })
 ```
