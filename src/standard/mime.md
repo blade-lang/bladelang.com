@@ -19,6 +19,7 @@ Example,
 import mime
 echo mime.detect_from_name('myimage.png')
 ```
+
 ##### Parameters
 
 - _string_ **name**
@@ -46,6 +47,7 @@ import mime
 var f = file('my_file.ext', 'rb')
 echo mime.detect_from_header(f)
 ```
+
 ##### Parameters
 
 - _file_ **file**
@@ -83,6 +85,7 @@ var f = file('myfile', 'rb')
 
 echo mime.detect(f)
 ```
+
 ##### Parameters
 
 - _file_ **file**
@@ -112,6 +115,7 @@ true
 %> mime.detect_from_name('myfile.ppk')
 'file/ppk'
 ```
+
 ##### Parameters
 
 - _string_ **extension**
@@ -137,10 +141,11 @@ Mime format representation class.
 #### MimeFormat(mimetype, header) &#8674; Constructor
 
 
+
 ##### Parameters
 
 - _string_ **mimetype**
-- _{list|bytes|nil}_ **header**
+- _list|bytes|nil_ **header**
 
 ##### Notes
 

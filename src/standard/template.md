@@ -403,6 +403,7 @@ If _value_ is **Example**, output will be **7**.
 
 
 
+
 #### upper(value)
 
 Template function to convert a string or an object's string representation 
@@ -415,6 +416,7 @@ Example:
 ```
 
 If _value_ is **Example text**, output will be **EXAMPLE TEXT**.
+
 
 
 
@@ -433,6 +435,7 @@ If _value_ is **I'm LOVING this**, output will be **i'm loving this**.
 
 
 
+
 #### is(value, expected)
 
 Template function to check if object _value_ is same as the _expected_.
@@ -447,6 +450,7 @@ If value was **Jane**, it will return `true`.
 
 You can also pass another variable name, a number or one of `true`, 
 `false`, and `nil` directly (without quotes).
+
 ##### Parameters
 
 - _any_ **expected**
@@ -467,6 +471,7 @@ Example:
 If value was __true__, it will return `false`.
 
 It accepts the same set of parameters accepted by the `is` template modifier.
+
 ##### Parameters
 
 - _any_ **expected**
@@ -488,6 +493,7 @@ If value is an _empty string_, it will return `true`.
 
 
 
+
 #### reverse(value)
 
 Template function to reverse a string or the string representation of an object.
@@ -499,6 +505,7 @@ Example:
 ```
 
 If value is **banana**, output will be **ananab**.
+
 
 
 
@@ -516,6 +523,7 @@ If value was a list `[1,2,3]`, output will be the string **[1, 2, 3]**.
 
 
 
+
 #### trim(value)
 
 Template function to trim a string.
@@ -527,6 +535,7 @@ Example:
 ```
 
 If value is `   Jane   `, output will be `Jane`.
+
 
 
 
@@ -544,6 +553,7 @@ If value is **jane IS a fine girl**, output will be **Jane Is A Fine Girl**.
 
 
 
+
 #### alt(value, alternative)
 
 Template function to return a default string value if the value 
@@ -557,6 +567,7 @@ Example:
 ```
 
 If value is **-1**, out put will be **30**.
+
 ##### Parameters
 
 - _string_ **alternative**
@@ -578,6 +589,7 @@ If value is a list `['mango', 'apple', 'oranges']`, output will be **mango**.
 
 
 
+
 #### last(value)
 
 Template function to return the last item in an iterable.
@@ -589,6 +601,7 @@ Example:
 ```
 
 If value is a list `['mango', 'apple', 'oranges']`, output will be **oranges**.
+
 
 
 
@@ -606,6 +619,7 @@ If value is `Hello\nWorld`, output will be `Hello<br/>World`.
 
 
 
+
 #### lpad(value, count)
 
 Template function to left pad a string.
@@ -617,6 +631,7 @@ Example:
 ```
 
 If value is `Jane`, output will be `      Jane`.
+
 ##### Parameters
 
 - _number_ **count.**
@@ -635,6 +650,7 @@ Example:
 ```
 
 If value is `Jane`, output will be `Jane      `.
+
 ##### Parameters
 
 - _number_ **count.**
@@ -653,6 +669,7 @@ Example:
 ```
 
 If value is a list `['a', 'b', 'c']`, output will be **a-b-c**.
+
 ##### Parameters
 
 - _string_ **glue**
@@ -674,6 +691,7 @@ If value is **https://www.example.org/foo?a=b&c=d**, output will be **https://ww
 
 
 
+
 #### json(value)
 
 Template string to return the JSON encoded string for a value.
@@ -688,10 +706,12 @@ If value is a dictionary `{name: 'Xavier'}`, output will be **{"name":"Xavier"}*
 
 
 
+
 #### template(auto_init) &#8674; Exported
 
 Default function exporting the [[Template]] class that allows function 
 initialization. See [[Template]].
+
 ##### Parameters
 
 - _bool_ **auto_init**
@@ -766,9 +786,10 @@ The constructor of the Template class.
 
    directory will be automatically created on [[Template.set_root]] or 
    [[Template.render]].
+
 ##### Parameters
 
-- _{bool}_ **auto_init**: : A boolean flag to control whether template root 
+- _bool_ **auto_init**: : A boolean flag to control whether template root 
 
 
 #### set\_root(path)
@@ -779,9 +800,10 @@ if it wasn't.
 
 If your template contains or will contain an `<include />` tag, the path given 
 here will become the root of the include search path.
+
 ##### Parameters
 
-- _{string}_ **path**
+- _string_ **path**
 
 ##### Returns
 
@@ -792,9 +814,10 @@ here will become the root of the include search path.
 Sets the default file extension to be used when [[Template.render]] and/or the 
 `<include />` tag searches for template files in the root directory when the path 
 given does not match an existing file and does not end with another extension.
+
 ##### Parameters
 
-- _{string}_ **ext**
+- _string_ **ext**
 
 
 #### register\_function(name, function)
@@ -820,10 +843,11 @@ For example,
 ```wire
 <div>{{ my_user|firstname }}</div>
 ```
+
 ##### Parameters
 
-- _{string}_ **name**
-- _{function}_ **function**
+- _string_ **name**
+- _function_ **function**
 
 
 #### register\_element(name, element)
@@ -847,10 +871,11 @@ The above registered element can then be used in the template. For example,
 ```wire
 <inline-input value="{{ my_var }}" />
 ```
+
 ##### Parameters
 
-- _{string}_ **name**
-- _{function(2)}_ **element**
+- _string_ **name**
+- _function(2)_ **element**
 
 
 #### render\_string(source, variables, path)
@@ -879,11 +904,12 @@ The above template should return
 ```wire
 <div>Johnson</div>
 ```
+
 ##### Parameters
 
-- _{string}_ **source**
-- _{dict?}_ **variables**
-- _{string?}_ **path**
+- _string_ **source**
+- _dict?_ **variables**
+- _string?_ **path**
 
 ##### Returns
 
@@ -909,10 +935,11 @@ tpl.render('my_template')
 
 The above example renders the template as is and will die if any variable is found in it. 
 You can pass a variable the same way you do with [[Template.render_string]].
+
 ##### Parameters
 
-- _{string}_ **path**
-- _{dict?}_ **variables**
+- _string_ **path**
+- _dict?_ **variables**
 
 ##### Returns
 

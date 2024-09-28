@@ -37,7 +37,10 @@ It works!
 
 ## Properties
 
-- **cpu\_count** &#8674; _number_: The number of CPU cores available on the current device.
+- **cpu\_count** &#8674; _number_:
+
+  The number of CPU cores available on the current device.
+
 
 ## Functions
 
@@ -49,10 +52,11 @@ constructor accepts an optional PagedValue.
 The function passed to a process must accept at least one parameter which 
 will be passed the instance of the process itself and at most two parameters 
 if the process was intitalized with a PagedValue.
+
 ##### Parameters
 
 - _function_ **fn**
-- _{PageValue?}_ **paged**
+- _PageValue?_ **paged**
 
 
 
@@ -79,6 +83,7 @@ PagedValue supports the following types:
 #### PagedValue(executable, private) &#8674; Constructor
 
 
+
 ##### Parameters
 
 - _bool?_ **executable**
@@ -89,13 +94,16 @@ PagedValue supports the following types:
 
 Locks the PagedValue and disallows updating the value.
 
+
 #### unlock()
 
 Unlocks the PagedValue to allow for updating the value.
 
+
 #### is\_locked()
 
 Returns `true` if the PagedValue is locked for updating or `false` otherwise.
+
 ##### Returns
 
 - boolean
@@ -107,9 +115,10 @@ Returns `true` if the PagedValue is locked for updating or `false` otherwise.
 
 Sets the value of the PagedValue to the given value. It returns the number of 
 bytes written or `false` if the PagedValue is in an invalid state.
+
 ##### Parameters
 
-- _{boolean|number|string|list|dictionary}_ **value**
+- _boolean|number|string|list|dictionary_ **value**
 
 ##### Returns
 
@@ -119,9 +128,10 @@ bytes written or `false` if the PagedValue is in an invalid state.
 
 Locks the PagedValue for writing then sets the value to the given value and unlocks it. 
 It returns the number of bytes written or `false` if the PagedValue is in an invalid state.
+
 ##### Parameters
 
-- _{boolean|number|string|list|dictionary}_ **value**
+- _boolean|number|string|list|dictionary_ **value**
 
 ##### Returns
 
@@ -130,6 +140,7 @@ It returns the number of bytes written or `false` if the PagedValue is in an inv
 #### get()
 
 Returns the value stored in the PagedValue or `nil` if no value has been set.
+
 ##### Returns
 
 - any
@@ -137,6 +148,7 @@ Returns the value stored in the PagedValue or `nil` if no value has been set.
 #### raw\_pointer()
 
 Returns the pointer to the raw memory paged location pointed to by the object.
+
 ##### Returns
 
 - ptr
@@ -160,16 +172,18 @@ constructor accepts an optional PagedValue.
 The function passed to a process must accept at least one parameter which 
 will be passed the instance of the process itself and at most two parameters 
 if the process was intitalized with a PagedValue.
+
 ##### Parameters
 
 - _function_ **fn**
-- _{PageValue?}_ **paged**
+- _PageValue?_ **paged**
 
 
 #### id()
 
 Returns the ID of the process or `-1` if the process is in an invalid 
 state or has not been started.
+
 ##### Returns
 
 - number
@@ -177,6 +191,7 @@ state or has not been started.
 #### on\_complete(fn)
 
 Adds a new listener to be called when the process finishes execution.
+
 ##### Parameters
 
 - _function_ **fn**
@@ -186,6 +201,7 @@ Adds a new listener to be called when the process finishes execution.
 
 Starts/runs the process. This function returns `true` or `false` if the 
 process is in an invalid state.
+
 ##### Returns
 
 - boolean
@@ -194,6 +210,7 @@ process is in an invalid state.
 
 Awaits for the process to finish running and returns it's exit code or `-1` 
 if the process is in an invalid state.
+
 ##### Returns
 
 - number
@@ -201,6 +218,7 @@ if the process is in an invalid state.
 #### is\_alive()
 
 Returns `true` if the process is running or `false` if not.
+
 ##### Returns
 
 - boolean
@@ -209,6 +227,7 @@ Returns `true` if the process is running or `false` if not.
 
 Kills the running process. Returns `true` if the process was successfully 
 killed or `false` otherwise.
+
 ##### Returns
 
 - boolean

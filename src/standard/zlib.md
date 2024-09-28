@@ -33,18 +33,54 @@ even in the case of corrupted input.
 
 ## Properties
 
-- **version** &#8674; _number_: ZLib version string.
-- **NO\_COMPRESSION** &#8674; _number_: No compression level.
-- **BEST\_SPEED** &#8674; _number_: Best speed compression.
-- **BEST\_COMPRESSION** &#8674; _number_: Best compression level.
-- **DEFAULT\_COMPRESSION** &#8674; _number_: Default compression level.
-- **FILTERED** &#8674; _number_: Filtered compression strategy.
-- **HUFFMAN\_ONLY**: huffman only compression strategy
-- **RLE** &#8674; _number_: Rle compression strategy.
-- **FIXED** &#8674; _number_: Fixed compression strategy.
-- **DEFAULT\_STRATEGY** &#8674; _number_: Default compression strategy.
-- **DEFAULT\_MEMORY\_LEVEL** &#8674; _number_: Default memory level
-- **MAX\_WBITS** &#8674; _number_: Maximum windows bit.
+- **version** &#8674; _number_:
+
+  ZLib version string.
+
+- **NO\_COMPRESSION** &#8674; _number_:
+
+  No compression level.
+
+- **BEST\_SPEED** &#8674; _number_:
+
+  Best speed compression.
+
+- **BEST\_COMPRESSION** &#8674; _number_:
+
+  Best compression level.
+
+- **DEFAULT\_COMPRESSION** &#8674; _number_:
+
+  Default compression level.
+
+- **FILTERED** &#8674; _number_:
+
+  Filtered compression strategy.
+
+- **HUFFMAN\_ONLY**:
+
+  huffman only compression strategy
+
+- **RLE** &#8674; _number_:
+
+  Rle compression strategy.
+
+- **FIXED** &#8674; _number_:
+
+  Fixed compression strategy.
+
+- **DEFAULT\_STRATEGY** &#8674; _number_:
+
+  Default compression strategy.
+
+- **DEFAULT\_MEMORY\_LEVEL** &#8674; _number_:
+
+  Default memory level
+
+- **MAX\_WBITS** &#8674; _number_:
+
+  Maximum windows bit.
+
 
 ## Functions
 
@@ -52,9 +88,10 @@ even in the case of corrupted input.
 
 Updates a running Adler-32 checksum with the bytes buf[0..len-1] and
 return the updated checksum.
+
 ##### Parameters
 
-- _{bytes|string}_ **data**
+- _bytes|string_ **data**
 - _number?_ **intial**
 
 ##### Returns
@@ -70,9 +107,10 @@ return the updated checksum.
 
 Update a running CRC-32 cheksum with the bytes buf[0..len-1] and return the
 updated CRC-32 checksum.
+
 ##### Parameters
 
-- _{bytes|string}_ **data**
+- _bytes|string_ **data**
 - _number?_ **intial**
 
 ##### Returns
@@ -135,9 +173,10 @@ buffer becomes empty or the output buffer becomes full.
    for the internal compression state.  memory_level 1 uses minimum memory but is
    slow and reduces compression ratio; memory_level 9 uses maximum memory for
    optimal speed.  The default value is 8.
+
 ##### Parameters
 
-- _{bytes|string}_ **data**
+- _bytes|string_ **data**
 - _int?_ **level**: : Default value is `DEFAULT_COMPRESSION`.
 - _int?_ **strategy**: : Default value is `DEFAULT_STRATEGY`.
 - _int?_ **wbits**: : Default value is `MAX_WBITS`.
@@ -189,9 +228,10 @@ buffer becomes empty or the output buffer becomes full.
 
 -  uncompress() can uncompress either zlib-wrapped or gzip-wrapped compress data.
    If the compression uses gzip-wrapper, the correct `wbits` may need to be set.
+
 ##### Parameters
 
-- _{bytes|string}_ **data**
+- _bytes|string_ **data**
 - _int?_ **wbits**: : Default value is `MAX_WBITS`.
 
 ##### Returns
@@ -203,9 +243,10 @@ buffer becomes empty or the output buffer becomes full.
 #### deflate(data)
 
 Compress data using the default options for Deflate.
+
 ##### Parameters
 
-- _{bytes|string}_ **data**
+- _bytes|string_ **data**
 
 ##### Returns
 
@@ -216,9 +257,10 @@ Compress data using the default options for Deflate.
 #### undeflate(data)
 
 Uncompress a deflated data using default options.
+
 ##### Parameters
 
-- _{bytes|string}_ **data**
+- _bytes|string_ **data**
 
 ##### Returns
 
@@ -229,9 +271,10 @@ Uncompress a deflated data using default options.
 #### gzip(data)
 
 Compress data using the default options for GZip.
+
 ##### Parameters
 
-- _{bytes|string}_ **data**
+- _bytes|string_ **data**
 
 ##### Returns
 
@@ -242,9 +285,10 @@ Compress data using the default options for GZip.
 #### ungzip(data)
 
 Uncompress a GZipped data using default options.
+
 ##### Parameters
 
-- _{bytes|string}_ **data**
+- _bytes|string_ **data**
 
 ##### Returns
 
@@ -284,6 +328,7 @@ gzip header.
 gzopen throws an error if the file could not be opened, if there was insufficient 
 memory to allocate the gzFile state, or if an invalid mode was specified (an 'r', 
 'w', or 'a' was not provided, or '+' was provided).
+
 ##### Parameters
 
 - _string_ **path**
@@ -310,6 +355,7 @@ GZ(path: string [, mode: string = 'rb'])
 
 
 @see `gzopen()`
+
 ##### Parameters
 
 - _string_ **path**
@@ -338,6 +384,7 @@ close to detect this case.
 read returns the number of uncompressed bytes actually read, less than
 length for end of file, or -1 for error.  If len is too large to fit in an integer,
 then nothing is read, -1 is returned.
+
 ##### Parameters
 
 - _number_ **length**
@@ -351,9 +398,10 @@ then nothing is read, -1 is returned.
 Writes the given number of uncompressed bytes into the compressed file.
 write returns the number of uncompressed bytes written or 0 in case of
 error.
+
 ##### Parameters
 
-- _{bytes|string}_ **data**
+- _bytes|string_ **data**
 
 ##### Returns
 
@@ -371,6 +419,7 @@ the buffer size.
 If eof() returns true, then the read functions will return no more data,
 unless the end-of-file indicator is reset by gzclearerr() and the input file
 has grown since the previous end of file was detected.
+
 ##### Returns
 
 - bool
@@ -391,6 +440,7 @@ When writing, direct() returns true if transparent writing was requested
 
 > Note: direct() is not needed when writing.  Transparent writing must be 
 explicitly requested, so the application already knows the answer.
+
 ##### Returns
 
 - bool
@@ -404,6 +454,7 @@ close must not be called more than once on the same file, just as free
 must not be called more than once on the same allocation.
 
 close will return `true` on success or `false` otherwise.
+
 ##### Returns
 
 - bool
@@ -413,6 +464,7 @@ close will return `true` on success or `false` otherwise.
 Dynamically update the compression level or strategy.  See the description
 of `compress()` for the meaning of these parameters.  Previously provided
 data is flushed before the parameter change.
+
 ##### Parameters
 
 - _number_ **level**
@@ -438,6 +490,7 @@ seek returns the resulting offset location as measured in bytes from
 the beginning of the uncompressed stream, or -1 in case of error, in
 particular if the file is opened for writing and the new starting position
 would be before the current position.
+
 ##### Parameters
 
 - _int_ **offset**
@@ -450,6 +503,7 @@ would be before the current position.
 #### rewind()
 
 Rewinds the given file. This function is supported only for reading.
+
 ##### Returns
 
 - number
@@ -462,6 +516,7 @@ Rewinds the given file. This function is supported only for reading.
 Returns the starting position for the next read or write on the given
 compressed file.  This position represents a number of bytes in the
 uncompressed data stream, and is zero when starting.
+
 ##### Returns
 
 - number
@@ -476,6 +531,7 @@ includes the count of bytes that precede the gzip stream, for example when
 appending.  When reading, the offset does not include as yet unused buffered 
 input.  This information can be used for a progress indicator.  On error, 
 offset() returns -1.
+
 ##### Returns
 
 - number

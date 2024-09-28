@@ -13,15 +13,42 @@ identified by its ordinal number within a calendar month within that year.
 
 ## Properties
 
-- **MIN\_YEAR** &#8674; _number_: Minimum year supported.
-- **MAX\_YEAR** &#8674; _number_: Maximum year supported.
-- **MIN\_DAY** &#8674; _number_: Minimum day supported.
-- **MAX\_DAY** &#8674; _number_: Maximum day supported.
-- **MIN\_MONTH** &#8674; _number_: Minimum month supported.
-- **MAX\_MONTH** &#8674; _number_: Maximum year supported.
-- **MAX\_HOUR** &#8674; _number_: Maximum hour supported.
-- **MAX\_MINUTE** &#8674; _number_: Maximum minute supported.
-- **MAX\_SECONDS** &#8674; _number_: Maximum seconds supported.
+- **MIN\_YEAR** &#8674; _number_:
+
+  Minimum year supported.
+
+- **MAX\_YEAR** &#8674; _number_:
+
+  Maximum year supported.
+
+- **MIN\_DAY** &#8674; _number_:
+
+  Minimum day supported.
+
+- **MAX\_DAY** &#8674; _number_:
+
+  Maximum day supported.
+
+- **MIN\_MONTH** &#8674; _number_:
+
+  Minimum month supported.
+
+- **MAX\_MONTH** &#8674; _number_:
+
+  Maximum year supported.
+
+- **MAX\_HOUR** &#8674; _number_:
+
+  Maximum hour supported.
+
+- **MAX\_MINUTE** &#8674; _number_:
+
+  Maximum minute supported.
+
+- **MAX\_SECONDS** &#8674; _number_:
+
+  Maximum seconds supported.
+
 
 ## Functions
 
@@ -37,6 +64,7 @@ Example,
 {year: 2022, month: 3, day: 5, week_day: 6, year_day: 63, hour: 17, minute: 30, 
 seconds: 55, microseconds: 620290, is_dst: false, zone: UTC, gmt_offset: 0}
 ```
+
 ##### Returns
 
 - dictionary
@@ -55,6 +83,7 @@ Example:
 {year: 2022, month: 3, day: 5, week_day: 6, year_day: 63, hour: 18, minute: 18, 
 seconds: 35, microseconds: 598166, is_dst: false, zone: WAT, gmt_offset: 3600}
 ```
+
 ##### Returns
 
 - dictionary
@@ -75,6 +104,7 @@ Example:
 %> echo date.mktime(2021, 2, 12, 13, 43, 11, false)
 1613133791
 ```
+
 ##### Parameters
 
 - _number_ **year**
@@ -101,6 +131,7 @@ Example,
 %> to_string(date.from_time(time()))
 '<Date year: 2022, month: 3, day: 5, hour: 18, minute: 34, seconds: 1>'
 ```
+
 ##### Parameters
 
 - _number_ **time**
@@ -124,6 +155,7 @@ Example,
 %> to_string(date.from_jd(22063))
 '<Date year: 2022, month: 3, day: 5, hour: 18, minute: 35, seconds: 0>'
 ```
+
 ##### Parameters
 
 - _number_ **jdate**
@@ -137,6 +169,7 @@ Example,
 #### date(year, month, day, hour, minute, seconds) &#8674; Exported
 
 Returns a new `Date` instance representing the given system date or the current date if no argument is specified.
+
 ##### Parameters
 
 - _number?_ **year**
@@ -190,6 +223,7 @@ Example,
 #### Date(year, month, day, hour, minute, seconds, microseconds) &#8674; Constructor
 
 
+
 ##### Parameters
 
 - _number?_ **year**
@@ -218,6 +252,7 @@ false
 %> date(2020).is_leap()
 true
 ```
+
 ##### Returns
 
 - bool
@@ -233,6 +268,7 @@ Example,
 %> date(2021, 5, 11).days_before_month(7)
 142
 ```
+
 ##### Returns
 
 - number
@@ -247,6 +283,7 @@ Example,
 %> date(2021, 5, 11).days_before_year(2024)
 811
 ```
+
 ##### Parameters
 
 - _int_ **year**
@@ -265,6 +302,7 @@ Example,
 %> date(2021, 6).days_in_month()
 30
 ```
+
 ##### Returns
 
 - number
@@ -279,6 +317,7 @@ Example,
 %> date(2021, 5, 11).weekday()
 2
 ```
+
 ##### Returns
 
 - number
@@ -293,6 +332,7 @@ Example,
 %> date(2021, 5, 11).week_number()
 19
 ```
+
 ##### Returns
 
 - number
@@ -358,6 +398,7 @@ For example:
 %> date().format('l jS \o\\f F Y h:i:s A')
 'Wednesday 17th of May 2021 01:39:08 PM'
 ```
+
 ##### Parameters
 
 - _string_ **format**
@@ -376,6 +417,7 @@ For example,
 %> date().http()
 'Sat, 05 Mar 2022 06:23:32 GMT'
 ```
+
 ##### Returns
 
 - string
@@ -390,16 +432,20 @@ Example,
 %> date(2021, 5, 11).jd()
 2459345
 ```
+
 ##### Returns
 
 - number
 
 #### unix\_time()
 
+> @deprecated: - Use `to_time()` instead as it offers more precision.
+
 Returns unix `mktime` equivalent of the current date.
 
 
 @deprecated - Use `to_time()` instead as it offers more precision.
+
 ##### Returns
 
 - number
@@ -407,6 +453,7 @@ Returns unix `mktime` equivalent of the current date.
 #### to\_time()
 
 Returns the Epoch timestamp in seconds for the given date.
+
 ##### Returns
 
 - number
@@ -414,6 +461,7 @@ Returns the Epoch timestamp in seconds for the given date.
 #### to\_string()
 
 Returns a string representation of the date
+
 ##### Returns
 
 - string
@@ -421,6 +469,7 @@ Returns a string representation of the date
 #### to\_dict()
 
 Returns the date object as a dictionary.
+
 ##### Returns
 
 - dict

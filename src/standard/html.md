@@ -48,21 +48,45 @@ By default, all these options are set to their exported values, adhering to the 
 
 ## Properties
 
-- **name2codepoint** &#8674; _dict_: Dictionary of HTML entity name to the Unicode code point
-- **html5** &#8674; _dict_: Dictionary of HTML5 named character references to the equivalent Unicode character(s).
-- **codepoint2name** &#8674; _dict_: Dictionary of Unicode code point to the HTML entity name
-- **entitydefs**: Dictionary of HTML entity name to the character
+- **name2codepoint** &#8674; _dict_:
+
+  Dictionary of HTML entity name to the Unicode code point
+
+- **html5** &#8674; _dict_:
+
+  Dictionary of HTML5 named character references to the equivalent Unicode character(s).
+
+- **codepoint2name** &#8674; _dict_:
+
+  Dictionary of Unicode code point to the HTML entity name
+
+- **entitydefs**:
+
+  Dictionary of HTML entity name to the character
 (or a character reference if the character is outside the Latin-1 range)
-- **childless\_tags** &#8674; _readonly_ _list_: Tags which contain arbitary non-parsed content
+
+- **childless\_tags** &#8674; _readonly_ _list_:
+
+  Tags which contain arbitary non-parsed content
 For example: `<script>` JavaScript should not be parsed
-- **closing\_tags** &#8674; _readonly_ _list_: Tags which auto-close because they cannot be nested
+
+- **closing\_tags** &#8674; _readonly_ _list_:
+
+  Tags which auto-close because they cannot be nested
 For example: `<p>Outer<p>Inner is <p>Outer</p><p>Inner</p>`
-- **tag\_ancestors** &#8674; _readonly_ _list_: Closing tags which have ancestor tags which may exist within 
+
+- **tag\_ancestors** &#8674; _readonly_ _list_:
+
+  Closing tags which have ancestor tags which may exist within 
 them which prevent the closing tag from auto-closing.
 For example: in `<li><ul><li></ul></li>`, the top-level `<li>` 
 should not auto-close.
-- **void\_tags** &#8674; _readonly_ _list_: Tags which do not need the closing tag
+
+- **void\_tags** &#8674; _readonly_ _list_:
+
+  Tags which do not need the closing tag
 For example: `<img>` does not need `</img>`
+
 
 ## Functions
 
@@ -105,6 +129,7 @@ The code should output the nodes with the position information.
 ```
 [{type: element, name: img, attributes: [], children: [], position: {start: {index: 0, line: 1, column: 1}, end: {index: 5, line: 1, column: 6}}}]
 ```
+
 ##### Parameters
 
 - _string_ **str**
@@ -124,6 +149,7 @@ The _options_ argument is an optional argument that allows the caller
 to modify how HTML is encoded using one or more of the HTML options 
 described above. For example, one can pass the `void_tags` option to 
 declare a custom tag as self-closing.
+
 ##### Parameters
 
 - _list_ **nodes**

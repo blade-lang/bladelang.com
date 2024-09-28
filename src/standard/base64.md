@@ -8,6 +8,7 @@ encoding specified in [RFC4648](https://datatracker.ietf.org/doc/html/rfc4648)
 #### encode(data)
 
 Encodes a byte array into a base64 string
+
 ##### Parameters
 
 - _bytes_ **data**
@@ -21,6 +22,7 @@ Encodes a byte array into a base64 string
 #### decode(data)
 
 Decodes a base64 string into it's corresponding bytes.
+
 ##### Parameters
 
 - _strinf_ **data**

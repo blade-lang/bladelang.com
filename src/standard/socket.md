@@ -75,90 +75,322 @@ socket.close()
 
 ## Properties
 
-- **SOCK\_STREAM**: stream socket
-- **SOCK\_DGRAM**: datagram socket
-- **SOCK\_RAW**: raw-protocol interface
-- **SOCK\_RDM**: reliably-delivered message
-- **SOCK\_SEQPACKET**: sequenced packet stream
-- **SO\_DEBUG**: Turn on debugging info recording
-- **SO\_ACCEPTCONN**: Socket has had listen()
-- **SO\_REUSEADDR**: Allow local address reuse
-- **SO\_KEEPALIVE**: Keep connections alive
-- **SO\_DONTROUTE**: Just use interface addresses
-- **SO\_BROADCAST**: Permit sending of broadcast msgs
-- **SO\_USELOOPBACK**: Bypass hardware when possible
-- **SO\_LINGER**: Linger on close if data present (in ticks)
-- **SO\_OOBINLINE**: Leave received OOB data in line
-- **SO\_REUSEPORT**: Allow local address & port reuse
-- **SO\_TIMESTAMP**: Timestamp received dgram traffic
-- **SO\_SNDBUF**: Send buffer size
-- **SO\_RCVBUF**: Receive buffer size
-- **SO\_SNDLOWAT**: Send low-water mark
-- **SO\_RCVLOWAT**: Receive low-water mark
-- **SO\_SNDTIMEO**: Send timeout
-- **SO\_RCVTIMEO**: Receive timeout
-- **SO\_ERROR**: Get error status and clear
-- **SO\_TYPE**: Get socket type
-- **SOL\_SOCKET**: Options for socket level
-- **AF\_UNSPEC**: Unspecified
-- **AF\_UNIX**: Local to host (pipes)
-- **AF\_LOCAL**: Backward compatibility with AF_UNIX
-- **AF\_INET**: Internetwork: UDP, TCP, etc.
-- **AF\_IMPLINK**: Arpanet imp addresses
-- **AF\_PUP**: PUP protocols: e.g. BSP
-- **AF\_CHAOS**: MIT CHAOS protocols
-- **AF\_NS**: XEROX NS protocols
-- **AF\_ISO**: ISO protocols
-- **AF\_OSI**: ISO protocols (same as AF_ISO)
-- **AF\_ECMA**: European computer manufacturers
-- **AF\_DATAKIT**: Datakit protocols
-- **AF\_CCITT**: CCITT protocols, X.25 etc
-- **AF\_SNA**: IBM SNA
-- **AF\_DECnet**: DECnet
-- **AF\_DLI**: DEC Direct data link interface
-- **AF\_LAT**: LAT
-- **AF\_HYLINK**: NSC Hyperchannel
-- **AF\_APPLETALK**: Apple Talk
-- **AF\_INET6**: IPv6
-- **IPPROTO\_IP**: IPPROTO_IP
-- **IPPROTO\_ICMP**: IPPROTO_ICMP
-- **IPPROTO\_IGMP**: IPPROTO_IGMP
-- **IPPROTO\_IPIP**: IPPROTO_IPIP
-- **IPPROTO\_TCP**: IPPROTO_TCP
-- **IPPROTO\_EGP**: IPPROTO_EGP
-- **IPPROTO\_PUP**: IPPROTO_PUP
-- **IPPROTO\_UDP**: IPPROTO_UDP
-- **IPPROTO\_IDP**: IPPROTO_IDP
-- **IPPROTO\_TP**: IPPROTO_TP
-- **IPPROTO\_DCCP**: IPPROTO_DCCP
-- **IPPROTO\_IPV6**: IPPROTO_IPV6
-- **IPPROTO\_RSVP**: IPPROTO_RSVP
-- **IPPROTO\_GRE**: IPPROTO_GRE
-- **IPPROTO\_ESP**: IPPROTO_ESP
-- **IPPROTO\_AH**: IPPROTO_AH
-- **IPPROTO\_MTP**: IPPROTO_MTP
-- **IPPROTO\_BEETPH**: IPPROTO_BEETPH
-- **IPPROTO\_ENCAP**: IPPROTO_ENCAP
-- **IPPROTO\_PIM**: IPPROTO_PIM
-- **IPPROTO\_COMP**: IPPROTO_COMP
-- **IPPROTO\_SCTP**: IPPROTO_SCTP
-- **IPPROTO\_UDPLITE**: IPPROTO_UDPLITE
-- **IPPROTO\_MPLS**: IPPROTO_MPLS
-- **IPPROTO\_RAW**: IPPROTO_RAW
-- **IPPROTO\_MAX**: IPPROTO_MAX
-- **SHUT\_RD**: Shut down the reading side
-- **SHUT\_WR**: Shut down the writing side
-- **SHUT\_RDWR**: Shut down both sides
-- **SOMAXCONN**: Maximum queue length specifiable by listen.
-- **IP\_ANY** &#8674; _string_: The non-designated address used to represent "no particular address"
+- **SOCK\_STREAM**:
+
+  stream socket
+
+- **SOCK\_DGRAM**:
+
+  datagram socket
+
+- **SOCK\_RAW**:
+
+  raw-protocol interface
+
+- **SOCK\_RDM**:
+
+  reliably-delivered message
+
+- **SOCK\_SEQPACKET**:
+
+  sequenced packet stream
+
+- **SO\_DEBUG**:
+
+  Turn on debugging info recording
+
+- **SO\_ACCEPTCONN**:
+
+  Socket has had listen()
+
+- **SO\_REUSEADDR**:
+
+  Allow local address reuse
+
+- **SO\_KEEPALIVE**:
+
+  Keep connections alive
+
+- **SO\_DONTROUTE**:
+
+  Just use interface addresses
+
+- **SO\_BROADCAST**:
+
+  Permit sending of broadcast msgs
+
+- **SO\_USELOOPBACK**:
+
+  Bypass hardware when possible
+
+- **SO\_LINGER**:
+
+  Linger on close if data present (in ticks)
+
+- **SO\_OOBINLINE**:
+
+  Leave received OOB data in line
+
+- **SO\_REUSEPORT**:
+
+  Allow local address & port reuse
+
+- **SO\_TIMESTAMP**:
+
+  Timestamp received dgram traffic
+
+- **SO\_SNDBUF**:
+
+  Send buffer size
+
+- **SO\_RCVBUF**:
+
+  Receive buffer size
+
+- **SO\_SNDLOWAT**:
+
+  Send low-water mark
+
+- **SO\_RCVLOWAT**:
+
+  Receive low-water mark
+
+- **SO\_SNDTIMEO**:
+
+  Send timeout
+
+- **SO\_RCVTIMEO**:
+
+  Receive timeout
+
+- **SO\_ERROR**:
+
+  Get error status and clear
+
+- **SO\_TYPE**:
+
+  Get socket type
+
+- **SOL\_SOCKET**:
+
+  Options for socket level
+
+- **AF\_UNSPEC**:
+
+  Unspecified
+
+- **AF\_UNIX**:
+
+  Local to host (pipes)
+
+- **AF\_LOCAL**:
+
+  Backward compatibility with AF_UNIX
+
+- **AF\_INET**:
+
+  Internetwork: UDP, TCP, etc.
+
+- **AF\_IMPLINK**:
+
+  Arpanet imp addresses
+
+- **AF\_PUP**:
+
+  PUP protocols: e.g. BSP
+
+- **AF\_CHAOS**:
+
+  MIT CHAOS protocols
+
+- **AF\_NS**:
+
+  XEROX NS protocols
+
+- **AF\_ISO**:
+
+  ISO protocols
+
+- **AF\_OSI**:
+
+  ISO protocols (same as AF_ISO)
+
+- **AF\_ECMA**:
+
+  European computer manufacturers
+
+- **AF\_DATAKIT**:
+
+  Datakit protocols
+
+- **AF\_CCITT**:
+
+  CCITT protocols, X.25 etc
+
+- **AF\_SNA**:
+
+  IBM SNA
+
+- **AF\_DECnet**:
+
+  DECnet
+
+- **AF\_DLI**:
+
+  DEC Direct data link interface
+
+- **AF\_LAT**:
+
+  LAT
+
+- **AF\_HYLINK**:
+
+  NSC Hyperchannel
+
+- **AF\_APPLETALK**:
+
+  Apple Talk
+
+- **AF\_INET6**:
+
+  IPv6
+
+- **IPPROTO\_IP**:
+
+  IPPROTO_IP
+
+- **IPPROTO\_ICMP**:
+
+  IPPROTO_ICMP
+
+- **IPPROTO\_IGMP**:
+
+  IPPROTO_IGMP
+
+- **IPPROTO\_IPIP**:
+
+  IPPROTO_IPIP
+
+- **IPPROTO\_TCP**:
+
+  IPPROTO_TCP
+
+- **IPPROTO\_EGP**:
+
+  IPPROTO_EGP
+
+- **IPPROTO\_PUP**:
+
+  IPPROTO_PUP
+
+- **IPPROTO\_UDP**:
+
+  IPPROTO_UDP
+
+- **IPPROTO\_IDP**:
+
+  IPPROTO_IDP
+
+- **IPPROTO\_TP**:
+
+  IPPROTO_TP
+
+- **IPPROTO\_DCCP**:
+
+  IPPROTO_DCCP
+
+- **IPPROTO\_IPV6**:
+
+  IPPROTO_IPV6
+
+- **IPPROTO\_RSVP**:
+
+  IPPROTO_RSVP
+
+- **IPPROTO\_GRE**:
+
+  IPPROTO_GRE
+
+- **IPPROTO\_ESP**:
+
+  IPPROTO_ESP
+
+- **IPPROTO\_AH**:
+
+  IPPROTO_AH
+
+- **IPPROTO\_MTP**:
+
+  IPPROTO_MTP
+
+- **IPPROTO\_BEETPH**:
+
+  IPPROTO_BEETPH
+
+- **IPPROTO\_ENCAP**:
+
+  IPPROTO_ENCAP
+
+- **IPPROTO\_PIM**:
+
+  IPPROTO_PIM
+
+- **IPPROTO\_COMP**:
+
+  IPPROTO_COMP
+
+- **IPPROTO\_SCTP**:
+
+  IPPROTO_SCTP
+
+- **IPPROTO\_UDPLITE**:
+
+  IPPROTO_UDPLITE
+
+- **IPPROTO\_MPLS**:
+
+  IPPROTO_MPLS
+
+- **IPPROTO\_RAW**:
+
+  IPPROTO_RAW
+
+- **IPPROTO\_MAX**:
+
+  IPPROTO_MAX
+
+- **SHUT\_RD**:
+
+  Shut down the reading side
+
+- **SHUT\_WR**:
+
+  Shut down the writing side
+
+- **SHUT\_RDWR**:
+
+  Shut down both sides
+
+- **SOMAXCONN**:
+
+  Maximum queue length specifiable by listen.
+
+- **IP\_ANY** &#8674; _string_:
+
+  The non-designated address used to represent "no particular address"
 (also referred to as "any address")
-- **IP\_LOCAL** &#8674; _string_: The loopback address (also known as localhost).
+
+- **IP\_LOCAL** &#8674; _string_:
+
+  The loopback address (also known as localhost).
+
 
 ## Functions
 
 #### get\_address\_info(address, type, family)
 
 Returns ip and name information of a given address.
+
 ##### Parameters
 
 - _number_ **address**
@@ -174,6 +406,7 @@ Returns ip and name information of a given address.
 #### socket(family, type, protocol) &#8674; Exported
 
 Returns a new instance of a Socket.
+
 ##### Parameters
 
 - _number_ **family**
@@ -207,35 +440,83 @@ and servers.
 
 #### Fields
 
-- **host** &#8674; _string_: This property holds the host bound, to be bound to or connected to by the current socket.
+- **host** &#8674; _string_:
+
+  This property holds the host bound, to be bound to or connected to by the current socket.
 Whenever a host is not given, the host will default to localhost.
-- **port** &#8674; _int_: The port currently bound or connected to by the socket.
-- **family** &#8674; _int_: The socket family (which must be one of the `AF_` variables).
+
+- **port** &#8674; _int_:
+
+  The port currently bound or connected to by the socket.
+
+- **family** &#8674; _int_:
+
+  The socket family (which must be one of the `AF_` variables).
 The default family for the socket is AF_INET.
-- **type** &#8674; _int_: The type of socket stream used by the socket.
+
+- **type** &#8674; _int_:
+
+  The type of socket stream used by the socket.
 The default socket type is `SOCK_STREAM`.
-- **protocol** &#8674; _int_: The current operating protocol of the socket that controls the 
+
+- **protocol** &#8674; _int_:
+
+  The current operating protocol of the socket that controls the 
 underlying behavior of the socket. The default is `IPPROTO_TCP`.
-- **id** &#8674; _int_: The file descriptor id of the current socket on the host machine.
-- **is\_client** &#8674; _bool_: `true` when the socket is a client to a server socket, `false` otherwise.
-- **is\_bound** &#8674; _bool_: `true` when the socket is bound to a given port on the device, `false` 
+
+- **id** &#8674; _int_:
+
+  The file descriptor id of the current socket on the host machine.
+
+- **is\_client** &#8674; _bool_:
+
+  `true` when the socket is a client to a server socket, `false` otherwise.
+
+- **is\_bound** &#8674; _bool_:
+
+  `true` when the socket is bound to a given port on the device, `false` 
 otherwise.
-- **is\_connected** &#8674; _bool_: `true` when the socket is connected to a server socket, `false` otherwise.
-- **is\_listening** &#8674; _bool_: `true` when the socket is currently listening on a host device port as a 
+
+- **is\_connected** &#8674; _bool_:
+
+  `true` when the socket is connected to a server socket, `false` otherwise.
+
+- **is\_listening** &#8674; _bool_:
+
+  `true` when the socket is currently listening on a host device port as a 
 server, `false` otherwise.
-- **is\_closed** &#8674; _bool_: `true` when the socket is closed, `false` otherwise.
-- **is\_shutdown** &#8674; _bool_: `true` when the socket is shutdown, `false` otherwise.
-- **is\_blocking** &#8674; _bool_: `true` when the socket is running in a blocking mode, `false` otherwise.
-- **shutdown\_reason** &#8674; _int_: The property holds the reason for which the last `shutdown` operation 
+
+- **is\_closed** &#8674; _bool_:
+
+  `true` when the socket is closed, `false` otherwise.
+
+- **is\_shutdown** &#8674; _bool_:
+
+  `true` when the socket is shutdown, `false` otherwise.
+
+- **is\_blocking** &#8674; _bool_:
+
+  `true` when the socket is running in a blocking mode, `false` otherwise.
+
+- **shutdown\_reason** &#8674; _int_:
+
+  The property holds the reason for which the last `shutdown` operation 
 was called or `-1` if `shutdown` was never requested.
-- **send\_timeout** &#8674; _int_: The amount of time in milliseconds that the socket waits before it 
+
+- **send\_timeout** &#8674; _int_:
+
+  The amount of time in milliseconds that the socket waits before it 
 terminates a `send` operation. This is equal to the `SO_SNDTIMEO`.
-- **receive\_timeout** &#8674; _int_: The amount of time in milliseconds that the socket waits before it 
+
+- **receive\_timeout** &#8674; _int_:
+
+  The amount of time in milliseconds that the socket waits before it 
 terminates a `receive` operation. This is equal to the `SO_RCVTIMEO`.
 
 #### Methods
 
 #### Socket(family, type, protocol, id) &#8674; Constructor
+
 
 
 ##### Parameters
@@ -249,6 +530,7 @@ terminates a `receive` operation. This is equal to the `SO_RCVTIMEO`.
 
 Initiates a connection to the given host on the specified port. If host is `nil`, it will 
 connect on to the current hostn specified on the socket.
+
 ##### Parameters
 
 - _string_ **host**
@@ -263,6 +545,7 @@ connect on to the current hostn specified on the socket.
 
 Binds this socket to the given port on the given host. If host is `nil` or not specified, it will connect 
 on to the current hostn specified on the socket.
+
 ##### Parameters
 
 - _int_ **port**
@@ -276,9 +559,10 @@ on to the current hostn specified on the socket.
 
 Sends the specified message to the socket. When this methods accepts a file as a message, 
 the file is read and the resultant bytes of the file content is streamed to the socket.
+
 ##### Parameters
 
-- _{string|file|bytes|?}_ **message**
+- _string|file|bytes|?_ **message**
 - _int?_ **flags**: : Not currently used.
 
 ##### Returns
@@ -292,6 +576,7 @@ Receives bytes of the given length from the socket. If the length is not given, 
 If no data is available for read on the socket, the socket will wait to receive data or until the 
 `receive_timeout` which is also equal to the `SO_RCVTIMEO` setting of the socket has elapsed before or 
 until it has received the total number of bytes required (whichever comes first).
+
 ##### Parameters
 
 - _int?_ **length**
@@ -309,6 +594,7 @@ Reads bytes of the given length from the socket. If the length is not given, it 
 > This method differs from `receive()` in that it does not check for a socket having data to 
 > read or not and will block until data of _length_ have been read or no more data is available for 
 > reading.
+
 ##### Parameters
 
 - _int?_ **length**: : Default value is `1024`
@@ -332,6 +618,7 @@ so that retries may succeed.
 
 When the `queue_length` is ommited or set to -1, the method will use the default queue limit of 
 the current platform which is usually equal to `SOMAXCONN`.
+
 ##### Parameters
 
 - _int?_ **queue_length**
@@ -355,6 +642,7 @@ are present on the queue, accept() returns an error as described below.
 
 The accepted socket may not be used to accept more connections.
 The original socket remains open.
+
 ##### Returns
 
 - Socket
@@ -362,6 +650,7 @@ The original socket remains open.
 #### close()
 
 Closes the socket.
+
 ##### Returns
 
 - bool
@@ -373,6 +662,7 @@ socket to be shut down.  If how is `SHUT_RD`, further receives will be disallowe
 further sends will be disallowed.  If how is `SHUT_RDWR`, further sends and receives will be disallowed.
 
 When _how_ is not specified, it defaults to `SHUT_RD`.
+
 ##### Parameters
 
 - _int?_ **how**
@@ -384,6 +674,7 @@ When _how_ is not specified, it defaults to `SHUT_RD`.
 #### set\_option(option, value)
 
 Sets the options of the current socket.
+
 ##### Parameters
 
 - _int_ **option**
@@ -399,6 +690,7 @@ Sets the options of the current socket.
 #### get\_option(option)
 
 Gets the options set on the current socket
+
 ##### Parameters
 
 - _int_ **option**
@@ -411,6 +703,7 @@ Gets the options set on the current socket
 
 Sets if the socket should operate in blocking or non-blocking mode. `true` for blocking 
 (default) and `false` for non-blocking.
+
 ##### Parameters
 
 - _bool_ **mode**
@@ -420,6 +713,7 @@ Sets if the socket should operate in blocking or non-blocking mode. `true` for b
 
 Returns a dictionary containing the address, ipv6, port and family of the current 
 socket or an empty dictionary if the socket information could not be retrieved.
+
 ##### Returns
 
 - dictionary

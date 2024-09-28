@@ -4,7 +4,9 @@ This module provides functions for interfacing with the underlying operating sys
 
 ## Properties
 
-- **platform** &#8674; _string_: The name of the current platform in string or `unknown` if 
+- **platform** &#8674; _string_:
+
+  The name of the current platform in string or `unknown` if 
 the platform name could not be determined.
 
 
@@ -15,18 +17,55 @@ Example,
 %> os.platform
 'osx'
 ```
-- **args** &#8674; _list_: A list containing the command line arguments passed to the startup script.
-- **path\_separator** &#8674; _string_: The standard path separator for the current operating system.
-- **exe\_path** &#8674; _string_: The full path to the running Blade executable.
-- **DT\_UNKNOWN** &#8674; _number_: Unknown file type
-- **DT\_BLK** &#8674; _number_: Block device file type
-- **DT\_CHR** &#8674; _number_: Character device file type
-- **DT\_DIR** &#8674; _number_: Directory file type
-- **DT\_FIFO** &#8674; _number_: Named pipe file type
-- **DT\_LNK** &#8674; _number_: Symbolic link file type
-- **DT\_REG** &#8674; _number_: Regular file type
-- **DT\_SOCK** &#8674; _number_: Local-domain socket file type
-- **DT\_WHT** &#8674; _number_: Whiteout file type (only meaningful on UNIX and some unofficial Linux versions).
+
+- **args** &#8674; _list_:
+
+  A list containing the command line arguments passed to the startup script.
+
+- **path\_separator** &#8674; _string_:
+
+  The standard path separator for the current operating system.
+
+- **exe\_path** &#8674; _string_:
+
+  The full path to the running Blade executable.
+
+- **DT\_UNKNOWN** &#8674; _number_:
+
+  Unknown file type
+
+- **DT\_BLK** &#8674; _number_:
+
+  Block device file type
+
+- **DT\_CHR** &#8674; _number_:
+
+  Character device file type
+
+- **DT\_DIR** &#8674; _number_:
+
+  Directory file type
+
+- **DT\_FIFO** &#8674; _number_:
+
+  Named pipe file type
+
+- **DT\_LNK** &#8674; _number_:
+
+  Symbolic link file type
+
+- **DT\_REG** &#8674; _number_:
+
+  Regular file type
+
+- **DT\_SOCK** &#8674; _number_:
+
+  Local-domain socket file type
+
+- **DT\_WHT** &#8674; _number_:
+
+  Whiteout file type (only meaningful on UNIX and some unofficial Linux versions).
+
 
 ## Functions
 
@@ -43,6 +82,7 @@ Example,
 -rw-r--r--@ 1 username  staff  705 Aug 27  2021 buggy.b
 -rw-r--r--  1 username  staff  197 Mar  5 05:13 myprogram.b'
 ```
+
 ##### Parameters
 
 - _string_ **cmd**
@@ -72,6 +112,7 @@ Example,
 21.1.0: Wed Oct 13 17:33:24 PDT 2021; root:xnu-8019.41.5~1/RELEASE_ARM64_T8101, 
 release: 21.1.0, machine: arm64}
 ```
+
 ##### Returns
 
 - dict
@@ -81,6 +122,7 @@ release: 21.1.0, machine: arm64}
 #### sleep(duration)
 
 Causes the current thread to sleep for the specified number of seconds.
+
 ##### Parameters
 
 - _number_ **duration**
@@ -100,6 +142,7 @@ Example,
 %> os.get_env('ENV1')
 '20'
 ```
+
 ##### Parameters
 
 - _string_ **name**
@@ -136,6 +179,7 @@ true
 %> os.get_env('ENV1')
 'New value again'
 ```
+
 ##### Parameters
 
 - _string_ **name**
@@ -155,6 +199,7 @@ true
 
 Creates the given directory with the specified permission and optionaly 
 add new files into it if any is given.
+
 ##### Parameters
 
 - _string_ **path**
@@ -182,6 +227,7 @@ Example,
 %> os.read_dir('./tests')
 [., .., myprogram.b, single_thread.b, test.b, buggy.b]
 ```
+
 ##### Parameters
 
 - _string_ **path**
@@ -201,6 +247,7 @@ Example,
 Changes the permission set on a directory to the given mode. It is advisable 
 to set the mode with an octal number (e.g. 0c777) as this is consistent with 
 operating system values.
+
 ##### Parameters
 
 - _string_ **path**
@@ -215,6 +262,7 @@ operating system values.
 #### is\_dir(path)
 
 Returns `true` if the path is a directory or `false` otherwise.
+
 ##### Parameters
 
 - _string_ **path**
@@ -229,6 +277,7 @@ Returns `true` if the path is a directory or `false` otherwise.
 
 Deletes a non-empty directory. If recursive is `true`, non-empty directories 
 will have their contents deleted first.
+
 ##### Parameters
 
 - _string_ **path**
@@ -243,6 +292,7 @@ will have their contents deleted first.
 #### cwd()
 
 Returns the current working directory.
+
 ##### Returns
 
 - string
@@ -252,6 +302,7 @@ Returns the current working directory.
 #### change\_dir(path)
 
 Navigates the working directory into the specified path.
+
 ##### Parameters
 
 - _string_ **path**
@@ -265,6 +316,7 @@ Navigates the working directory into the specified path.
 #### dir\_exists(path)
 
 Returns `true` if the directory exists or `false` otherwise.
+
 ##### Parameters
 
 - _string_ **path**
@@ -278,6 +330,7 @@ Returns `true` if the directory exists or `false` otherwise.
 #### exit(code)
 
 Exit the current process and quits the Blade runtime.
+
 ##### Parameters
 
 - _number_ **code**
@@ -296,6 +349,7 @@ Example,
 %> os.join_paths('/home/user', 'path/to/myfile.ext')
 '/home/user/path/to/myfile.ext'
 ```
+
 ##### Parameters
 
 - _string..._ **paths**
@@ -309,6 +363,7 @@ Example,
 #### real\_path(path)
 
 Returns the original path to a relative path.
+
 ##### Parameters
 
 - _string_ **path**
@@ -325,6 +380,7 @@ Returns the original path to a relative path.
 #### abs\_path(path)
 
 Returns the original path to a relative path.
+
 ##### Parameters
 
 - _string_ **path**
@@ -344,6 +400,7 @@ Returns the parent directory of the pathname pointed to by `path`.  Any trailing
 `/` characters are not counted as part of the directory name.  If `path` is an
 empty string, or contains no `/` characters, dir_name() returns the string ".", 
 signifying the current directory.
+
 ##### Parameters
 
 - _string_ **path**
@@ -360,6 +417,7 @@ The base_name() function returns the last component from the pathname pointed to
 `path`, deleting any trailing `/` characters.  If path consists entirely of `/` 
 characters, the string '/' is returned.  If path is an empty string, the string '.' 
 is returned.
+
 ##### Parameters
 
 - _string_ **path**

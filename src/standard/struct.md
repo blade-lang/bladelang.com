@@ -52,6 +52,7 @@ to the PHP version) and uses the same formatting rules as the PHP version.
  X     | Back up one byte 
  Z     | NUL-padded string 
  @     | NUL-fill to absolute position
+
 ##### Parameters
 
 - _string_ **format**
@@ -79,10 +80,11 @@ Unpacks from bytes or a string into a dictionary based on the given format.
 > If you do not name an element, numeric indices starting from 1 are used. Be aware 
 > that if you have more than one unnamed element, some data is overwritten because the 
 > numbering restarts from 1 for each element.
+
 ##### Parameters
 
 - _string_ **format**
-- _{bytes|string}_ **data**
+- _bytes|string_ **data**
 - _number?_ **offset**: : Default value is `0`
 
 ##### Returns
@@ -95,6 +97,7 @@ Unpacks from bytes or a string into a dictionary based on the given format.
 
 Same as `pack()` except that instead of accepting arbitrary values after 
 format, it expects the values to be in a list.
+
 ##### Parameters
 
 - _string_ **format**

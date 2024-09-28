@@ -11,6 +11,7 @@ alternative.
 #### of(value)
 
 Returns the name of the type of value
+
 ##### Parameters
 
 - _any_ **value**
@@ -28,6 +29,7 @@ Returns the name of the type of value
 
 Returns true if the value is a character and digit,
 otherwise returns false.
+
 ##### Parameters
 
 - _char_ **value**
@@ -42,6 +44,7 @@ otherwise returns false.
 
 Returns true if the value is a character and alphabetic,
 otherwise returns false.
+
 ##### Parameters
 
 - _char_ **value**
@@ -55,6 +58,7 @@ otherwise returns false.
 #### int(value)
 
 Returns true if the value is an integer or false otherwise.
+
 ##### Parameters
 
 - _any_ **value**
@@ -68,6 +72,7 @@ Returns true if the value is an integer or false otherwise.
 #### bool(value)
 
 Returns true if the value is a boolean or false otherwise.
+
 ##### Parameters
 
 - _any_ **value**
@@ -81,6 +86,7 @@ Returns true if the value is a boolean or false otherwise.
 #### number(value)
 
 Returns true if the value is a number or false otherwise.
+
 ##### Parameters
 
 - _any_ **value**
@@ -97,6 +103,7 @@ Returns true if the value is a number or false otherwise.
 #### char(value)
 
 Returns true if the value is a single character or false otherwise.
+
 ##### Parameters
 
 - _any_ **value**
@@ -110,6 +117,7 @@ Returns true if the value is a single character or false otherwise.
 #### string(value)
 
 Returns true if the value is a string or false otherwise.
+
 ##### Parameters
 
 - _any_ **value**
@@ -123,6 +131,7 @@ Returns true if the value is a string or false otherwise.
 #### bytes(value)
 
 Returns true if the value is a bytes or false otherwise.
+
 ##### Parameters
 
 - _any_ **value**
@@ -136,6 +145,7 @@ Returns true if the value is a bytes or false otherwise.
 #### list(value)
 
 Returns true if the value is a list or false otherwise.
+
 ##### Parameters
 
 - _any_ **value**
@@ -149,6 +159,7 @@ Returns true if the value is a list or false otherwise.
 #### dict(value)
 
 Returns true if the value is a dictionary or false otherwise.
+
 ##### Parameters
 
 - _any_ **value**
@@ -162,6 +173,7 @@ Returns true if the value is a dictionary or false otherwise.
 #### object(value)
 
 Returns true if the value is an object or false otherwise.
+
 ##### Parameters
 
 - _any_ **value**
@@ -175,6 +187,7 @@ Returns true if the value is an object or false otherwise.
 #### function(value)
 
 Returns true if the value is a function or false otherwise.
+
 ##### Parameters
 
 - _any_ **value**
@@ -188,6 +201,7 @@ Returns true if the value is a function or false otherwise.
 #### is\_a\_class(value)
 
 Returns true if the value is a class or false otherwise.
+
 ##### Parameters
 
 - _any_ **value**
@@ -201,6 +215,7 @@ Returns true if the value is a class or false otherwise.
 #### file(value)
 
 Returns true if the value is a file or false otherwise.
+
 ##### Parameters
 
 - _any_ **value**
@@ -214,6 +229,7 @@ Returns true if the value is a file or false otherwise.
 #### iterable(value)
 
 Returns true if the value is an iterable or false otherwise.
+
 ##### Parameters
 
 - _any_ **value**
@@ -228,6 +244,7 @@ Returns true if the value is an iterable or false otherwise.
 
 Returns true if the value is a callable function or class and false 
 otherwise.
+
 ##### Parameters
 
 - _any_ **value**
@@ -242,6 +259,7 @@ otherwise.
 
 Returns true if the value is an instance the given class, false
 otherwise.
+
 ##### Parameters
 
 - _any_ **value**
@@ -264,6 +282,7 @@ The Convert class handles conversion from one type to another
 #### Convert(value) &#8674; Constructor
 
 
+
 ##### Parameters
 
 - _any_ **value**
@@ -272,6 +291,7 @@ The Convert class handles conversion from one type to another
 #### to\_int()
 
 Converts the value into an integer.
+
 ##### Returns
 
 - bool
@@ -282,6 +302,7 @@ Converts the value into an integer.
 #### to\_number()
 
 Converts the value into a number.
+
 ##### Returns
 
 - bool
@@ -292,6 +313,7 @@ Converts the value into a number.
 #### to\_string()
 
 Converts the value into a string.
+
 ##### Returns
 
 - bool
@@ -302,6 +324,7 @@ Converts the value into a string.
 #### to\_bool()
 
 Convertss the value into a boolean.
+
 ##### Returns
 
 - bool
@@ -312,6 +335,7 @@ Convertss the value into a boolean.
 #### to\_list()
 
 Converts the value into a list.
+
 ##### Returns
 
 - bool
@@ -322,6 +346,7 @@ Converts the value into a list.
 #### to\_dict()
 
 Converts the value value into a dictionary.
+
 ##### Returns
 
 - bool

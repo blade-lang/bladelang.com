@@ -30,6 +30,7 @@ Returns the hash of a value as used in a dictionary underlying
 implementation.
 A class may override the result of this function by implementing the
 `to_hash` decorator
+
 ##### Parameters
 
 - _any_ **value**
@@ -45,9 +46,10 @@ A class may override the result of this function by implementing the
 Returns the adler32 value of the given string or bytes
 If value is given, it is used as the base value of the adler32
 computation. Else, 1 is used.
+
 ##### Parameters
 
-- _{string|bytes}_ **str**
+- _string|bytes_ **str**
 - _number?_ **value**
 
 ##### Returns
@@ -61,9 +63,10 @@ computation. Else, 1 is used.
 Returns the crc32 value of the given string or bytes
 If value is given, it is used as the base value of the crc32
 computation. Else, 0 is used.
+
 ##### Parameters
 
-- _{string|bytes}_ **str**
+- _string|bytes_ **str**
 - _number?_ **value**
 
 ##### Returns
@@ -75,9 +78,10 @@ computation. Else, 0 is used.
 #### md2(str)
 
 Returns the md2 hash of the given string or bytes.
+
 ##### Parameters
 
-- _{string|bytes}_ **str**
+- _string|bytes_ **str**
 
 ##### Returns
 
@@ -88,9 +92,10 @@ Returns the md2 hash of the given string or bytes.
 #### md4(str)
 
 Returns the md4 hash of the given string or bytes.
+
 ##### Parameters
 
-- _{string|bytes}_ **str**
+- _string|bytes_ **str**
 
 ##### Returns
 
@@ -101,9 +106,10 @@ Returns the md4 hash of the given string or bytes.
 #### md5(str)
 
 Returns the md5 hash of the given string or bytes.
+
 ##### Parameters
 
-- _{string|bytes}_ **str**
+- _string|bytes_ **str**
 
 ##### Returns
 
@@ -114,6 +120,7 @@ Returns the md5 hash of the given string or bytes.
 #### md5\_file(file)
 
 Returns the md5 hash of the given file.
+
 ##### Parameters
 
 - _file_ **file**
@@ -127,9 +134,10 @@ Returns the md5 hash of the given file.
 #### sha1(str)
 
 Returns the sha1 hash of the given string or bytes.
+
 ##### Parameters
 
-- _{string|bytes}_ **str**
+- _string|bytes_ **str**
 
 ##### Returns
 
@@ -140,9 +148,10 @@ Returns the sha1 hash of the given string or bytes.
 #### sha224(str)
 
 Returns the sha224 hash of the given string or bytes.
+
 ##### Parameters
 
-- _{string|bytes}_ **str**
+- _string|bytes_ **str**
 
 ##### Returns
 
@@ -153,9 +162,10 @@ Returns the sha224 hash of the given string or bytes.
 #### sha256(str)
 
 Returns the sha256 hash of the given string or bytes.
+
 ##### Parameters
 
-- _{string|bytes}_ **str**
+- _string|bytes_ **str**
 
 ##### Returns
 
@@ -166,9 +176,10 @@ Returns the sha256 hash of the given string or bytes.
 #### sha384(str)
 
 Returns the sha384 hash of the given string or bytes.
+
 ##### Parameters
 
-- _{string|bytes}_ **str**
+- _string|bytes_ **str**
 
 ##### Returns
 
@@ -179,9 +190,10 @@ Returns the sha384 hash of the given string or bytes.
 #### sha512(str)
 
 Returns the sha512 hash of the given string or bytes.
+
 ##### Parameters
 
-- _{string|bytes}_ **str**
+- _string|bytes_ **str**
 
 ##### Returns
 
@@ -192,9 +204,10 @@ Returns the sha512 hash of the given string or bytes.
 #### fnv1(str)
 
 Returns the 32 bit fnv1 hash of the given string or bytes.
+
 ##### Parameters
 
-- _{string|bytes}_ **str**
+- _string|bytes_ **str**
 
 ##### Returns
 
@@ -205,9 +218,10 @@ Returns the 32 bit fnv1 hash of the given string or bytes.
 #### fnv1\_64(str)
 
 Returns the 64 bit fnv1 hash of the given string or bytes.
+
 ##### Parameters
 
-- _{string|bytes}_ **str**
+- _string|bytes_ **str**
 
 ##### Returns
 
@@ -218,9 +232,10 @@ Returns the 64 bit fnv1 hash of the given string or bytes.
 #### fnv1a(str)
 
 Returns the 32 bit fnv1a hash of the given string or bytes.
+
 ##### Parameters
 
-- _{string|bytes}_ **str**
+- _string|bytes_ **str**
 
 ##### Returns
 
@@ -231,9 +246,10 @@ Returns the 32 bit fnv1a hash of the given string or bytes.
 #### fnv1a\_64(str)
 
 Returns the 64 bit fnv1a hash of the given string or bytes.
+
 ##### Parameters
 
-- _{string|bytes}_ **str**
+- _string|bytes_ **str**
 
 ##### Returns
 
@@ -244,9 +260,10 @@ Returns the 64 bit fnv1a hash of the given string or bytes.
 #### whirlpool(str)
 
 Returns the whirlpool hash of the given string or bytes.
+
 ##### Parameters
 
-- _{string|bytes}_ **str**
+- _string|bytes_ **str**
 
 ##### Returns
 
@@ -257,9 +274,10 @@ Returns the whirlpool hash of the given string or bytes.
 #### snefru(str)
 
 Returns the snefru cyrptographic hash of the given string or bytes.
+
 ##### Parameters
 
-- _{string|bytes}_ **str**
+- _string|bytes_ **str**
 
 ##### Returns
 
@@ -270,10 +288,11 @@ Returns the snefru cyrptographic hash of the given string or bytes.
 #### siphash(key, str)
 
 Returns the siphash cyrptographic hash of the given string or bytes.
+
 ##### Parameters
 
-- _{string|bytes}_ **key**
-- _{string|bytes}_ **str**
+- _string|bytes_ **key**
+- _string|bytes_ **str**
 
 ##### Returns
 
@@ -284,9 +303,10 @@ Returns the siphash cyrptographic hash of the given string or bytes.
 #### gost(str)
 
 Returns the gost cyrptographic hash of the given string or bytes.
+
 ##### Parameters
 
-- _{string|bytes}_ **str**
+- _string|bytes_ **str**
 
 ##### Returns
 
@@ -297,11 +317,12 @@ Returns the gost cyrptographic hash of the given string or bytes.
 #### hmac(method, key, str)
 
 Computes an HMAC with the key and str using the given method.
+
 ##### Parameters
 
 - _function_ **method**
-- _{string|bytes}_ **key**
-- _{string|bytes}_ **str**
+- _string|bytes_ **key**
+- _string|bytes_ **str**
 
 ##### Returns
 
@@ -312,10 +333,11 @@ Computes an HMAC with the key and str using the given method.
 #### hmac\_md2(key, str)
 
 Returns the HMAC-MD2 cyrptographic hash of the given string or bytes.
+
 ##### Parameters
 
-- _{string|bytes}_ **key**
-- _{string|bytes}_ **str**
+- _string|bytes_ **key**
+- _string|bytes_ **str**
 
 ##### Returns
 
@@ -326,10 +348,11 @@ Returns the HMAC-MD2 cyrptographic hash of the given string or bytes.
 #### hmac\_md4(key, str)
 
 Returns the HMAC-MD4 cyrptographic hash of the given string or bytes.
+
 ##### Parameters
 
-- _{string|bytes}_ **key**
-- _{string|bytes}_ **str**
+- _string|bytes_ **key**
+- _string|bytes_ **str**
 
 ##### Returns
 
@@ -340,10 +363,11 @@ Returns the HMAC-MD4 cyrptographic hash of the given string or bytes.
 #### hmac\_md5(key, str)
 
 Returns the HMAC-MD5 cyrptographic hash of the given string or bytes.
+
 ##### Parameters
 
-- _{string|bytes}_ **key**
-- _{string|bytes}_ **str**
+- _string|bytes_ **key**
+- _string|bytes_ **str**
 
 ##### Returns
 
@@ -354,10 +378,11 @@ Returns the HMAC-MD5 cyrptographic hash of the given string or bytes.
 #### hmac\_sha1(key, str)
 
 Returns the HMAC-SHA1 cyrptographic hash of the given string or bytes.
+
 ##### Parameters
 
-- _{string|bytes}_ **key**
-- _{string|bytes}_ **str**
+- _string|bytes_ **key**
+- _string|bytes_ **str**
 
 ##### Returns
 
@@ -368,10 +393,11 @@ Returns the HMAC-SHA1 cyrptographic hash of the given string or bytes.
 #### hmac\_sha224(key, str)
 
 Returns the HMAC-SHA224 cyrptographic hash of the given string or bytes.
+
 ##### Parameters
 
-- _{string|bytes}_ **key**
-- _{string|bytes}_ **str**
+- _string|bytes_ **key**
+- _string|bytes_ **str**
 
 ##### Returns
 
@@ -382,10 +408,11 @@ Returns the HMAC-SHA224 cyrptographic hash of the given string or bytes.
 #### hmac\_sha256(key, str)
 
 Returns the HMAC-SHA256 cyrptographic hash of the given string or bytes.
+
 ##### Parameters
 
-- _{string|bytes}_ **key**
-- _{string|bytes}_ **str**
+- _string|bytes_ **key**
+- _string|bytes_ **str**
 
 ##### Returns
 
@@ -396,10 +423,11 @@ Returns the HMAC-SHA256 cyrptographic hash of the given string or bytes.
 #### hmac\_sha384(key, str)
 
 Returns the HMAC-SHA384 cyrptographic hash of the given string or bytes.
+
 ##### Parameters
 
-- _{string|bytes}_ **key**
-- _{string|bytes}_ **str**
+- _string|bytes_ **key**
+- _string|bytes_ **str**
 
 ##### Returns
 
@@ -410,10 +438,11 @@ Returns the HMAC-SHA384 cyrptographic hash of the given string or bytes.
 #### hmac\_sha512(key, str)
 
 Returns the HMAC-SHA512 cyrptographic hash of the given string or bytes.
+
 ##### Parameters
 
-- _{string|bytes}_ **key**
-- _{string|bytes}_ **str**
+- _string|bytes_ **key**
+- _string|bytes_ **str**
 
 ##### Returns
 
@@ -424,10 +453,11 @@ Returns the HMAC-SHA512 cyrptographic hash of the given string or bytes.
 #### hmac\_whirlpool(key, str)
 
 Returns the HMAC-WHIRLPOOL cyrptographic hash of the given string or bytes.
+
 ##### Parameters
 
-- _{string|bytes}_ **key**
-- _{string|bytes}_ **str**
+- _string|bytes_ **key**
+- _string|bytes_ **str**
 
 ##### Returns
 
@@ -438,10 +468,11 @@ Returns the HMAC-WHIRLPOOL cyrptographic hash of the given string or bytes.
 #### hmac\_snefru(key, str)
 
 Returns the HMAC-SNEFRU cyrptographic hash of the given string or bytes.
+
 ##### Parameters
 
-- _{string|bytes}_ **key**
-- _{string|bytes}_ **str**
+- _string|bytes_ **key**
+- _string|bytes_ **str**
 
 ##### Returns
 
@@ -452,10 +483,11 @@ Returns the HMAC-SNEFRU cyrptographic hash of the given string or bytes.
 #### hmac\_gost(key, str)
 
 Returns the HMAC-GOST cyrptographic hash of the given string or bytes.
+
 ##### Parameters
 
-- _{string|bytes}_ **key**
-- _{string|bytes}_ **str**
+- _string|bytes_ **key**
+- _string|bytes_ **str**
 
 ##### Returns
 

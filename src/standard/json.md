@@ -51,6 +51,7 @@ JSON encodes the given value with a recursive depth up to `max_depth`.
 If _compact_ is `false`, the resulting json string will be 
 tightly packed. i.e. spaces will be trimmed from objects and arrays. Otherwise, 
 the JSON output will be pretty formatted.
+
 ##### Parameters
 
 - _any_ **value**
@@ -69,6 +70,7 @@ the JSON output will be pretty formatted.
 #### decode(value, allow_comments)
 
 Decodes the input JSON string into Blade objects
+
 ##### Parameters
 
 - _string_ **value**: : The string to decode
@@ -83,6 +85,7 @@ Decodes the input JSON string into Blade objects
 #### parse(path)
 
 Parses a file containing json data.
+
 ##### Parameters
 
 - _string_ **path**
@@ -104,6 +107,7 @@ Blade to JSON encoding class
 #### Encoder(compact, max_depth) &#8674; Constructor
 
 
+
 ##### Parameters
 
 - _bool?_ **compact**: : Default value is `false`.
@@ -117,6 +121,7 @@ Blade to JSON encoding class
 #### encode(value)
 
 Encodes a value to it's corresponding JSON string.
+
 ##### Parameters
 
 - _any_ **value**

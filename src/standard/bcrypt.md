@@ -4,9 +4,15 @@ hashes as well as functions for getting informations from a bcrypt hash.
 
 ## Properties
 
-- **DEFAULT\_LOG2\_ROUNDS** &#8674; _number_: Default log2 rounds (default: 10).
-- **MAX\_EXECUTION\_TIME** &#8674; _number_: Maximum execution time for each cipher iteration in 
+- **DEFAULT\_LOG2\_ROUNDS** &#8674; _number_:
+
+  Default log2 rounds (default: 10).
+
+- **MAX\_EXECUTION\_TIME** &#8674; _number_:
+
+  Maximum execution time for each cipher iteration in 
 milliseconds (default: 100).
+
 
 ## Functions
 
@@ -14,6 +20,7 @@ milliseconds (default: 100).
 
 Generates a hash for the given string. If _salt_length_ is not given, 
 the length of the salt will be equal to `DEFAULT_LOG2_ROUNDS`.
+
 ##### Parameters
 
 - _string_ **str**
@@ -25,13 +32,14 @@ the length of the salt will be equal to `DEFAULT_LOG2_ROUNDS`.
 ##### Raises Exception
 
 - Exception
-@return
+@returns
 
 
 
 #### compare(str, known_hash)
 
 Tests a string against a known hash.
+
 ##### Parameters
 
 - _string_ **str**
@@ -43,13 +51,14 @@ Tests a string against a known hash.
 ##### Raises Exception
 
 - Exception
-@return
+@returns
 
 
 
 #### get\_rounds(hash)
 
 Gets the number of rounds used to encrypt the specified hash.
+
 ##### Parameters
 
 - _string_ **hash**
@@ -60,13 +69,14 @@ Gets the number of rounds used to encrypt the specified hash.
 ##### Raises Exception
 
 - Exception
-@return
+@returns
 
 
 
 #### get\_salt(hash)
 
 Gets the salt portion from a hash.
+
 ##### Parameters
 
 - _string_ **hash**
@@ -80,7 +90,7 @@ Gets the salt portion from a hash.
 ##### Raises Exception
 
 - Exception
-@return
+@returns
 
 
 

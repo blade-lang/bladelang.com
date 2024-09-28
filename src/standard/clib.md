@@ -30,35 +30,122 @@ available types.)
 
 ## Properties
 
-- **void** &#8674; _ptr_: C void type
-- **bool** &#8674; _ptr_: C bool type
-- **uint8\_t** &#8674; _ptr_: C uint8_t type
-- **int8\_t** &#8674; _ptr_: C int8_t type
-- **byte** &#8674; _ptr_: C byte type
-- **ubyte** &#8674; _ptr_: C ubyte type
-- **uint16\_t** &#8674; _ptr_: C uint16_t type
-- **int16\_t** &#8674; _ptr_: C int16_t type
-- **uint32\_t** &#8674; _ptr_: C uint32_t type
-- **int32\_t** &#8674; _ptr_: C int32_t type
-- **uint64\_t** &#8674; _ptr_: C uint64_t type
-- **int64\_t** &#8674; _ptr_: C int64_t type
-- **ssize\_t** &#8674; _ptr_: C ssize_t type
-- **float** &#8674; _ptr_: C float type
-- **double** &#8674; _ptr_: C double type
-- **uchar** &#8674; _ptr_: C uchar type
-- **char** &#8674; _ptr_: C char type
-- **ushort** &#8674; _ptr_: C ushort type
-- **short** &#8674; _ptr_: C short type
-- **uint** &#8674; _ptr_: C uint type
-- **int** &#8674; _ptr_: C int type
-- **ulong** &#8674; _ptr_: C ulong type
-- **long** &#8674; _ptr_: C long type
-- **size\_t** &#8674; _ptr_: C size_t type
-- **long\_double** &#8674; _ptr_: C long_double type
-- **char\_ptr** &#8674; _ptr_: C char_ptr type
-- **uchar\_ptr** &#8674; _ptr_: C uchar_ptr type
-- **ptr** &#8674; _ptr_: C ptr type
-- **function** &#8674; _ptr_: C closure/callback type
+- **void** &#8674; _ptr_:
+
+  C void type
+
+- **bool** &#8674; _ptr_:
+
+  C bool type
+
+- **uint8\_t** &#8674; _ptr_:
+
+  C uint8_t type
+
+- **int8\_t** &#8674; _ptr_:
+
+  C int8_t type
+
+- **byte** &#8674; _ptr_:
+
+  C byte type
+
+- **ubyte** &#8674; _ptr_:
+
+  C ubyte type
+
+- **uint16\_t** &#8674; _ptr_:
+
+  C uint16_t type
+
+- **int16\_t** &#8674; _ptr_:
+
+  C int16_t type
+
+- **uint32\_t** &#8674; _ptr_:
+
+  C uint32_t type
+
+- **int32\_t** &#8674; _ptr_:
+
+  C int32_t type
+
+- **uint64\_t** &#8674; _ptr_:
+
+  C uint64_t type
+
+- **int64\_t** &#8674; _ptr_:
+
+  C int64_t type
+
+- **ssize\_t** &#8674; _ptr_:
+
+  C ssize_t type
+
+- **float** &#8674; _ptr_:
+
+  C float type
+
+- **double** &#8674; _ptr_:
+
+  C double type
+
+- **uchar** &#8674; _ptr_:
+
+  C uchar type
+
+- **char** &#8674; _ptr_:
+
+  C char type
+
+- **ushort** &#8674; _ptr_:
+
+  C ushort type
+
+- **short** &#8674; _ptr_:
+
+  C short type
+
+- **uint** &#8674; _ptr_:
+
+  C uint type
+
+- **int** &#8674; _ptr_:
+
+  C int type
+
+- **ulong** &#8674; _ptr_:
+
+  C ulong type
+
+- **long** &#8674; _ptr_:
+
+  C long type
+
+- **size\_t** &#8674; _ptr_:
+
+  C size_t type
+
+- **long\_double** &#8674; _ptr_:
+
+  C long_double type
+
+- **char\_ptr** &#8674; _ptr_:
+
+  C char_ptr type
+
+- **uchar\_ptr** &#8674; _ptr_:
+
+  C uchar_ptr type
+
+- **ptr** &#8674; _ptr_:
+
+  C ptr type
+
+- **function** &#8674; _ptr_:
+
+  C closure/callback type
+
 
 ## Functions
 
@@ -68,6 +155,7 @@ Loads a new C shared library pointed to by name. Name must be a
 relative path, absolute path or the name of a system library. 
 If the system shared library extension is omitted in the name, 
 it will be automatically added.
+
 ##### Parameters
 
 - _string_ **name**
@@ -81,10 +169,11 @@ it will be automatically added.
 #### new(type, ...)
 
 Creates a new C value for the specified clib type with the given values.
+
 ##### Parameters
 
-- _{clib_type}_ **type**
-- _{any...}_ **values**
+- _clib_type_ **type**
+- _any..._ **values**
 
 ##### Returns
 
@@ -101,14 +190,15 @@ function returning one of struct, union or array.
 For structures created with `named_struct()`, a dictionary will 
 automatically be returned with the values mapped to the names of the 
 structure elements.
+
 ##### Parameters
 
-- _{clib_type}_ **type**
-- _{string|bytes}_ **data**
+- _clib_type_ **type**
+- _string|bytes_ **data**
 
 ##### Returns
 
-- {list|dictionary}
+- list|dictionary
 
 
 
@@ -118,11 +208,12 @@ get_ptr_index(pointer: ptr, type: clib_type, index: number)
 
 Get the value at the given index of a pointer based 
 on the given CLib type.
+
 ##### Parameters
 
-- _{ptr}_ **pointer**
-- _{clib_type}_ **type**
-- _{number}_ **index**
+- _ptr_ **pointer**
+- _clib_type_ **type**
+- _number_ **index**
 
 ##### Returns
 
@@ -134,12 +225,13 @@ on the given CLib type.
 
 Sets the value at the given index of a pointer based 
 on the given CLib type to the given value.
+
 ##### Parameters
 
-- _{ptr}_ **pointer**
-- _{clib_type}_ **type**
-- _{number}_ **index**
-- _{any}_ **value**
+- _ptr_ **pointer**
+- _clib_type_ **type**
+- _number_ **index**
+- _any_ **value**
 
 ##### Returns
 
@@ -166,11 +258,12 @@ Corresponds to the C declaration:
 ```c
 int (*my_ptr)(int a, void *b);
 ```
+
 ##### Parameters
 
 - _ptr_ **handle**
-- _{clib_type}_ **return_type**
-- _{clib_type...}_ **arg_types**
+- _clib_type_ **return_type**
+- _clib_type..._ **arg_types**
 
 ##### Returns
 
@@ -219,15 +312,16 @@ fn(
 
 > **NOTE:** A callback can only be passed to a parameter previously defined 
 > as function.
+
 ##### Parameters
 
-- _{function}_ **closure**
-- _{clib_type}_ **return_type**
-- _{clib_type...}_ **types**
+- _function_ **closure**
+- _clib_type_ **return_type**
+- _clib_type..._ **types**
 
 ##### Returns
 
-- {clib_callback}
+- clib_callback
 
 
 
@@ -238,6 +332,7 @@ To create or read value for the struct you need to use the `new()`
 and `get()` functions respectively.
 Alternatively, you may use the `pack()` and `unpack()` 
 function in the `struct` module respectively.
+
 ##### Parameters
 
 - _any..._ **type**
@@ -262,6 +357,7 @@ To create or read value for the struct you need to use the `new()`
 and `get()` functions respectively.
 Alternatively, you may use the `pack()` and `unpack()` 
 function in the `struct` module respectively.
+
 ##### Parameters
 
 - _dictionary_ **types**
@@ -286,6 +382,7 @@ class CLib provides an interface for interacting with C shared modules.
 #### Clib(name) &#8674; Constructor
 
 
+
 ##### Parameters
 
 - _string?_ **name**
@@ -300,6 +397,7 @@ Loads a new C shared library pointed to by name. Name must be a
 relative path, absolute path or the name of a system library. 
 If the system shared library extension is omitted in the name, 
 it will be automatically added except on Linux machines.
+
 ##### Parameters
 
 - _string_ **name**
@@ -309,9 +407,11 @@ it will be automatically added except on Linux machines.
 
 Closes the handle to the shared library.
 
+
 #### function(name)
 
 Retrieves the handle to a specific function in the shared library.
+
 ##### Parameters
 
 - _string_ **name**
@@ -339,11 +439,12 @@ Corresponds to the C declaration:
 ```c
 int myfunc(int a, voidb);
  ```
+
 ##### Parameters
 
 - _string_ **name**
-- _{clib_type}_ **return_type**
-- _{clib_type...}_ **types**
+- _clib_type_ **return_type**
+- _clib_type..._ **types**
 
 ##### Returns
 
@@ -352,6 +453,7 @@ int myfunc(int a, voidb);
 #### get\_pointer()
 
 Returns a pointer to the underlying module.
+
 ##### Returns
 
 - ptr

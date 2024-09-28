@@ -155,6 +155,7 @@ _See below for more info_
 
 Returns an handle to a sqlite3 database. If _path_ is not given, 
 it will create an in-memory sqlite database.
+
 ##### Parameters
 
 - _string?_ **path**
@@ -173,12 +174,15 @@ SQLite3 management class
 
 #### Fields
 
-- **path**: The path to the SQLite3 file
+- **path**:
+
+  The path to the SQLite3 file
 @default = :memory:
 
 #### Methods
 
 #### SQLite3(path) &#8674; Constructor
+
 
 
 ##### Parameters
@@ -193,10 +197,12 @@ SQLite3 management class
 
 Opens the handle to a database file
 
+
 #### close()
 
 Closes the handle to the database and return `true` if successfully
 closed or `false` otherwise.
+
 ##### Returns
 
 - boolean
@@ -212,10 +218,11 @@ query was executed or `false` otherwise.
 
 
 @throws SQLiteException if an error occured
+
 ##### Parameters
 
 - _string_ **query**
-- _{list|dict|nil}_ **params**
+- _list|dict|nil_ **params**
 
 ##### Returns
 
@@ -235,6 +242,7 @@ Returns: `-1` if the last insert failed,
  
 
 @throws SQLiteException if database is not opened
+
 ##### Returns
 
 - number
@@ -267,10 +275,11 @@ sqlite.query(
 
 
 @throws SQLiteException if an error occured.
+
 ##### Parameters
 
 - _string_ **sql**
-- _{list|dict|nil}_ **params**
+- _list|dict|nil_ **params**
 
 ##### Returns
 
@@ -279,10 +288,11 @@ sqlite.query(
 #### fetch(sql, params)
 
 Runs an SQL query and returns the result as a list of dictionaries.
+
 ##### Parameters
 
 - _string_ **sql**
-- _{list|dict|nil}_ **params**
+- _list|dict|nil_ **params**
 
 ##### Returns
 
@@ -310,9 +320,17 @@ A cursor for navigation through sql results
 
 #### Fields
 
-- **connection** &#8674; _readonly_: The SQLite3 connection that owns this cursor
-- **row\_count** &#8674; _readonly_: The number of rows in the cursor
-- **modified\_count** &#8674; _readonly_: This value hold the number of rows modified, inserted or deleted by the the query that 
+- **connection** &#8674; _readonly_:
+
+  The SQLite3 connection that owns this cursor
+
+- **row\_count** &#8674; _readonly_:
+
+  The number of rows in the cursor
+
+- **modified\_count** &#8674; _readonly_:
+
+  This value hold the number of rows modified, inserted or deleted by the the query that 
 owns this cursor provided the query is one of INSERT, UPDATE or DELETE statement.
 Executing any other type of SQL statement does not change this value from 0.
 
@@ -329,16 +347,20 @@ statement run on a view is always zero. Only changes made to real tables are cou
 > If a separate thread makes changes on the same database connection at the exact time 
 > the original query was also making a change, the result of this value will become 
 > undependable.
-- **columns** &#8674; _readonly_: A list of the columns available in the result set.
+
+- **columns** &#8674; _readonly_:
+
+  A list of the columns available in the result set.
 
 #### Methods
 
 #### SQLite3Cursor(db, cursor) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{SQLite3}_ **db**
+- _SQLite3_ **db**
 - _ptr_ **cursor**
 
 ##### Notes
@@ -348,6 +370,7 @@ statement run on a view is always zero. Only changes made to real tables are cou
 #### close()
 
 Closes the cursor and prevents further reading.
+
 ##### Returns
 
 - bool
@@ -356,6 +379,7 @@ Closes the cursor and prevents further reading.
 
 Returns `true` if there are more rows in the result set not yet retrieved, 
 otherwise it returns `false`.
+
 ##### Returns
 
 - boolean
@@ -370,9 +394,10 @@ Returns the value of the column matching the index in the current result set.
 
 
 @throws SQLiteException if no matching column can be found.
+
 ##### Parameters
 
-- _{number|string}_ **index**
+- _number|string_ **index**
 
 ##### Returns
 

@@ -66,14 +66,35 @@ Usage: myprogram call
 
 ## Properties
 
-- **NONE**: value type none
-- **INT**: value type integer (allows numbers, but floors them to integers)
-- **NUMBER**: value type number
-- **BOOL**: value type boolean (accepts `1` and `0` as well as `true` 
+- **NONE**:
+
+  value type none
+
+- **INT**:
+
+  value type integer (allows numbers, but floors them to integers)
+
+- **NUMBER**:
+
+  value type number
+
+- **BOOL**:
+
+  value type boolean (accepts `1` and `0` as well as `true` 
 and `false` as valid values).
-- **STRING**: value type string
-- **LIST**: value type for list
-- **CHOICE**: value type enumeration choices.
+
+- **STRING**:
+
+  value type string
+
+- **LIST**:
+
+  value type for list
+
+- **CHOICE**:
+
+  value type enumeration choices.
+
 
 ## Classes
 
@@ -89,12 +110,18 @@ A configurable commandline parser.
 
 #### Fields
 
-- **commands**: A list of commands supported by the parser.
-- **indexes**: A list of positional values supported by the parser.
+- **commands**:
+
+  A list of commands supported by the parser.
+
+- **indexes**:
+
+  A list of positional values supported by the parser.
 
 #### Methods
 
 #### Parser(name, default_help) &#8674; Constructor
+
 
 
 ##### Parameters
@@ -117,6 +144,7 @@ how the parsed data should be interpreted in the final result.
 - `value`: tells the parser the default value for this option.
 - `choices`: a list of allowed options or a dictionary of allowed 
 options with their respective descriptions.
+
 ##### Parameters
 
 - _string_ **name**
@@ -138,6 +166,7 @@ how the parsed data should be interpreted in the final result.
 - `choices`: a list of allowed options or a dictionary of allowed 
 options with their respective descriptions.
 - The `action` property must be a function.
+
 ##### Parameters
 
 - _string_ **name**
@@ -159,6 +188,7 @@ how the parsed data should be interpreted in the final result.
 - `value`: tells the parser the default value for this index.
 - `choices`: a list of allowed options or a dictionary of allowed 
 values with their respective descriptions.
+
 ##### Parameters
 
 - _string_ **name**
@@ -185,6 +215,7 @@ may yeild such a result as similar to the one below.
 ```
 {options: {verbose: true}, command: {name: install, value: 5}}
 ```
+
 ##### Returns
 
 - dict

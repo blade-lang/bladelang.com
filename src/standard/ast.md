@@ -3,109 +3,401 @@ Provides interface for parsing Blade code into Abstract Syntax Trees.
 
 ## Properties
 
-- **NEWLINE**: newline token
-- **LPAREN**: left parenthesis (`(`) token
-- **RPAREN**: right parenthesis (`)`) token
-- **LBRACKET**: left bracket (`[`) token
-- **RBRACKET**: right bracket (`]`) token
-- **LBRACE**: left brace (`{`) token
-- **RBRACE**: right brace (`}`) token
-- **SEMICOLON**: semicolon (`;`) token
-- **COMMA**: comma (`,`) token
-- **BACKSLASH**: backslash (`\`) token
-- **BANG**: not (`!`) token
-- **BANG\_EQ**: not equal (`!=`) token
-- **COLON**: colon (`:`) token
-- **AT**: at (`@`) token
-- **DOT**: dot (`.`) token
-- **RANGE**: range (`..`) token
-- **TRI\_DOT**: tridot (`...`) token
-- **PLUS**: plus (`+`) token
-- **PLUS\_EQ**: plus equal (`+=`) token
-- **INCREMENT**: increment (`++`) token
-- **MINUS**: minus (`-`) token
-- **MINUS\_EQ**: minus equal (`-=`) token
-- **DECREMENT**: decrement (`--`) token
-- **MULTIPLY**: multiply (`*`) token
-- **MULTIPLY\_EQ**: multiply equal (`*=`) token
-- **POW**: pow (`**`) token
-- **POW\_EQ**: pow equal (`**=`) token
-- **DIVIDE**: divide (`/`) token
-- **DIVIDE\_EQ**: divide equal (`/=`) token
-- **FLOOR**: floor division (`//`) token
-- **FLOOR\_EQ**: floor divide equal (`//=`) token
-- **EQUAL**: assignment (`=`) token
-- **EQUAL\_EQ**: equality (`==`) token
-- **LESS**: less than (`<`) token
-- **LESS\_EQ**: less than or equal (`<=`) token
-- **LSHIFT**: left shift (`<<`) token
-- **LSHIFT\_EQ**: left shift equal (`<<=`) token
-- **GREATER**: greater than (`>`) token
-- **GREATER\_EQ**: greather than or equal (`>=`) token
-- **RSHIFT**: right shift (`>>`) token
-- **RSHIFT\_EQ**: right shift equal (`>>=`) token
-- **PERCENT**: modulous (`%`) token
-- **PERCENT\_EQ**: modulous equal (`%=`) token
-- **AMP**: ampersand (`&`) token
-- **AMP\_EQ**: and equal (`&=`) token
-- **BAR**: bar (`|`) token
-- **BAR\_EQ**: bar equal (`|=`) token
-- **TILDE**: tilde/not (`~`) token
-- **TILDE\_EQ**: tilde equal (`~=`) token
-- **XOR**: exclusive or (`^`) token
-- **XOR\_EQ**: exclusive or equal (`^=`) token
-- **QUESTION**: question (`?`) token
-- **AND**: and token
-- **AS**: as token
-- **ASSERT**: assert token
-- **BREAK**: break token
-- **CATCH**: catch token
-- **CLASS**: class token
-- **CONTINUE**: continue token
-- **DEF**: def token
-- **DEFAULT**: default token
-- **DIE**: die token
-- **DO**: do token
-- **ECHO**: echo token
-- **ELSE**: else token
-- **FALSE**: false token
-- **FINALLY**: finally token
-- **FOR**: for token
-- **IF**: if token
-- **IMPORT**: import token
-- **IN**: in token
-- **ITER**: iter token
-- **NIL**: nil token
-- **OR**: or token
-- **PARENT**: parent token
-- **RETURN**: return token
-- **SELF**: self token
-- **STATIC**: static token
-- **TRUE**: true token
-- **TRY**: try token
-- **USING**: using token
-- **VAR**: var token
-- **WHEN**: when token
-- **WHILE**: while token
-- **LITERAL**: string literal token
-- **REG\_NUMBER**: regular number token
-- **BIN\_NUMBER**: binary number token
-- **OCT\_NUMBER**: octal number token
-- **HEX\_NUMBER**: hexadecimal number token
-- **IDENTIFIER**: identifier token
-- **DECORATOR**: decorator token
-- **INTERPOLATION**: interpolation token
-- **COMMENT**: comment token
-- **DOC**: doc block token
-- **EOF**: eof token
-- **ERROR**: error token
-- **EMPTY**: empty token
+- **NEWLINE**:
+
+  newline token
+
+- **LPAREN**:
+
+  left parenthesis (`(`) token
+
+- **RPAREN**:
+
+  right parenthesis (`)`) token
+
+- **LBRACKET**:
+
+  left bracket (`[`) token
+
+- **RBRACKET**:
+
+  right bracket (`]`) token
+
+- **LBRACE**:
+
+  left brace (`{`) token
+
+- **RBRACE**:
+
+  right brace (`}`) token
+
+- **SEMICOLON**:
+
+  semicolon (`;`) token
+
+- **COMMA**:
+
+  comma (`,`) token
+
+- **BACKSLASH**:
+
+  backslash (`\`) token
+
+- **BANG**:
+
+  not (`!`) token
+
+- **BANG\_EQ**:
+
+  not equal (`!=`) token
+
+- **COLON**:
+
+  colon (`:`) token
+
+- **AT**:
+
+  at (`@`) token
+
+- **DOT**:
+
+  dot (`.`) token
+
+- **RANGE**:
+
+  range (`..`) token
+
+- **TRI\_DOT**:
+
+  tridot (`...`) token
+
+- **PLUS**:
+
+  plus (`+`) token
+
+- **PLUS\_EQ**:
+
+  plus equal (`+=`) token
+
+- **INCREMENT**:
+
+  increment (`++`) token
+
+- **MINUS**:
+
+  minus (`-`) token
+
+- **MINUS\_EQ**:
+
+  minus equal (`-=`) token
+
+- **DECREMENT**:
+
+  decrement (`--`) token
+
+- **MULTIPLY**:
+
+  multiply (`*`) token
+
+- **MULTIPLY\_EQ**:
+
+  multiply equal (`*=`) token
+
+- **POW**:
+
+  pow (`**`) token
+
+- **POW\_EQ**:
+
+  pow equal (`**=`) token
+
+- **DIVIDE**:
+
+  divide (`/`) token
+
+- **DIVIDE\_EQ**:
+
+  divide equal (`/=`) token
+
+- **FLOOR**:
+
+  floor division (`//`) token
+
+- **FLOOR\_EQ**:
+
+  floor divide equal (`//=`) token
+
+- **EQUAL**:
+
+  assignment (`=`) token
+
+- **EQUAL\_EQ**:
+
+  equality (`==`) token
+
+- **LESS**:
+
+  less than (`<`) token
+
+- **LESS\_EQ**:
+
+  less than or equal (`<=`) token
+
+- **LSHIFT**:
+
+  left shift (`<<`) token
+
+- **LSHIFT\_EQ**:
+
+  left shift equal (`<<=`) token
+
+- **GREATER**:
+
+  greater than (`>`) token
+
+- **GREATER\_EQ**:
+
+  greather than or equal (`>=`) token
+
+- **RSHIFT**:
+
+  right shift (`>>`) token
+
+- **RSHIFT\_EQ**:
+
+  right shift equal (`>>=`) token
+
+- **PERCENT**:
+
+  modulous (`%`) token
+
+- **PERCENT\_EQ**:
+
+  modulous equal (`%=`) token
+
+- **AMP**:
+
+  ampersand (`&`) token
+
+- **AMP\_EQ**:
+
+  and equal (`&=`) token
+
+- **BAR**:
+
+  bar (`|`) token
+
+- **BAR\_EQ**:
+
+  bar equal (`|=`) token
+
+- **TILDE**:
+
+  tilde/not (`~`) token
+
+- **TILDE\_EQ**:
+
+  tilde equal (`~=`) token
+
+- **XOR**:
+
+  exclusive or (`^`) token
+
+- **XOR\_EQ**:
+
+  exclusive or equal (`^=`) token
+
+- **QUESTION**:
+
+  question (`?`) token
+
+- **AND**:
+
+  and token
+
+- **AS**:
+
+  as token
+
+- **ASSERT**:
+
+  assert token
+
+- **BREAK**:
+
+  break token
+
+- **CATCH**:
+
+  catch token
+
+- **CLASS**:
+
+  class token
+
+- **CONTINUE**:
+
+  continue token
+
+- **DEF**:
+
+  def token
+
+- **DEFAULT**:
+
+  default token
+
+- **DIE**:
+
+  die token
+
+- **DO**:
+
+  do token
+
+- **ECHO**:
+
+  echo token
+
+- **ELSE**:
+
+  else token
+
+- **FALSE**:
+
+  false token
+
+- **FINALLY**:
+
+  finally token
+
+- **FOR**:
+
+  for token
+
+- **IF**:
+
+  if token
+
+- **IMPORT**:
+
+  import token
+
+- **IN**:
+
+  in token
+
+- **ITER**:
+
+  iter token
+
+- **NIL**:
+
+  nil token
+
+- **OR**:
+
+  or token
+
+- **PARENT**:
+
+  parent token
+
+- **RETURN**:
+
+  return token
+
+- **SELF**:
+
+  self token
+
+- **STATIC**:
+
+  static token
+
+- **TRUE**:
+
+  true token
+
+- **TRY**:
+
+  try token
+
+- **USING**:
+
+  using token
+
+- **VAR**:
+
+  var token
+
+- **WHEN**:
+
+  when token
+
+- **WHILE**:
+
+  while token
+
+- **LITERAL**:
+
+  string literal token
+
+- **REG\_NUMBER**:
+
+  regular number token
+
+- **BIN\_NUMBER**:
+
+  binary number token
+
+- **OCT\_NUMBER**:
+
+  octal number token
+
+- **HEX\_NUMBER**:
+
+  hexadecimal number token
+
+- **IDENTIFIER**:
+
+  identifier token
+
+- **DECORATOR**:
+
+  decorator token
+
+- **INTERPOLATION**:
+
+  interpolation token
+
+- **COMMENT**:
+
+  comment token
+
+- **DOC**:
+
+  doc block token
+
+- **EOF**:
+
+  eof token
+
+- **ERROR**:
+
+  error token
+
+- **EMPTY**:
+
+  empty token
+
 
 ## Functions
 
 #### parse(source, path)
 
 Parses a given source code and outputs Blade AST objects.
+
 ##### Parameters
 
 - _string_ **source**
@@ -121,6 +413,7 @@ Parses a given source code and outputs Blade AST objects.
 
 Parses the give source code and outputs a JSON representation of 
 it's AST structure.
+
 ##### Parameters
 
 - _string_ **source**
@@ -151,14 +444,16 @@ Represents the result of an ast parse operation.
 #### append(item)
 
 Adds a new item to the parse result
+
 ##### Parameters
 
-- _{Expr|Decl|Defn|Stmt}_ **item**
+- _Expr|Decl|Defn|Stmt_ **item**
 
 
 #### length()
 
 Returns the length of items in the parsed result.
+
 ##### Returns
 
 - number
@@ -166,20 +461,22 @@ Returns the length of items in the parsed result.
 #### get(index)
 
 Returns the item at the given ParseResult index or throws exception if out of range.
+
 ##### Parameters
 
 - _int_ **index**
 
 ##### Returns
 
-- {Expr|Decl|Defn|Stmt}
+- Expr|Decl|Defn|Stmt
 
 #### to\_list()
 
 Returns the items in the ParseResult as a list object.
+
 ##### Returns
 
-- {list[Expr|Decl|Defn|Stmt]}
+- list[Expr|Decl|Defn|Stmt]
 
 
 
@@ -195,12 +492,18 @@ Blade source code scanner.
 
 #### Fields
 
-- **has\_error** &#8674; _readonly_ _bool_: Reports if an error was encountered in the scaner.
-- **source** &#8674; _readonly_ _string_: The string to being scanned.
+- **has\_error** &#8674; _readonly_ _bool_:
+
+  Reports if an error was encountered in the scaner.
+
+- **source** &#8674; _readonly_ _string_:
+
+  The string to being scanned.
 
 #### Methods
 
 #### Scanner(source, file) &#8674; Constructor
+
 
 
 ##### Parameters
@@ -211,6 +514,7 @@ Blade source code scanner.
 #### scan()
 
 Scans the source and returns a list of tokens.
+
 ##### Returns
 
 - list[Token]
@@ -233,6 +537,7 @@ Blade source code token.
 #### Token(type, literal, line, file) &#8674; Constructor
 
 
+
 ##### Parameters
 
 - _number_ **type**
@@ -250,9 +555,10 @@ Exception raised for errors during parsing.
 #### ParseException(token, message) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Token}_ **token**
+- _Token_ **token**
 - _string_ **message**
 
 
@@ -278,9 +584,10 @@ Echo Stmt representation.
 #### EchoStmt(value) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Stmt|any|nil}_ **value**
+- _Stmt|any|nil_ **value**
 
 
 
@@ -299,9 +606,10 @@ Expr Stmt representation.
 #### ExprStmt(expr) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Stmt|any|nil}_ **expr**
+- _Stmt|any|nil_ **expr**
 
 
 
@@ -320,11 +628,12 @@ If Stmt representation.
 #### IfStmt(condition, truth, falsy) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Stmt|any|nil}_ **condition**
-- _{Stmt|any|nil}_ **truth**
-- _{Stmt|any|nil}_ **falsy**
+- _Stmt|any|nil_ **condition**
+- _Stmt|any|nil_ **truth**
+- _Stmt|any|nil_ **falsy**
 
 
 
@@ -343,12 +652,13 @@ Iter Stmt representation.
 #### IterStmt(declaration, condition, iterator, body) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Stmt|any|nil}_ **declaration**
-- _{Stmt|any|nil}_ **condition**
-- _{Stmt|any|nil}_ **iterator**
-- _{Stmt|any|nil}_ **body**
+- _Stmt|any|nil_ **declaration**
+- _Stmt|any|nil_ **condition**
+- _Stmt|any|nil_ **iterator**
+- _Stmt|any|nil_ **body**
 
 
 
@@ -367,10 +677,11 @@ While Stmt representation.
 #### WhileStmt(condition, body) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Stmt|any|nil}_ **condition**
-- _{Stmt|any|nil}_ **body**
+- _Stmt|any|nil_ **condition**
+- _Stmt|any|nil_ **body**
 
 
 
@@ -389,10 +700,11 @@ DoWhile Stmt representation.
 #### DoWhileStmt(body, condition) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Stmt|any|nil}_ **body**
-- _{Stmt|any|nil}_ **condition**
+- _Stmt|any|nil_ **body**
+- _Stmt|any|nil_ **condition**
 
 
 
@@ -411,11 +723,12 @@ For Stmt representation.
 #### ForStmt(vars, iterable, body) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Stmt|any|nil}_ **vars**
-- _{Stmt|any|nil}_ **iterable**
-- _{Stmt|any|nil}_ **body**
+- _Stmt|any|nil_ **vars**
+- _Stmt|any|nil_ **iterable**
+- _Stmt|any|nil_ **body**
 
 
 
@@ -458,9 +771,10 @@ Die Stmt representation.
 #### DieStmt(exception) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Stmt|any|nil}_ **exception**
+- _Stmt|any|nil_ **exception**
 
 
 
@@ -479,9 +793,10 @@ Return Stmt representation.
 #### ReturnStmt(value) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Stmt|any|nil}_ **value**
+- _Stmt|any|nil_ **value**
 
 
 
@@ -500,10 +815,11 @@ Assert Stmt representation.
 #### AssertStmt(expr, message) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Stmt|any|nil}_ **expr**
-- _{Stmt|any|nil}_ **message**
+- _Stmt|any|nil_ **expr**
+- _Stmt|any|nil_ **message**
 
 
 
@@ -522,11 +838,12 @@ Using Stmt representation.
 #### UsingStmt(expr, cases, default_case) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Stmt|any|nil}_ **expr**
-- _{Stmt|any|nil}_ **cases**
-- _{Stmt|any|nil}_ **default_case**
+- _Stmt|any|nil_ **expr**
+- _Stmt|any|nil_ **cases**
+- _Stmt|any|nil_ **default_case**
 
 
 
@@ -545,10 +862,11 @@ Import Stmt representation.
 #### ImportStmt(path, elements) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Stmt|any|nil}_ **path**
-- _{Stmt|any|nil}_ **elements**
+- _Stmt|any|nil_ **path**
+- _Stmt|any|nil_ **elements**
 
 
 
@@ -567,11 +885,12 @@ Catch Stmt representation.
 #### CatchStmt(type, var_name, body) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Stmt|any|nil}_ **type**
-- _{Stmt|any|nil}_ **var_name**
-- _{Stmt|any|nil}_ **body**
+- _Stmt|any|nil_ **type**
+- _Stmt|any|nil_ **var_name**
+- _Stmt|any|nil_ **body**
 
 
 
@@ -590,9 +909,10 @@ Finally Stmt representation.
 #### FinallyStmt(body) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Stmt|any|nil}_ **body**
+- _Stmt|any|nil_ **body**
 
 
 
@@ -611,11 +931,12 @@ Try Stmt representation.
 #### TryStmt(body, catch_stmt, finally_stmt) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Stmt|any|nil}_ **body**
-- _{Stmt|any|nil}_ **catch_stmt**
-- _{Stmt|any|nil}_ **finally_stmt**
+- _Stmt|any|nil_ **body**
+- _Stmt|any|nil_ **catch_stmt**
+- _Stmt|any|nil_ **finally_stmt**
 
 
 
@@ -634,9 +955,10 @@ Comment Stmt representation.
 #### CommentStmt(data) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Stmt|any|nil}_ **data**
+- _Stmt|any|nil_ **data**
 
 
 
@@ -655,9 +977,10 @@ Block Stmt representation.
 #### BlockStmt(body) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Stmt|any|nil}_ **body**
+- _Stmt|any|nil_ **body**
 
 
 
@@ -676,11 +999,12 @@ Assign Stmt representation.
 #### AssignStmt(expr, type, value) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Stmt|any|nil}_ **expr**
-- _{Stmt|any|nil}_ **type**
-- _{Stmt|any|nil}_ **value**
+- _Stmt|any|nil_ **expr**
+- _Stmt|any|nil_ **type**
+- _Stmt|any|nil_ **value**
 
 
 
@@ -705,9 +1029,10 @@ Doc Defn representation.
 #### DocDefn(data) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Defn|any|nil}_ **data**
+- _Defn|any|nil_ **data**
 
 
 
@@ -726,9 +1051,10 @@ Parses raw Blade tokens and produces an Abstract Syntax Tree.
 #### Parser(tokens, path) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{list[Token]}_ **tokens**
+- _list[Token]_ **tokens**
 - _string?_ **path**
 
 
@@ -737,6 +1063,7 @@ Parses raw Blade tokens and produces an Abstract Syntax Tree.
 Parses the raw source tokens passed into relevant class and
 outputs a stream of AST objects that can be one of
 Expr (expressions), Stmt (statements) or Decl (declarations).
+
 ##### Returns
 
 - ParseResult
@@ -764,10 +1091,11 @@ Var Decl representation.
 #### VarDecl(name, value) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Decl|any|nil}_ **name**
-- _{Decl|any|nil}_ **value**
+- _Decl|any|nil_ **name**
+- _Decl|any|nil_ **value**
 
 
 
@@ -786,11 +1114,12 @@ Function Decl representation.
 #### FunctionDecl(name, params, body) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Decl|any|nil}_ **name**
-- _{Decl|any|nil}_ **params**
-- _{Decl|any|nil}_ **body**
+- _Decl|any|nil_ **name**
+- _Decl|any|nil_ **params**
+- _Decl|any|nil_ **body**
 
 
 
@@ -809,12 +1138,13 @@ Method Decl representation.
 #### MethodDecl(name, params, body, is_static) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Decl|any|nil}_ **name**
-- _{Decl|any|nil}_ **params**
-- _{Decl|any|nil}_ **body**
-- _{Decl|any|nil}_ **is_static**
+- _Decl|any|nil_ **name**
+- _Decl|any|nil_ **params**
+- _Decl|any|nil_ **body**
+- _Decl|any|nil_ **is_static**
 
 
 
@@ -833,11 +1163,12 @@ Property Decl representation.
 #### PropertyDecl(name, value, is_static) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Decl|any|nil}_ **name**
-- _{Decl|any|nil}_ **value**
-- _{Decl|any|nil}_ **is_static**
+- _Decl|any|nil_ **name**
+- _Decl|any|nil_ **value**
+- _Decl|any|nil_ **is_static**
 
 
 
@@ -856,12 +1187,13 @@ Class Decl representation.
 #### ClassDecl(name, superclass, properties, methods) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Decl|any|nil}_ **name**
-- _{Decl|any|nil}_ **superclass**
-- _{Decl|any|nil}_ **properties**
-- _{Decl|any|nil}_ **methods**
+- _Decl|any|nil_ **name**
+- _Decl|any|nil_ **superclass**
+- _Decl|any|nil_ **properties**
+- _Decl|any|nil_ **methods**
 
 
 
@@ -886,11 +1218,12 @@ Binary Expr representation.
 #### BinaryExpr(left, op, right) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Expr|any|nil}_ **left**
-- _{Expr|any|nil}_ **op**
-- _{Expr|any|nil}_ **right**
+- _Expr|any|nil_ **left**
+- _Expr|any|nil_ **op**
+- _Expr|any|nil_ **right**
 
 
 
@@ -909,9 +1242,10 @@ Group Expr representation.
 #### GroupExpr(expression) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Expr|any|nil}_ **expression**
+- _Expr|any|nil_ **expression**
 
 
 
@@ -930,9 +1264,10 @@ Literal Expr representation.
 #### LiteralExpr(value) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Expr|any|nil}_ **value**
+- _Expr|any|nil_ **value**
 
 
 
@@ -951,9 +1286,10 @@ Identifier Expr representation.
 #### IdentifierExpr(value) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Expr|any|nil}_ **value**
+- _Expr|any|nil_ **value**
 
 
 
@@ -972,10 +1308,11 @@ Unary Expr representation.
 #### UnaryExpr(op, right) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Expr|any|nil}_ **op**
-- _{Expr|any|nil}_ **right**
+- _Expr|any|nil_ **op**
+- _Expr|any|nil_ **right**
 
 
 
@@ -994,11 +1331,12 @@ Condition Expr representation.
 #### ConditionExpr(expr, truth, falsy) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Expr|any|nil}_ **expr**
-- _{Expr|any|nil}_ **truth**
-- _{Expr|any|nil}_ **falsy**
+- _Expr|any|nil_ **expr**
+- _Expr|any|nil_ **truth**
+- _Expr|any|nil_ **falsy**
 
 
 
@@ -1017,10 +1355,11 @@ Call Expr representation.
 #### CallExpr(callee, args) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Expr|any|nil}_ **callee**
-- _{Expr|any|nil}_ **args**
+- _Expr|any|nil_ **callee**
+- _Expr|any|nil_ **args**
 
 
 
@@ -1039,10 +1378,11 @@ Get Expr representation.
 #### GetExpr(expr, name) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Expr|any|nil}_ **expr**
-- _{Expr|any|nil}_ **name**
+- _Expr|any|nil_ **expr**
+- _Expr|any|nil_ **name**
 
 
 
@@ -1061,11 +1401,12 @@ Set Expr representation.
 #### SetExpr(expr, name, value) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Expr|any|nil}_ **expr**
-- _{Expr|any|nil}_ **name**
-- _{Expr|any|nil}_ **value**
+- _Expr|any|nil_ **expr**
+- _Expr|any|nil_ **name**
+- _Expr|any|nil_ **value**
 
 
 
@@ -1084,9 +1425,10 @@ Index Expr representation.
 #### IndexExpr(args) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Expr|any|nil}_ **args**
+- _Expr|any|nil_ **args**
 
 
 
@@ -1105,9 +1447,10 @@ List Expr representation.
 #### ListExpr(items) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Expr|any|nil}_ **items**
+- _Expr|any|nil_ **items**
 
 
 
@@ -1126,10 +1469,11 @@ Dict Expr representation.
 #### DictExpr(keys, values) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Expr|any|nil}_ **keys**
-- _{Expr|any|nil}_ **values**
+- _Expr|any|nil_ **keys**
+- _Expr|any|nil_ **values**
 
 
 
@@ -1148,9 +1492,10 @@ Interpolation Expr representation.
 #### InterpolationExpr(data) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Expr|any|nil}_ **data**
+- _Expr|any|nil_ **data**
 
 
 

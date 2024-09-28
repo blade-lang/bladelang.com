@@ -5,18 +5,51 @@ of commonly used scientific and mathematical constants such as `PI`.
 
 ## Properties
 
-- **PI**: represents the ratio of the circumference of a circle 
+- **PI**:
+
+  represents the ratio of the circumference of a circle 
 to its diameter
-- **E**: represents Euler's number, the base of natural logarithms
-- **LOG\_10**: represents the natural logarithm of 10
-- **LOG\_10\_E**: represents the base 10 logarithm of e
-- **LOG\_2**: represents the natural logarithm of 2
-- **LOG\_2\_E**: represents the base 2 logarithm of e
-- **ROOT\_2**: represents the square root of 2
-- **ROOT\_3**: represents the square root of 3
-- **ROOT\_HALF**: represents the square root of 1/2
-- **Infinity**: Mathematical infinity
-- **NaN**: Mathematical NaN
+
+- **E**:
+
+  represents Euler's number, the base of natural logarithms
+
+- **LOG\_10**:
+
+  represents the natural logarithm of 10
+
+- **LOG\_10\_E**:
+
+  represents the base 10 logarithm of e
+
+- **LOG\_2**:
+
+  represents the natural logarithm of 2
+
+- **LOG\_2\_E**:
+
+  represents the base 2 logarithm of e
+
+- **ROOT\_2**:
+
+  represents the square root of 2
+
+- **ROOT\_3**:
+
+  represents the square root of 3
+
+- **ROOT\_HALF**:
+
+  represents the square root of 1/2
+
+- **Infinity**:
+
+  Mathematical infinity
+
+- **NaN**:
+
+  Mathematical NaN
+
 
 ## Functions
 
@@ -34,6 +67,7 @@ Example:
 %> math.factorial(60)
 8.320987112741392e+81
 ```
+
 ##### Returns
 
 - number
@@ -51,6 +85,7 @@ Example:
 %> math.sin(46)
 0.9017883476488092
 ```
+
 ##### Parameters
 
 - _number_ **n**
@@ -72,6 +107,7 @@ Example:
 %> math.cos(93)
 0.3174287015197017
 ```
+
 ##### Parameters
 
 - _number_ **n**
@@ -93,6 +129,7 @@ Example:
 %> math.tan(11.43)
 -2.155225644164932
 ```
+
 ##### Parameters
 
 - _number_ **n**
@@ -113,6 +150,7 @@ Example:
 %> math.sinh(1.4)
 1.904301501451534
 ```
+
 ##### Parameters
 
 - _number_ **n**
@@ -133,6 +171,7 @@ Example:
 %> math.cosh(1.91)
 3.450584592563374
 ```
+
 ##### Parameters
 
 - _number_ **n**
@@ -156,6 +195,7 @@ Example:
 
 
 ```
+
 ##### Parameters
 
 - _number_ **n**
@@ -178,6 +218,7 @@ Example:
 %> math.asin(0.123)
 0.123312275191872
 ```
+
 ##### Parameters
 
 - _number_ **n**
@@ -200,6 +241,7 @@ Example:
 %> math.acos(0.471)
 1.080372275769021
 ```
+
 ##### Parameters
 
 - _number_ **n**
@@ -220,6 +262,7 @@ Example:
 %> math.atan(math.Infinity)
 1.570796326794897
 ```
+
 ##### Parameters
 
 - _number_ **n**
@@ -246,6 +289,7 @@ Example:
 %> math.atan2(-1.5, 2.4)
 -0.5585993153435624
 ```
+
 ##### Parameters
 
 - _number_ **n**
@@ -269,6 +313,7 @@ Example:
 %> math.asinh(3.42)
 1.943507380182802
 ```
+
 ##### Parameters
 
 - _number_ **n**
@@ -289,6 +334,7 @@ Example:
 %> math.acosh(1.21)
 0.637237379754108
 ```
+
 ##### Parameters
 
 - _number_ **n**
@@ -309,6 +355,7 @@ Example:
 %> math.atanh(0.11)
 0.1104469157900971
 ```
+
 ##### Parameters
 
 - _number_ **n**
@@ -331,6 +378,7 @@ Example:
 %> math.exp(4)
 54.59815003314424
 ```
+
 ##### Parameters
 
 - _number_ **n**
@@ -352,6 +400,7 @@ Example:
 %> math.expm1(1)
 1.718281828459045
 ```
+
 ##### Parameters
 
 - _number_ **n**
@@ -374,6 +423,7 @@ Example:
 %> math.ceil(1.01)
 2
 ```
+
 ##### Parameters
 
 - _number_ **n**
@@ -396,6 +446,7 @@ Example:
 %> math.round(103.49)
 103
 ```
+
 ##### Parameters
 
 - _number_ **n**
@@ -416,6 +467,7 @@ Example:
 %> math.log(45)
 3.80666248977032
 ```
+
 ##### Parameters
 
 - _number_ **n**
@@ -441,6 +493,7 @@ Example:
 %> math.log2(45)
 5.491853096329675
 ```
+
 ##### Parameters
 
 - _number_ **n**
@@ -462,6 +515,7 @@ Example:
 %> math.log10(45)
 1.653212513775344
 ```
+
 ##### Parameters
 
 - _number_ **n**
@@ -499,6 +553,7 @@ Example:
 %> math.log1p(45)
 3.828641396489095
 ```
+
 ##### Parameters
 
 - _number_ **n**
@@ -519,6 +574,7 @@ Example:
 %> math.cbrt(64)
 4
 ```
+
 ##### Parameters
 
 - _number_ **n**
@@ -547,6 +603,7 @@ Example:
 %> math.sign(0)
 0
 ```
+
 ##### Parameters
 
 - _number_ **n**
@@ -568,6 +625,7 @@ Example:
 %> math.floor(1.92)
 1
 ```
+
 ##### Parameters
 
 - _number_ **n**
@@ -583,6 +641,7 @@ Example:
 is_nan(n: number)
 
 returns true if the given number is equal to NaN or false otherwise.
+
 ##### Parameters
 
 - _number_ **n**
@@ -608,6 +667,7 @@ true
 %> math.is_inf(0)
 false
 ```
+
 ##### Parameters
 
 - _number_ **n**
@@ -632,6 +692,7 @@ true
 %> math.is_finite(-math.Infinity)
 false
 ```
+
 ##### Parameters
 
 - _number_ **n**
@@ -658,6 +719,7 @@ Example:
 %> math.trunc(-1.01)
 -1
 ```
+
 ##### Parameters
 
 - _number_ **n**
@@ -678,6 +740,7 @@ Example:
 %> math.sqrt(100)
 10
 ```
+
 ##### Parameters
 
 - _number_ **n**
@@ -700,6 +763,7 @@ Example:
 %> math.sum([1, 2, [3, 4, [5, 6]]])
 21
 ```
+
 ##### Parameters
 
 - _iterable_ **arg**
@@ -722,6 +786,7 @@ Example:
 %> math.product([1, 2, [3, 4, [5, 6]]])
 720
 ```
+
 ##### Parameters
 
 - _iterable_ **arg**
@@ -743,6 +808,7 @@ Example:
 %> math.fraction(1.92)
 92
 ```
+
 ##### Parameters
 
 - _number_ **n**

@@ -140,6 +140,7 @@ def get_function_docs(depth, function, is_static) {
   var is_constructor = function.doc.match('/^@constructor\s*$/m')
   var is_default = function.doc.match('/^@default\s*$/m')
   var is_internal = function.doc.match('/^@internal\s*$/m')
+  var deprecated = function.doc.match('/^@deprecated?([ ]+(?P<info>.*?))?$/m')
 
   # skip functions marked as internal in the documentation.
   if is_internal return ''
@@ -153,7 +154,19 @@ def get_function_docs(depth, function, is_static) {
     result += ' &#8674; Exported'
   }
 
-  result += '\n\n${doc}\n'
+  result += '\n\n'
+
+  if deprecated {
+    result += '> @deprecated: '
+    if deprecated.info {
+      result += deprecated.info
+    } else {
+      result += 'This function has been depreciated'
+    }
+    result += '\n\n'
+  }
+
+  result += '${doc}\n\n'
 
   if param_lines {
     result += '##### Parameters\n\n'
@@ -216,7 +229,7 @@ def get_var_docs(depth, var_data, is_static) {
   if is_static line += ' _static_'
   if readonly line += ' _readonly_'
   if type line += ' _${type}_'
-  line += ': ${cite(doc)}'
+  line += ':\n\n  ${cite(doc)}\n'
 
   return line
 }

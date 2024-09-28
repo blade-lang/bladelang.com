@@ -36,9 +36,10 @@ Try it out!
 
 Returns `true` if instance has the property or module has a value with 
 the given name or `false` if not.
+
 ##### Parameters
 
-- _{instance|module}_ **object**
+- _instance|module_ **object**
 - _string_ **name**
 
 ##### Returns
@@ -51,9 +52,10 @@ the given name or `false` if not.
 
 Returns the property of the instance or value in the module matching the 
 given name or nil if the object contains no property with a matching name.
+
 ##### Parameters
 
-- _{instance|module}_ **object**
+- _instance|module_ **object**
 - _string_ **name**
 
 ##### Returns
@@ -65,6 +67,7 @@ given name or nil if the object contains no property with a matching name.
 #### set\_prop(object, name, value)
 
 Sets the named property of the object to value.
+
 ##### Parameters
 
 - _instance_ **object**
@@ -83,9 +86,10 @@ Sets the named property of the object to value.
 #### del\_prop(object, name)
 
 Deletes the named property from the instance
+
 ##### Parameters
 
-- _{instance|module}_ **object**
+- _instance|module_ **object**
 - _string_ **name**
 
 ##### Returns
@@ -98,6 +102,7 @@ Deletes the named property from the instance
 
 Returns true if class of the instance has the method name or
 false if not.
+
 ##### Parameters
 
 - _instance_ **object**
@@ -113,6 +118,7 @@ false if not.
 
 Returns true if class of the instance implements the decorator name or
 false if not.
+
 ##### Parameters
 
 - _instance_ **object**
@@ -129,6 +135,7 @@ false if not.
 Returns the method in a class instance matching the given name
 or nil if the class of the instance contains no method with
 a matching name.
+
 ##### Parameters
 
 - _instance_ **object**
@@ -144,6 +151,7 @@ a matching name.
 
 Returns the decorator function matching the given name in the class 
 of the given instance.
+
 ##### Parameters
 
 - _instance_ **object**
@@ -163,6 +171,7 @@ of the given instance.
 Binds the given function to the instance, allowing you to access 
 the instance itself in the function via the `self` keyword in 
 the function.
+
 ##### Parameters
 
 - _instance_ **object**
@@ -177,6 +186,7 @@ the function.
 #### get\_type(object)
 
 Returns the type of an instance as string
+
 ##### Parameters
 
 - _instance_ **object**
@@ -198,6 +208,7 @@ This dictionary contains the following keys:
 - `captured_vars`: The number of variables captured (only greater than zero for captures).
 - `module`: The name of the module from where the function was defined.
 - `file`: The file in which the function was defined.
+
 ##### Parameters
 
 - _function_ **object**
@@ -221,6 +232,7 @@ This dictionary contains the following keys:
 - `static_properties`: a list of the name of static properties defined in the class
 - `methods`: a list of the name of methods defined in the class
 - `superclass`: The name of the class it inherits from.
+
 ##### Parameters
 
 - _class_ **klass**
@@ -241,6 +253,7 @@ This dictionary contains the following keys:
 - `has_preloader`: `true` if the module is a C extension with a preloader and `false` otherwise.
 - `has_unloader`: `true` if the module is a C extension with a unloader and `false` otherwise.
 - `definitions`: A list of the name of objects defined in the module.
+
 ##### Parameters
 
 - _module_ **module**
@@ -255,6 +268,7 @@ This dictionary contains the following keys:
 
 Returns the class value of an instance as an object that can be 
 used to create a new instance of that same class.
+
 ##### Parameters
 
 - _instance_ **object**
@@ -268,6 +282,7 @@ used to create a new instance of that same class.
 #### is\_ptr(value)
 
 Returns `true` if _value_ is a pointer, `false` otherwise.
+
 ##### Parameters
 
 - _any_ **value**
@@ -281,6 +296,7 @@ Returns `true` if _value_ is a pointer, `false` otherwise.
 #### get\_ptr(value)
 
 Returns a pointer to the given value.
+
 ##### Parameters
 
 - _any_ **value**
@@ -294,6 +310,7 @@ Returns a pointer to the given value.
 #### set\_ptr(pointer, value)
 
 Sets the value at the given pointer's address to the given value.
+
 ##### Parameters
 
 - _ptr_ **pointer**
@@ -305,6 +322,7 @@ Sets the value at the given pointer's address to the given value.
 #### get\_address(value)
 
 Returns a the address of the pointer to the value in memory.
+
 ##### Parameters
 
 - _any_ **value**
@@ -318,6 +336,7 @@ Returns a the address of the pointer to the value in memory.
 #### ptr\_from\_address(address)
 
 Returns a pointer to the given memory address.
+
 ##### Parameters
 
 - _number_ **address**
@@ -332,9 +351,10 @@ Returns a pointer to the given memory address.
 
 Sets a function or class as globally accessible in all modules, function 
 and scopes.
+
 ##### Parameters
 
-- _{function|class}_ **fn**
+- _function|class_ **fn**
 - _string?_ **name**
 
 
@@ -344,6 +364,7 @@ and scopes.
 
 Runs the content of a given script in-place as if it were part of the 
 current module.
+
 ##### Parameters
 
 - _string_ **path**
@@ -354,6 +375,7 @@ current module.
 #### call\_function(function, args)
 
 Calls a function with the given arguments.
+
 ##### Parameters
 
 - _function_ **function**

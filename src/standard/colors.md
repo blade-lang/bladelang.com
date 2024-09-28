@@ -33,15 +33,25 @@ colors.text('Colored text!', colors.hex('#fc0'))
 
 ## Properties
 
-- **style** &#8674; _dictionary_: ANSI font styles available for console applications.
-- **text\_color** &#8674; _dictionary_: Standard ANSI text colors available for console applications.
-- **background** &#8674; _dictionary_: Standard ANSI background colors available for console applications.
+- **style** &#8674; _dictionary_:
+
+  ANSI font styles available for console applications.
+
+- **text\_color** &#8674; _dictionary_:
+
+  Standard ANSI text colors available for console applications.
+
+- **background** &#8674; _dictionary_:
+
+  Standard ANSI background colors available for console applications.
+
 
 ## Functions
 
 #### text(value, color, bg)
 
 Returns a terminal printable text with the given color (or style) and background if given.
+
 ##### Parameters
 
 - _string_ **value**
@@ -60,6 +70,7 @@ Returns a terminal printable text with the given color (or style) and background
 #### rgb\_to\_ansi256(r, g, b)
 
 Converts RGB color to ASI-256 color number.
+
 ##### Parameters
 
 - _int_ **r**
@@ -75,6 +86,7 @@ Converts RGB color to ASI-256 color number.
 #### ansi256\_to\_ansi(code)
 
 Converts ANSI-256 color number to ANSI-16 color number.
+
 ##### Parameters
 
 - _int_ **code**
@@ -88,6 +100,7 @@ Converts ANSI-256 color number to ANSI-16 color number.
 #### hex\_to\_rgb(h)
 
 Converts the hexadecimal string _h_ to its RGBA component
+
 ##### Parameters
 
 - _string_ **h**
@@ -101,6 +114,7 @@ Converts the hexadecimal string _h_ to its RGBA component
 #### hex\_to\_ansi256(color)
 
 Converts the given hexadecimal color to its ANSI-256 number.
+
 ##### Parameters
 
 - _string_ **color**
@@ -114,6 +128,7 @@ Converts the given hexadecimal color to its ANSI-256 number.
 #### hex\_to\_ansi(color)
 
 Converts the given hexadecimal color to its ANSI-16 number.
+
 ##### Parameters
 
 - _string_ **color**
@@ -130,6 +145,7 @@ Converts the given hexadecimal color to its ANSI-16 number.
 #### hex(color)
 
 Converts the given hexadecimal color to its terminal compatible color.
+
 ##### Parameters
 
 - _string_ **color**
@@ -147,6 +163,7 @@ Converts the given hexadecimal color to its terminal compatible color.
 #### rgb(r, g, b)
 
 Converts the given RGB color to its terminal compatible color.
+
 ##### Parameters
 
 - _number_ **r**
@@ -162,6 +179,7 @@ Converts the given RGB color to its terminal compatible color.
 #### hsl(h, s, l)
 
 Converts the given HSL color to its terminal compatible color.
+
 ##### Parameters
 
 - _number_ **h**
@@ -177,6 +195,7 @@ Converts the given HSL color to its terminal compatible color.
 #### hsv(h, s, v)
 
 Converts the given HSV color to its terminal compatible color.
+
 ##### Parameters
 
 - _number_ **h**
@@ -192,6 +211,7 @@ Converts the given HSV color to its terminal compatible color.
 #### hwb(h, w, b)
 
 Converts the given HWB color to its terminal compatible color.
+
 ##### Parameters
 
 - _number_ **h**
@@ -207,6 +227,7 @@ Converts the given HWB color to its terminal compatible color.
 #### cmyk(c, m, y, k)
 
 Converts the given CMYK color to its terminal compatible color.
+
 ##### Parameters
 
 - _number_ **c**
@@ -223,6 +244,7 @@ Converts the given CMYK color to its terminal compatible color.
 #### xyz(x, y, z)
 
 Converts the given XYZ color to its terminal compatible color.
+
 ##### Parameters
 
 - _number_ **x**
@@ -238,6 +260,7 @@ Converts the given XYZ color to its terminal compatible color.
 #### rgb\_to\_hex(r, g, b, a)
 
 Converts a RGB components into its corresponding hexadecimal color.
+
 ##### Parameters
 
 - _int_ **r**
@@ -254,6 +277,7 @@ Converts a RGB components into its corresponding hexadecimal color.
 #### rgb\_to\_hsl(r, g, b)
 
 Converts a RGB color into its corresponding HSL components.
+
 ##### Parameters
 
 - _int_ **r**
@@ -269,6 +293,7 @@ Converts a RGB color into its corresponding HSL components.
 #### rgb\_to\_hsv(r, g, b)
 
 Converts a RGB color into its corresponding HSV components.
+
 ##### Parameters
 
 - _int_ **r**
@@ -284,6 +309,7 @@ Converts a RGB color into its corresponding HSV components.
 #### rgb\_to\_hwb(r, g, b)
 
 Converts a RGB color into its corresponding HWB components.
+
 ##### Parameters
 
 - _int_ **r**
@@ -299,6 +325,7 @@ Converts a RGB color into its corresponding HWB components.
 #### rgb\_to\_cmyk(r, g, b)
 
 Converts a RGB color into its corresponding CMYK components.
+
 ##### Parameters
 
 - _int_ **r**
@@ -314,6 +341,7 @@ Converts a RGB color into its corresponding CMYK components.
 #### rgb\_to\_xyz(r, g, b)
 
 Converts a RGB color into its corresponding XYZ color space components.
+
 ##### Parameters
 
 - _int_ **r**
@@ -329,6 +357,7 @@ Converts a RGB color into its corresponding XYZ color space components.
 #### rgb\_to\_lab(r, g, b)
 
 Converts a RGB color into its corresponding LAB color components.
+
 ##### Parameters
 
 - _int_ **r**
@@ -344,6 +373,7 @@ Converts a RGB color into its corresponding LAB color components.
 #### hsl\_to\_rgb(h, s, l)
 
 Converts a HSL color into its corresponding RGB color components.
+
 ##### Parameters
 
 - _number_ **h**
@@ -359,6 +389,7 @@ Converts a HSL color into its corresponding RGB color components.
 #### hsl\_to\_hsv(h, s, l)
 
 Converts a HSL color into its corresponding HSV color components.
+
 ##### Parameters
 
 - _number_ **h**
@@ -374,6 +405,7 @@ Converts a HSL color into its corresponding HSV color components.
 #### hsv\_to\_rgb(h, s, v)
 
 Converts a HSV color into its corresponding RGB color components.
+
 ##### Parameters
 
 - _number_ **h**
@@ -389,6 +421,7 @@ Converts a HSV color into its corresponding RGB color components.
 #### hsv\_to\_hsl(h, s, v)
 
 Converts a HSV color into its corresponding HSL color components.
+
 ##### Parameters
 
 - _number_ **h**
@@ -404,6 +437,7 @@ Converts a HSV color into its corresponding HSL color components.
 #### hwb\_to\_rgb(h, w, b)
 
 Converts a HWB color into its corresponding RGB color components.
+
 ##### Parameters
 
 - _number_ **h**
@@ -419,6 +453,7 @@ Converts a HWB color into its corresponding RGB color components.
 #### cmyk\_to\_rgb(c, m, y, k)
 
 Converts a CMYK color into its corresponding RGB color components.
+
 ##### Parameters
 
 - _number_ **c**
@@ -435,6 +470,7 @@ Converts a CMYK color into its corresponding RGB color components.
 #### xyz\_to\_rgb(x, y, z)
 
 Converts a XYZ color into its corresponding RGB color components.
+
 ##### Parameters
 
 - _number_ **x**

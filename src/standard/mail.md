@@ -5,37 +5,51 @@ implementation for the SMTP, IMAP and POP3 mail exchange protocols.
 
 ## Properties
 
-- **TLS\_NONE**: Do not attempt to use SSL.
-- **TLS\_TRY**: Try using SSL, proceed as normal otherwise. Note that server 
+- **TLS\_NONE**:
+
+  Do not attempt to use SSL.
+
+- **TLS\_TRY**:
+
+  Try using SSL, proceed as normal otherwise. Note that server 
 may close the connection if the negotiation does not succeed.
-- **TLS\_CONTROL**: Require SSL for the control connection or fail.
-- **TLS\_ALL**: Require SSL for all communication or fail.
+
+- **TLS\_CONTROL**:
+
+  Require SSL for the control connection or fail.
+
+- **TLS\_ALL**:
+
+  Require SSL for all communication or fail.
+
 
 ## Functions
 
 #### parse(message)
 
 Parses email messages and return an instance of Mail representing it.
+
 ##### Parameters
 
 - _string_ **message**
 
 ##### Returns
 
-- {Mail}
+- Mail
 
 
 
 #### smtp(options)
 
 Returns a new instance of SMTP {Transport} with the given __options__.
+
 ##### Parameters
 
 - _{dict?}_ **options**: See {Transport}
 
 ##### Returns
 
-- {Transport}
+- Transport
 
 
 
@@ -43,9 +57,10 @@ Returns a new instance of SMTP {Transport} with the given __options__.
 
 Returns a new instance of the POP3 class with the given options (if any) passed 
 to the constructor.
+
 ##### Returns
 
-- {POP3}
+- POP3
 
 
 
@@ -53,18 +68,20 @@ to the constructor.
 
 Returns a new instance of the Imap class with the given options (if any) passed 
 to the constructor.
+
 ##### Returns
 
-- {Imap}
+- Imap
 
 
 
 #### message() &#8674; Exported
 
 Returns a new instance of {Message}.
+
 ##### Returns
 
-- {Message}
+- Message
 
 
 
@@ -85,6 +102,7 @@ message.
 #### Methods
 
 #### Attachment(headers, content) &#8674; Constructor
+
 
 
 ##### Parameters
@@ -115,6 +133,7 @@ properties.
 #### Methods
 
 #### Mail(headers, body, attachments) &#8674; Constructor
+
 
 
 ##### Parameters
@@ -163,25 +182,28 @@ it behaves. The dictionary can contain one or more of the following.
 - __verify_proxy_host__: If the host certificate of the proxy should be verified or 
    not. (Default: The value of __verify_host__)
 - __timeout__: The request timeout in milliseconds. (Default: 30,000)
+
 ##### Parameters
 
-- _{dict?}_ **options**
+- _dict?_ **options**
 
 
 #### add\_message(message)
 
 Adds an email message to the list of messages to be sent.
+
 ##### Parameters
 
-- _{Message}_ **message**
+- _Message_ **message**
 
 ##### Returns
 
-- {Transport}
+- Transport
 
 #### test\_connection()
 
 Tests the connection to the SMTP server
+
 ##### Returns
 
 - bool
@@ -189,9 +211,10 @@ Tests the connection to the SMTP server
 #### verify(address)
 
 Verifys an email address
+
 ##### Parameters
 
-- _{string}_ **address**
+- _string_ **address**
 
 ##### Returns
 
@@ -201,6 +224,7 @@ Verifys an email address
 
 Send the email messages and returns `true` if the message was successfully 
 sent or `false` otherwise.
+
 ##### Returns
 
 - bool
@@ -240,9 +264,10 @@ it behaves. The dictionary can contain one or more of the following.
 - __verify_proxy_host__: If the host certificate of the proxy should be verified or 
    not. (Default: The value of __verify_host__)
 - __timeout__: The request timeout in milliseconds. (Default: 30,000)
+
 ##### Parameters
 
-- _{dict?}_ **options**
+- _dict?_ **options**
 
 
 #### exec(command, path, no_transfer)
@@ -253,11 +278,12 @@ Executes an POP3 command.
 
 
    as response response. Default `false`.
+
 ##### Parameters
 
-- _{string}_ **command**: The command to execute.
-- _{string?}_ **path**: The path segement of the request url.
-- _{bool?}_ **no_transfer**: Set to `true` if the command will return the requested data 
+- _string_ **command**: The command to execute.
+- _string?_ **path**: The path segement of the request url.
+- _bool?_ **no_transfer**: Set to `true` if the command will return the requested data 
 
 ##### Returns
 
@@ -268,39 +294,43 @@ Executes an POP3 command.
 Returns a list of dictionaries containing the `uid` and `size` of each message in the 
 mail if the _uid_ argument is not given or the content of the message identified by the 
 given _uid_.
+
 ##### Parameters
 
-- _{number?}_ **uid**
+- _number?_ **uid**
 
 ##### Returns
 
-- {list[dictionary]|string}
+- list[dictionary]|string
 
 #### uid\_list()
 
 Returns a list of dictionaries containing the `uid` and `id` for every message in the mailbox 
 based on their unique ids.
+
 ##### Returns
 
-- {list[dictionary]}
+- list[dictionary]
 
 #### retr(uid)
 
 Retrieves the whole message with the specified _uid_.
+
 ##### Parameters
 
-- _{number}_ **uid**
+- _number_ **uid**
 
 ##### Returns
 
-- {string}
+- string
 
 #### stat()
 
 Returns a dictionary containing the message `count` and `size` of the mailbox.
+
 ##### Returns
 
-- {dictionary}
+- dictionary
 
 #### delete(uid)
 
@@ -308,14 +338,16 @@ Instructs the POP3 server to mark the message _uid_ as deleted. Any future refer
 to the message-number associated with the message in a POP3 command generates an error.  
 The POP3 server does not actually delete the message until the POP3 session enters the 
 UPDATE state.
+
 ##### Parameters
 
-- _{number}_ **uid**
+- _number_ **uid**
 
 
 #### noop()
 
 Does nothing. It merely ask the server to reply with a positive response.
+
 ##### Notes
 
 - It's useful for a keep-alive.
@@ -324,22 +356,25 @@ Does nothing. It merely ask the server to reply with a positive response.
 
 Instructs the server to unmark any messages have been marked as deleted.
 
+
 #### top(uid, count)
 
 Retrieves the header for the message identified by `uid` plus `count` lines 
 of the message after the header of message.
+
 ##### Parameters
 
-- _{number}_ **uid**
-- _{number?}_ **count**: (Default: 0)
+- _number_ **uid**
+- _number?_ **count**: (Default: 0)
 
 ##### Returns
 
-- {string}
+- string
 
 #### quit()
 
 Closes the current POP3 session and disposes all associated network handles.
+
 
 #### get\_handle()
 
@@ -380,18 +415,20 @@ it behaves. The dictionary can contain one or more of the following.
 - __verify_proxy_host__: If the host certificate of the proxy should be verified or 
    not. (Default: The value of __verify_host__)
 - __timeout__: The request timeout in milliseconds. (Default: 30,000)
+
 ##### Parameters
 
-- _{dict?}_ **options**
+- _dict?_ **options**
 
 
 #### exec(command, path)
 
 Executes an IMAP command.
+
 ##### Parameters
 
-- _{string}_ **command**: The command to execute.
-- _{string?}_ **path**: The path segement of the request url.
+- _string_ **command**: The command to execute.
+- _string?_ **path**: The path segement of the request url.
 
 ##### Returns
 
@@ -400,9 +437,10 @@ Executes an IMAP command.
 #### get\_dirs(path)
 
 Gets a list of the mailbox directories on the server.
+
 ##### Parameters
 
-- _{string?}_ **path**
+- _string?_ **path**
 
 ##### Returns
 
@@ -412,6 +450,7 @@ Gets a list of the mailbox directories on the server.
 
 Gets a list of mailbox directories subscribed to by the current 
 user on the server.
+
 ##### Returns
 
 - list
@@ -425,9 +464,10 @@ as the target of that command. For example, an INBOX or a subfolder such as,
 "Selected".
 
 @see https://www.marshallsoft.com/ImapSearch.htm for more help.
+
 ##### Parameters
 
-- _{string}_ **name**
+- _string_ **name**
 
 ##### Returns
 
@@ -437,9 +477,10 @@ as the target of that command. For example, an INBOX or a subfolder such as,
 
 This function does the exact same thing as `select()`, except that it selects the folder 
 in read-only mode, meaning that no changes can be effected on the folder.
+
 ##### Parameters
 
-- _{string}_ **name**
+- _string_ **name**
 
 ##### Returns
 
@@ -448,9 +489,10 @@ in read-only mode, meaning that no changes can be effected on the folder.
 #### create(name)
 
 Creates a new mailbox or folder with the given name.
+
 ##### Parameters
 
-- _{string}_ **name**
+- _string_ **name**
 
 ##### Returns
 
@@ -459,9 +501,10 @@ Creates a new mailbox or folder with the given name.
 #### delete(name)
 
 Deletes the mailbox or folder with the given name.
+
 ##### Parameters
 
-- _{string}_ **name**
+- _string_ **name**
 
 ##### Returns
 
@@ -470,10 +513,11 @@ Deletes the mailbox or folder with the given name.
 #### rename(old_name, new_name)
 
 Renames a mailbox or folder with the name `old_name` to a the name `new_name`.
+
 ##### Parameters
 
-- _{string}_ **old_name**
-- _{string}_ **new_name**
+- _string_ **old_name**
+- _string_ **new_name**
 
 ##### Returns
 
@@ -484,9 +528,10 @@ Renames a mailbox or folder with the name `old_name` to a the name `new_name`.
 Adds the specified mailbox name to the server's set of "active" or "subscribed" 
 mailboxes for the current user as returned by `lsub()` and returns `true` if 
 successful or `false` otherwise.
+
 ##### Parameters
 
-- _{string}_ **name**
+- _string_ **name**
 
 ##### Returns
 
@@ -497,9 +542,10 @@ successful or `false` otherwise.
 Removes the specified mailbox name from the server's set of "active" or "subscribed" 
 mailboxes for the current user as returned by `lsub()` and returns `true` if successful 
 or `false` otherwise.
+
 ##### Parameters
 
-- _{string}_ **name**
+- _string_ **name**
 
 ##### Returns
 
@@ -529,10 +575,11 @@ the server for the current user and if the uppercase string "INBOX" matches the 
 reference and pattern arguments with wildcards as described above.  The criteria for omitting 
 INBOX is whether `select('INBOX')` will return failure; it is not relevant whether the user's 
 real INBOX resides on the server or another.
+
 ##### Parameters
 
-- _{string}_ **name**
-- _{string?}_ **pattern**
+- _string_ **name**
+- _string?_ **pattern**
 
 ##### Returns
 
@@ -541,10 +588,11 @@ real INBOX resides on the server or another.
 #### lsub(name, pattern)
 
 Same as the `list()` function except that it returns a subset of names.
+
 ##### Parameters
 
-- _{string}_ **name**
-- _{string?}_ **pattern**
+- _string_ **name**
+- _string?_ **pattern**
 
 ##### Returns
 
@@ -567,10 +615,11 @@ quite slow.
 - `UNSEEN`: The number of messages which do not have the \Seen flag set.
 
 `attrs` values may be separated by space. e.g. `status('INBOX', 'UIDNEXT MESSAGES')`.
+
 ##### Parameters
 
-- _{string}_ **name**
-- _{string}_ **attrs**
+- _string_ **name**
+- _string_ **attrs**
 
 ##### Returns
 
@@ -584,10 +633,11 @@ and returns `true` if it succeeds or `false` otherwise.
 > NOTE:
    This isn’t a copy/move command, you must supply a full message body to 
    append.
+
 ##### Parameters
 
-- _{string}_ **folder**
-- _{Message}_ **message**
+- _string_ **folder**
+- _Message_ **message**
 
 ##### Returns
 
@@ -603,6 +653,7 @@ non-instantaneous amount of real time to complete.
 
 If a server implementation has no such housekeeping considerations, `check()` is 
 equivalent to NOOP.
+
 ##### Returns
 
 - bool
@@ -614,6 +665,7 @@ selected mailbox, and returns to the authenticated state from the selected state
 
 No messages are removed, and no error is given, if the mailbox is selected by an 
 `examine()` or is otherwise selected read-only.
+
 ##### Returns
 
 - bool
@@ -622,9 +674,10 @@ No messages are removed, and no error is given, if the mailbox is selected by an
 
 Clears the deleted messages in a mailbox folder and returns `true` on 
 success or `false` otherwise.
+
 ##### Parameters
 
-- _{string}_ **path**
+- _string_ **path**
 
 ##### Returns
 
@@ -644,10 +697,11 @@ When __query__ is empty, it defaults to `NEW`. __folder__ defaults to `INBOX`
  when empty.
 
 @see: https://datatracker.ietf.org/doc/html/rfc9051#section-6.4.4 for more.
+
 ##### Parameters
 
-- _{string?}_ **query**
-- _{string?}_ **folder**
+- _string?_ **query**
+- _string?_ **folder**
 
 
 #### fetch(uid, path)
@@ -656,15 +710,17 @@ Retrieves a message with the give __uid__ in the specified mailbox __path__. If
 the __uid__ is not given, it attempts to retrieve the message with a UID of 1. If 
 __path__ is not given, it will attempt to retrieve the message from the `INBOX` 
 folder.
+
 ##### Parameters
 
-- _{number?}_ **uid**
-- _{string?}_ **path**
+- _number?_ **uid**
+- _string?_ **path**
 
 
 #### copy(id, destination, path)
 
 Copies the specified message(s) to the end of the specified destination mailbox.
+
 ##### Returns
 
 - bool
@@ -679,6 +735,7 @@ Alters data associated with a message in the mailbox.
 
    suffix of `.SILENT`.
 @see https://datatracker.ietf.org/doc/html/rfc9051#section-6.4.6 for more.
+
 ##### Returns
 
 - bool
@@ -689,6 +746,7 @@ Alters data associated with a message in the mailbox.
 #### quit()
 
 Closes the current IMAP session and disposes all associated network handles.
+
 
 #### get\_handle()
 
@@ -709,12 +767,14 @@ of the email message.
 
 
 
+
 #### from(from)
 
 Set the sender of the email message.
+
 ##### Parameters
 
-- _{string}_ **from**
+- _string_ **from**
 
 ##### Returns
 
@@ -723,9 +783,10 @@ Set the sender of the email message.
 #### to(to)
 
 Add one or more recipients to the email message.
+
 ##### Parameters
 
-- _{string|list[string]}_ **to**
+- _string|list[string]_ **to**
 
 ##### Returns
 
@@ -734,9 +795,10 @@ Add one or more recipients to the email message.
 #### cc(cc)
 
 Add one or more Cc recipients to the email message.
+
 ##### Parameters
 
-- _{string|list[string]}_ **cc**
+- _string|list[string]_ **cc**
 
 ##### Returns
 
@@ -745,9 +807,10 @@ Add one or more Cc recipients to the email message.
 #### bcc(bcc)
 
 Add one or more Bcc recipients to the email message.
+
 ##### Parameters
 
-- _{string|list[string]}_ **bcc**
+- _string|list[string]_ **bcc**
 
 ##### Returns
 
@@ -756,9 +819,10 @@ Add one or more Bcc recipients to the email message.
 #### reply\_to(to)
 
 Add a reply-to address to the email message.
+
 ##### Parameters
 
-- _{string}_ **to**
+- _string_ **to**
 
 ##### Returns
 
@@ -767,9 +831,10 @@ Add a reply-to address to the email message.
 #### subject(subject)
 
 Set the subject of the email message.
+
 ##### Parameters
 
-- _{string}_ **subject**
+- _string_ **subject**
 
 ##### Returns
 
@@ -778,9 +843,10 @@ Set the subject of the email message.
 #### header(header)
 
 Add one or more headers to the email message.
+
 ##### Parameters
 
-- _{string|list|dict}_ **header**
+- _string|list|dict_ **header**
 
 ##### Returns
 
@@ -789,10 +855,11 @@ Add one or more headers to the email message.
 #### attachment(path, name)
 
 Add one or more attachments to the email message.
+
 ##### Parameters
 
-- _{string}_ **path**
-- _{string}_ **name**: (Optional)
+- _string_ **path**
+- _string_ **name**: (Optional)
 
 ##### Returns
 
@@ -801,9 +868,10 @@ Add one or more attachments to the email message.
 #### text(text)
 
 Set the plain text body of the email message.
+
 ##### Parameters
 
-- _{string}_ **text**
+- _string_ **text**
 
 ##### Returns
 
@@ -812,9 +880,10 @@ Set the plain text body of the email message.
 #### html(html)
 
 Set the html body of the email.
+
 ##### Parameters
 
-- _{string}_ **html**
+- _string_ **html**
 
 ##### Returns
 

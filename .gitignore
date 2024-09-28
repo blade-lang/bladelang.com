@@ -17,4 +17,4 @@
 *.log
 
 _cache/
-_data/sitemap.json.backup
+**/*/*.backup

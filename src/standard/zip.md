@@ -4,10 +4,22 @@ The `zip` module contains classes and functions to make working with zip archive
 
 ## Properties
 
-- **ZIP\_FILE\_MAX** &#8674; _number_: The maximum size of a single file in a zip archive when zip64 is not used
-- **ZIP\_FILE\_COUNT\_LIMIT** &#8674; _number_: The maximum number of files in a zip archive when zip64 is not used
-- **ZIP\_MAX** &#8674; _number_: The maximum size of a zip archive when zip64 is not used
-- **ZIP\_EXT** &#8674; _string_: The default zip file extension
+- **ZIP\_FILE\_MAX** &#8674; _number_:
+
+  The maximum size of a single file in a zip archive when zip64 is not used
+
+- **ZIP\_FILE\_COUNT\_LIMIT** &#8674; _number_:
+
+  The maximum number of files in a zip archive when zip64 is not used
+
+- **ZIP\_MAX** &#8674; _number_:
+
+  The maximum size of a zip archive when zip64 is not used
+
+- **ZIP\_EXT** &#8674; _string_:
+
+  The default zip file extension
+
 
 ## Functions
 
@@ -20,6 +32,7 @@ This function returns `true` if the extraction was successful and `false` otherw
 
 > **NOTE:**
 > Set `is_zip64` to true if the size of the zip file exceeds `ZIP_MAX`.
+
 ##### Parameters
 
 - _string_ **file**
@@ -44,6 +57,7 @@ Compresses the given path (file or directory) into the destination zip archive.
 > **NOTE:**
 > Set `use_zip64` to true when compressing files exceeding `ZIP_FILE_MAX` or 
 > `ZIP_FILE_COUNT_LIMIT`
+
 ##### Parameters
 
 - _string_ **file**
@@ -67,17 +81,46 @@ ZipItem represents a single file or directory in a zip archive.
 
 #### Fields
 
-- **name** &#8674; _string_: Name of the file or directory
-- **directory** &#8674; _string_: The directory in which the file or subdirectory belongs
-- **compression\_method** &#8674; _string_: The compression method for this file
-- **crc** &#8674; _string_: The crc32 checksum for the file
-- **last\_modified** &#8674; _Date_: The last modified date for the file
-- **compressed\_size** &#8674; _number_: The size of the file as compressed in the archive. You should note 
+- **name** &#8674; _string_:
+
+  Name of the file or directory
+
+- **directory** &#8674; _string_:
+
+  The directory in which the file or subdirectory belongs
+
+- **compression\_method** &#8674; _string_:
+
+  The compression method for this file
+
+- **crc** &#8674; _string_:
+
+  The crc32 checksum for the file
+
+- **last\_modified** &#8674; _Date_:
+
+  The last modified date for the file
+
+- **compressed\_size** &#8674; _number_:
+
+  The size of the file as compressed in the archive. You should note 
 that this value is not often dependable
-- **uncompressed\_size** &#8674; _number_: The size of the file when extracted from the archive
-- **is\_encrypted** &#8674; _bool_: If this file is encrypted or not.
-- **error** &#8674; _string_: Error encountered when attempting to read/extract the file
-- **data** &#8674; _bytes_: The decompressed value of the zip item
+
+- **uncompressed\_size** &#8674; _number_:
+
+  The size of the file when extracted from the archive
+
+- **is\_encrypted** &#8674; _bool_:
+
+  If this file is encrypted or not.
+
+- **error** &#8674; _string_:
+
+  Error encountered when attempting to read/extract the file
+
+- **data** &#8674; _bytes_:
+
+  The decompressed value of the zip item
 
 #### Methods
 
@@ -95,6 +138,7 @@ The dictionary should contain the following keys:
 - `encrypted`: boolean
 - `error`: string &mdash; optional
 - `data`: bytes
+
 ##### Parameters
 
 - _dictionary_ **dict**
@@ -110,6 +154,7 @@ exported into the base_dir and all ZipItem directories will be created
 inside of base_dir to reflect the ZipItem's original structure.
 
 This function returns `true` if the operation succeeds or `false` otherwise.
+
 ##### Parameters
 
 - _string?_ **base_dir**: : Default value is `os.cwd()`.
@@ -126,12 +171,29 @@ ZipFile represents an instance of zip file.
 
 #### Fields
 
-- **name** &#8674; _string_: The name of the zip file
-- **last\_modified** &#8674; _Date_: The last modified date for the zip file
-- **time\_created** &#8674; _Date_: The time when the zip file was created
-- **size** &#8674; _number_: The size of the zip file
-- **handle** &#8674; _file_: The file handle for this zip file
-- **files** &#8674; _List<ZipItem>_: A list of the ZipItems in the zip file
+- **name** &#8674; _string_:
+
+  The name of the zip file
+
+- **last\_modified** &#8674; _Date_:
+
+  The last modified date for the zip file
+
+- **time\_created** &#8674; _Date_:
+
+  The time when the zip file was created
+
+- **size** &#8674; _number_:
+
+  The size of the zip file
+
+- **handle** &#8674; _file_:
+
+  The file handle for this zip file
+
+- **files** &#8674; _List<ZipItem>_:
+
+  A list of the ZipItems in the zip file
 
 #### Methods
 
@@ -144,6 +206,7 @@ the files will be exported into the base_dir and all directories will be
 created inside of base_dir as is to reflect the ZipFile's original structure.
 
 This function returns `true` if the operation succeeds or `false` otherwise.
+
 ##### Parameters
 
 - _string?_ **base_dir**: : Default value is `os.cwd()`.
@@ -164,6 +227,7 @@ manuipulation and extraction.
 #### ZipArchive(path, use_zip_64) &#8674; Constructor
 
 
+
 ##### Parameters
 
 - _string_ **path**
@@ -173,6 +237,7 @@ manuipulation and extraction.
 #### create\_dir(name)
 
 Adds a directory to the zip with the given name.
+
 ##### Parameters
 
 - _string_ **name**
@@ -184,10 +249,11 @@ Adds a directory to the zip with the given name.
 #### create\_file(path, data, stat)
 
 Adds a file to the path specified with the contents given data.
+
 ##### Parameters
 
 - _string_ **path**
-- _{bytes|string}_ **data**
+- _bytes|string_ **data**
 
 ##### Returns
 
@@ -197,6 +263,7 @@ Adds a file to the path specified with the contents given data.
 
 Adds an existing file to the archive. If destination is given, the 
 file will be written to the destination path in the archive.
+
 ##### Parameters
 
 - _string_ **path**
@@ -212,6 +279,7 @@ Adds the specified `directory` recursively to the archive and set's it path in t
 
 - If `file_blacklist` is not empty, this function will ignore every file with a matching path.
 - If `ext_blacklist` is not empty, this function will ignore every file with a matching.
+
 ##### Parameters
 
 - _string_ **directory**
@@ -226,6 +294,7 @@ Adds the specified `directory` recursively to the archive and set's it path in t
 
 Reads the zip file in the specified path and returns a list of
 ZipFile describing it's contents.
+
 ##### Parameters
 
 - _string_ **path**
@@ -237,6 +306,7 @@ ZipFile describing it's contents.
 #### save()
 
 Saves the current Zip archive to file.
+
 ##### Parameters
 
 - _string_ **filename**

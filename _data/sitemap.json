@@ -167,6 +167,10 @@
         "source": "/standard/http", 
         "title": "http"
       }, 
+      "/standard/imagine": {
+        "source": "/standard/imagine", 
+        "title": "imagine"
+      }, 
       "/standard/io": {
         "source": "/standard/io", 
         "title": "io"
@@ -238,14 +242,6 @@
       "/standard/zlib": {
         "source": "/standard/zlib", 
         "title": "zlib"
-      }, 
-      "/standard/imagine": {
-        "source": "/standard/imagine", 
-        "title": "imagine"
-      }, 
-      "/standard/numberackup": {
-        "source": "/standard/numberackup", 
-        "title": "numberackup"
       }, 
       "/standard/array": {
         "source": "/standard/array", 

@@ -116,6 +116,15 @@ h2[id]:hover::after, h3[id]:hover::after, h4[id]:hover::after {
   background: linear-gradient(to bottom, #54bb9c, #3daa89);
 }
 
+.content #properties + ul p {
+  margin-top: .5rem;
+  margin-bottom: 0;
+}
+
+.content blockquote p {
+  margin: .5rem 0;
+}
+
 @media (prefers-color-scheme: dark) {
   h2[id]::after, h3[id]::after, h4[id]::after {
     color: color-mix(in srgb, var(--static-color), black 60%);

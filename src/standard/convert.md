@@ -5,6 +5,7 @@
 #### hex\_to\_bytes(str)
 
 Converts hexadecimal string of any length to bytes.
+
 ##### Parameters
 
 - _string_ **str**
@@ -19,6 +20,7 @@ Converts hexadecimal string of any length to bytes.
 
 Converts binary data (byes) of any length to hexadecimal string 
 representation.
+
 ##### Parameters
 
 - _bytes_ **data**
@@ -32,6 +34,7 @@ representation.
 #### decimal\_to\_hex(n)
 
 Converts the given decimal based number to an hexadeccimal string.
+
 ##### Parameters
 
 - _number_ **n**
@@ -45,6 +48,7 @@ Converts the given decimal based number to an hexadeccimal string.
 #### hex\_to\_decimal(str)
 
 Converts the given hexadecimal string to a decimal base 10 number.
+
 ##### Parameters
 
 - _string_ **str**
@@ -61,6 +65,7 @@ Converts the given hexadecimal string to a decimal base 10 number.
 #### unicode\_to\_hex(chr)
 
 Converts a unicode character to it's equivalent hexadecimal string.
+
 ##### Parameters
 
 - _char_ **chr**

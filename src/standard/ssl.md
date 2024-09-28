@@ -3,9 +3,17 @@ Provides OpenSSL bindings for Blade.
 
 ## Properties
 
-- **SSL\_FILETYPE\_PEM**: SSL_FILETYPE_PEM
-- **SSL\_FILETYPE\_ASN1**: SSL_FILETYPE_ASN1
-- **SSL\_VERIFY\_NONE**: 
+- **SSL\_FILETYPE\_PEM**:
+
+  SSL_FILETYPE_PEM
+
+- **SSL\_FILETYPE\_ASN1**:
+
+  SSL_FILETYPE_ASN1
+
+- **SSL\_VERIFY\_NONE**:
+
+  
 Server mode:
 :  The server will not send a client certificate request to the client, 
    so the client will not send a certificate.
@@ -16,7 +24,10 @@ Client mode:
    will be continued regardless of the verification result.
 <<<
 
-- **SSL\_VERIFY\_PEER**: 
+
+- **SSL\_VERIFY\_PEER**:
+
+  
 Server mode: 
 :  The server sends a client certificate request to the client. 
    The certificate returned (if any) is checked. If the verification process fails, 
@@ -32,7 +43,10 @@ Client mode:
    because an anonymous cipher is used, SSL_VERIFY_PEER is ignored.
 <<<
 
-- **SSL\_VERIFY\_FAIL\_IF\_NO\_PEER\_CERT**: 
+
+- **SSL\_VERIFY\_FAIL\_IF\_NO\_PEER\_CERT**:
+
+  
 Server mode:
 :  If the client did not return a certificate, the TLS/SSL handshake is immediately 
    terminated with a "handshake failure" alert. This flag must be used together 
@@ -42,7 +56,10 @@ Client mode:
 :  Ignored
 <<<
 
-- **SSL\_VERIFY\_CLIENT\_ONCE**: 
+
+- **SSL\_VERIFY\_CLIENT\_ONCE**:
+
+  
 Server mode:
 :  Only request a client certificate once during the connection. Do not 
    ask for a client certificate again during renegotiation or post-authentication if a 
@@ -53,7 +70,10 @@ Client mode:
 :  Ignored
 <<<
 
-- **SSL\_VERIFY\_POST\_HANDSHAKE**: 
+
+- **SSL\_VERIFY\_POST\_HANDSHAKE**:
+
+  
 Server mode: 
 :  The server will not send a client certificate request during the initial 
    handshake, but will send the request via SSL_verify_client_post_handshake(). This allows 
@@ -65,41 +85,76 @@ Client mode:
 :  Ignored
 <<<
 
-- **TLS\_method**: TLS method
-- **TLS\_client\_method**: TLS client method
-- **TLS\_server\_method**: TLS server method
-- **SSLv23\_method**: SSLv23 method
-- **SSLv23\_client\_method**: SSLv23 client method
-- **SSLv23\_server\_method**: SSLv23 server method
-- **BIO\_CLOSE**: BIO_CLOSE
-- **BIO\_NOCLOSE**: BIO_NOCLOSE
-- **BIO\_f\_ssl**: SSL BIO method f_ssl
+
+- **TLS\_method**:
+
+  TLS method
+
+- **TLS\_client\_method**:
+
+  TLS client method
+
+- **TLS\_server\_method**:
+
+  TLS server method
+
+- **SSLv23\_method**:
+
+  SSLv23 method
+
+- **SSLv23\_client\_method**:
+
+  SSLv23 client method
+
+- **SSLv23\_server\_method**:
+
+  SSLv23 server method
+
+- **BIO\_CLOSE**:
+
+  BIO_CLOSE
+
+- **BIO\_NOCLOSE**:
+
+  BIO_NOCLOSE
+
+- **BIO\_f\_ssl**:
+
+  SSL BIO method f_ssl
 
 > I/O performed on an SSL BIO communicates using the SSL protocol 
 > with the SSLs read and write BIOs. If an SSL connection is not 
 > established then an attempt is made to establish one on the first 
 > I/O call.
-- **BIO\_s\_connect**: SSL BIO method connect
+
+- **BIO\_s\_connect**:
+
+  SSL BIO method connect
 
 > Using connect BIOs, TCP/IP connections can be made and data 
 > transferred using only BIO routines. In this way any platform 
 > specific operations are hidden by the BIO abstraction.
-- **BIO\_s\_accept**: SSL BIO method accept
+
+- **BIO\_s\_accept**:
+
+  SSL BIO method accept
 
 > Using accept BIOs, TCP/IP connections can be accepted and data 
 > transferred using only BIO routines. In this way any platform specific 
 > operations are hidden by the BIO abstraction.
+
 
 ## Functions
 
 #### socket(socket, context, ssl) &#8674; Exported
 
 Returns a new instance of a TLSSocket.
+
 ##### Parameters
 
-- _{Socket}_ **socket**
-- _{SSLContext?}_ **context**
-- _{SSL?}_ **ssl**
+- _Socket_ **socket**
+- _SSLContext?_ **context**
+- _SSL?_ **ssl**
 
 
 
@@ -112,6 +167,7 @@ Creates an new TLSServer instance.
 
 
 @throws Exception, SocketExcepion, HttpException
+
 ##### Parameters
 
 - _int_ **port**
@@ -134,23 +190,27 @@ SSL interface class
 #### SSL(context) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{SSLContext}_ **context**
+- _SSLContext_ **context**
 
 
 #### set\_connect\_state()
 
 Puts this SSL instance in the connected mode.
 
+
 #### set\_accept\_state()
 
 Puts this SSL instance in the accept mode.
+
 
 #### get\_fd()
 
 Returns the current socket file descriptor.
 It returns `-1` on failure or a positive integer on success.
+
 ##### Returns
 
 - number
@@ -158,6 +218,7 @@ It returns `-1` on failure or a positive integer on success.
 #### set\_fd(fd)
 
 Sets the socket file descriptor for this SSL.
+
 ##### Parameters
 
 - _int_ **fd**
@@ -170,6 +231,7 @@ Sets the socket file descriptor for this SSL.
 
 Begins accepting data on SSL and returns `true` if successful or 
 `false` otherwise.
+
 ##### Returns
 
 - bool
@@ -180,6 +242,7 @@ Connects to an SSL server instance.
 
 
 @throws
+
 ##### Returns
 
 - bool
@@ -188,9 +251,10 @@ Connects to an SSL server instance.
 
 Writes data to the current I/O stream and return an integer representing 
 the total bytes written.
+
 ##### Parameters
 
-- _{string|bytes}_ **data**
+- _string|bytes_ **data**
 
 ##### Returns
 
@@ -200,6 +264,7 @@ the total bytes written.
 
 Reads data off the I/O and returns it. Set _length_ to -1 to read 
 till no data is available in the stream.
+
 ##### Parameters
 
 - _int?_ **length**: : Default value is -1
@@ -212,6 +277,7 @@ till no data is available in the stream.
 #### error(code)
 
 Returns the last SSL error number
+
 ##### Parameters
 
 - _int?_ **code**
@@ -224,12 +290,14 @@ Returns the last SSL error number
 
 Shutdown the SSL object.
 
+
 #### set\_tlsext\_host\_name(name)
 
 Sets the Server Name Indication (SNI) for use by Secure Sockets 
 Layer (SSL). This function should be called on a client SSL 
 session before the TLS handshake for the SNI extension 
 to be set properly.
+
 ##### Parameters
 
 - _string_ **name**
@@ -252,6 +320,7 @@ The returned information includes:
 - `public_key`
 - `extensions`
 - `algorithm`
+
 ##### Returns
 
 - dict
@@ -260,9 +329,11 @@ The returned information includes:
 
 Frees this SSL and all associated resources.
 
+
 #### get\_pointer()
 
 Returns the raw OpenSSl SSL pointer.
+
 ##### Returns
 
 - ptr
@@ -280,30 +351,77 @@ TLS enabled Socket version powered by OpenSSL.
 
 #### Fields
 
-- **host** &#8674; _string_: This property holds the host bound, to be bound to or connected to by the current socket.
+- **host** &#8674; _string_:
+
+  This property holds the host bound, to be bound to or connected to by the current socket.
 Whenever a host is not given, the host will default to localhost.
-- **port** &#8674; _number_: The port currently bound or connected to by the socket.
-- **family** &#8674; _number_: The socket family (which must be one of the `AF_` variables).
+
+- **port** &#8674; _number_:
+
+  The port currently bound or connected to by the socket.
+
+- **family** &#8674; _number_:
+
+  The socket family (which must be one of the `AF_` variables).
 The default family for the socket is AF_INET.
-- **type** &#8674; _number_: The type of socket stream used by the socket.
+
+- **type** &#8674; _number_:
+
+  The type of socket stream used by the socket.
 The default socket type is `SOCK_STREAM`.
-- **protocol** &#8674; _number_: The current operating protocol of the socket that controls the 
+
+- **protocol** &#8674; _number_:
+
+  The current operating protocol of the socket that controls the 
 underlying behavior of the socket. The default is `IPPROTO_TCP`.
-- **id** &#8674; _number_: The file descriptor id of the current socket on the host machine.
-- **is\_client** &#8674; _bool_: `true` when the socket is a client to a server socket, `false` otherwise.
-- **is\_bound** &#8674; _bool_: `true` when the socket is bound to a given port on the device, `false` 
+
+- **id** &#8674; _number_:
+
+  The file descriptor id of the current socket on the host machine.
+
+- **is\_client** &#8674; _bool_:
+
+  `true` when the socket is a client to a server socket, `false` otherwise.
+
+- **is\_bound** &#8674; _bool_:
+
+  `true` when the socket is bound to a given port on the device, `false` 
 otherwise.
-- **is\_connected** &#8674; _bool_: `true` when the socket is connected to a server socket, `false` otherwise.
-- **is\_listening** &#8674; _bool_: `true` when the socket is currently listening on a host device port as a 
+
+- **is\_connected** &#8674; _bool_:
+
+  `true` when the socket is connected to a server socket, `false` otherwise.
+
+- **is\_listening** &#8674; _bool_:
+
+  `true` when the socket is currently listening on a host device port as a 
 server, `false` otherwise.
-- **is\_closed** &#8674; _bool_: `true` when the socket is closed, `false` otherwise.
-- **is\_shutdown** &#8674; _bool_: `true` when the socket is shutdown, `false` otherwise.
-- **is\_blocking** &#8674; _bool_: `true` when the socket is running in a blocking mode, `false` otherwise.
-- **shutdown\_reason** &#8674; _number_: The property holds the reason for which the last `shutdown` operation 
+
+- **is\_closed** &#8674; _bool_:
+
+  `true` when the socket is closed, `false` otherwise.
+
+- **is\_shutdown** &#8674; _bool_:
+
+  `true` when the socket is shutdown, `false` otherwise.
+
+- **is\_blocking** &#8674; _bool_:
+
+  `true` when the socket is running in a blocking mode, `false` otherwise.
+
+- **shutdown\_reason** &#8674; _number_:
+
+  The property holds the reason for which the last `shutdown` operation 
 was called or `-1` if `shutdown` was never requested.
-- **send\_timeout** &#8674; _number_: The amount of time in milliseconds that the socket waits before it 
+
+- **send\_timeout** &#8674; _number_:
+
+  The amount of time in milliseconds that the socket waits before it 
 terminates a `send` operation. This is equal to the `SO_SNDTIMEO`.
-- **receive\_timeout** &#8674; _number_: The amount of time in milliseconds that the socket waits before it 
+
+- **receive\_timeout** &#8674; _number_:
+
+  The amount of time in milliseconds that the socket waits before it 
 terminates a `receive` operation. This is equal to the `SO_RCVTIMEO`.
 
 #### Methods
@@ -311,17 +429,19 @@ terminates a `receive` operation. This is equal to the `SO_RCVTIMEO`.
 #### TLSSocket(socket, context, ssl) &#8674; Constructor
 
 
+
 ##### Parameters
 
-- _{Socket}_ **socket**
-- _{SSLContext?}_ **context**
-- _{SSL?}_ **ssl**
+- _Socket_ **socket**
+- _SSLContext?_ **context**
+- _SSL?_ **ssl**
 
 
 #### connect(host, port, timeout)
 
 Initiates a connection to the given host on the specified port. If host is `nil`, it will 
 connect on to the current hostn specified on the socket.
+
 ##### Parameters
 
 - _string_ **host**
@@ -336,6 +456,7 @@ connect on to the current hostn specified on the socket.
 
 Binds this socket to the given port on the given host. If host is `nil` or not specified, it will connect 
 on to the current hostn specified on the socket.
+
 ##### Parameters
 
 - _int_ **port**
@@ -349,9 +470,10 @@ on to the current hostn specified on the socket.
 
 Sends the specified message to the socket. When this methods accepts a file as a message, 
 the file is read and the resultant bytes of the file content is streamed to the socket.
+
 ##### Parameters
 
-- _{string|bytes|file}_ **message**
+- _string|bytes|file_ **message**
 - _int?_ **flags**
 
 ##### Returns
@@ -368,6 +490,7 @@ Receives bytes of the given length from the socket. If the length is not given, 
 If no data is available for read on the socket, the socket will wait to receive data or until the 
 `receive_timeout` which is also equal to the `SO_RCVTIMEO` setting of the socket has elapsed before or 
 until it has received the total number of bytes required (whichever comes first).
+
 ##### Parameters
 
 - _int?_ **length**
@@ -388,6 +511,7 @@ Reads bytes of the given length from the socket. If the length is not given, it 
 > This method differs from `receive()` in that it does not check for a socket having data to 
 > read or not and will block until data of _length_ have been read or no more data is available for 
 > reading.
+
 ##### Parameters
 
 - _int?_ **length**: : Default value is 1024.
@@ -411,6 +535,7 @@ so that retries may succeed.
 
 When the `queue_length` is ommited or set to -1, the method will use the default queue limit of 
 the current platform which is usually equal to `SOMAXCONN`.
+
 ##### Parameters
 
 - _int?_ **queue_length**: : Default value is `SOMAXCONN`.
@@ -433,6 +558,7 @@ the caller until a connection is present.  If the socket is marked non-blocking 
 are present on the queue, accept() returns an error as described below.  
 
 The accepted socket may not be used to accept more connections.  The original socket remains open.
+
 ##### Returns
 
 - TLSSocket
@@ -440,6 +566,7 @@ The accepted socket may not be used to accept more connections.  The original so
 #### close()
 
 Closes the socket.
+
 ##### Returns
 
 - bool
@@ -448,6 +575,7 @@ Closes the socket.
 
 The shutdown() call causes all or part of a full-duplex connection on the socket associated with 
 socket to be shut down.
+
 ##### Returns
 
 - bool
@@ -455,6 +583,7 @@ socket to be shut down.
 #### set\_option(option, value)
 
 Sets the options of the current socket.
+
 ##### Parameters
 
 - _int_ **option**
@@ -470,6 +599,7 @@ Sets the options of the current socket.
 #### get\_option(option)
 
 Gets the options set on the current socket.
+
 ##### Parameters
 
 - _int_ **option**
@@ -482,6 +612,7 @@ Gets the options set on the current socket.
 
 Sets if the socket should operate in blocking or non-blocking mode. `true` for blocking 
 (default) and `false` for non-blocking.
+
 ##### Parameters
 
 - _bool_ **mode**
@@ -494,6 +625,7 @@ Sets if the socket should operate in blocking or non-blocking mode. `true` for b
 
 Returns a dictionary containing the address, port and family of the current socket or an 
 empty dictionary if the socket information could not be retrieved.
+
 ##### Returns
 
 - dictionary
@@ -501,30 +633,34 @@ empty dictionary if the socket information could not be retrieved.
 #### get\_socket()
 
 Returns the underlying Socket instance.
+
 ##### Returns
 
-- {Socket}
+- Socket
 
 #### get\_context()
 
 Returns the underlying SSLContext instance.
+
 ##### Returns
 
-- {SSLContext}
+- SSLContext
 
 #### get\_ssl()
 
 Returns the underlying SSL instance
+
 ##### Returns
 
-- {SSL}
+- SSL
 
 #### set\_context(context)
 
 Sets the underlying SSL context to use.
+
 ##### Parameters
 
-- _{SSLContext}_ **context**
+- _SSLContext_ **context**
 
 
 
@@ -540,16 +676,25 @@ TLS server
 
 #### Fields
 
-- **cert\_file** &#8674; _string_: The SSL/TLS ceritificate file that will be used be used by a secured server for 
+- **cert\_file** &#8674; _string_:
+
+  The SSL/TLS ceritificate file that will be used be used by a secured server for 
 serving requests.
-- **private\_key\_file** &#8674; _string_: The SSL/TLS private key file that will be used be used by a secured server for 
+
+- **private\_key\_file** &#8674; _string_:
+
+  The SSL/TLS private key file that will be used be used by a secured server for 
 serving requests.
-- **verify\_certs** &#8674; _boolean_: This value controls whether the client certificate should be verified 
+
+- **verify\_certs** &#8674; _boolean_:
+
+  This value controls whether the client certificate should be verified 
 or not.
 
 #### Methods
 
 #### TLSServer(port, host) &#8674; Constructor
+
 
 
 ##### Parameters
@@ -561,10 +706,11 @@ or not.
 #### load\_certs(cert_file, private_key_file)
 
 Loads the given SSL/TLS certificate pairs for the given SSL/TLS context.
+
 ##### Parameters
 
-- _{string|file}_ **cert_file**
-- _{string|file|nil}_ **private_key_file**
+- _string|file_ **cert_file**
+- _string|file|nil_ **private_key_file**
 
 ##### Returns
 
@@ -586,6 +732,7 @@ SSL Binary Input/Output implementation
 #### BIO(method) &#8674; Constructor
 
 @param ptr method
+
 ##### Notes
 
 - Method must be a valid SSL BIO_ method
@@ -593,9 +740,10 @@ SSL Binary Input/Output implementation
 #### set\_ssl(ssl, option)
 
 Sets the working SSL instance for this BIO.
+
 ##### Parameters
 
-- _{SSL}_ **ssl**
+- _SSL_ **ssl**
 - _int?_ **option**: : Default value is `BIO_NOCLOSE`
 
 ##### Notes
@@ -605,6 +753,7 @@ Sets the working SSL instance for this BIO.
 #### set\_conn\_hostname(name)
 
 Sets the hostname for the current connected BIO socket.
+
 ##### Parameters
 
 - _string_ **name**
@@ -613,6 +762,7 @@ Sets the hostname for the current connected BIO socket.
 #### set\_accept\_tname(name)
 
 Sets the address name for the current accepted BIO socket.
+
 ##### Parameters
 
 - _string_ **name**
@@ -621,6 +771,7 @@ Sets the address name for the current accepted BIO socket.
 #### set\_conn\_address(address)
 
 Sets the address for the current connected BIO socket.
+
 ##### Parameters
 
 - _string_ **address**
@@ -629,22 +780,25 @@ Sets the address for the current connected BIO socket.
 #### set\_conn\_port(port)
 
 Sets the port for the current connected BIO socket.
+
 ##### Parameters
 
-- _{int|string}_ **port**
+- _int|string_ **port**
 
 
 #### set\_accept\_port(port)
 
 Sets the port for the current accepted BIO socket.
+
 ##### Parameters
 
-- _{int|string}_ **port**
+- _int|string_ **port**
 
 
 #### set\_conn\_family(family)
 
 Sets the socket family for the current connected BIO socket.
+
 ##### Parameters
 
 - _int_ **family**
@@ -653,6 +807,7 @@ Sets the socket family for the current connected BIO socket.
 #### set\_accept\_family(family)
 
 Sets the socket family for the current accepted BIO socket.
+
 ##### Parameters
 
 - _int_ **family**
@@ -661,6 +816,7 @@ Sets the socket family for the current accepted BIO socket.
 #### get\_conn\_hostname()
 
 Returns the hostname for the current connected BIO socket.
+
 ##### Returns
 
 - string
@@ -668,6 +824,7 @@ Returns the hostname for the current connected BIO socket.
 #### get\_accept\_name()
 
 Returns the hostname for the current accepted BIO socket.
+
 ##### Returns
 
 - string
@@ -675,6 +832,7 @@ Returns the hostname for the current accepted BIO socket.
 #### get\_conn\_address()
 
 Returns the address for the current connected BIO socket.
+
 ##### Returns
 
 - string
@@ -682,6 +840,7 @@ Returns the address for the current connected BIO socket.
 #### get\_conn\_port()
 
 Returns the port for the current connected BIO socket.
+
 ##### Returns
 
 - string
@@ -689,6 +848,7 @@ Returns the port for the current connected BIO socket.
 #### get\_accept\_port()
 
 Returns the port for the current accepted BIO socket.
+
 ##### Returns
 
 - string
@@ -696,6 +856,7 @@ Returns the port for the current accepted BIO socket.
 #### get\_conn\_family()
 
 Returns the family for the current connected BIO socket.
+
 ##### Returns
 
 - int
@@ -703,6 +864,7 @@ Returns the family for the current connected BIO socket.
 #### get\_accept\_family()
 
 Returns the family for the current accepted BIO socket.
+
 ##### Returns
 
 - int
@@ -711,6 +873,7 @@ Returns the family for the current accepted BIO socket.
 
 Returns the current socket file descriptor.
 It returns `-1` on failure or a positive integer on success.
+
 ##### Returns
 
 - number
@@ -718,6 +881,7 @@ It returns `-1` on failure or a positive integer on success.
 #### set\_fd(fd, opt)
 
 Sets the socket file descriptor for this BIO
+
 ##### Parameters
 
 - _int_ **fd**
@@ -728,6 +892,7 @@ Sets the socket file descriptor for this BIO
 
 Converts the BIO into a non-blocking I/O stream if b is `true`, otherwise 
 converts it into a blocking stream.
+
 ##### Parameters
 
 - _bool?_ **is_blocking**: : Default value is `true`.
@@ -738,9 +903,10 @@ converts it into a blocking stream.
 It appends bio, which may be a single BIO or a chain of BIOs, 
 to the current BIO stack (unless the current pinter is `nil`). 
 It then makes a control call on BIO _bio_ and returns it.
+
 ##### Parameters
 
-- _{BIO}_ **bio**
+- _BIO_ **bio**
 
 ##### Returns
 
@@ -750,12 +916,14 @@ It then makes a control call on BIO _bio_ and returns it.
 
 Removes this BIO from any chain is is part of
 
+
 #### write(data)
 
 Writes data to the current I/O stream and returns the total bytes written.
+
 ##### Parameters
 
-- _{string|bytes}_ **data**
+- _string|bytes_ **data**
 
 ##### Returns
 
@@ -764,6 +932,7 @@ Writes data to the current I/O stream and returns the total bytes written.
 #### read(length)
 
 Reads data off the I/O and returns it.
+
 ##### Parameters
 
 - _int?_ **length**: : Default value is `1024`
@@ -776,6 +945,7 @@ Reads data off the I/O and returns it.
 
 Returns `true` if this BIO needs to retry its last operation. 
 `false` otherwise.
+
 ##### Returns
 
 - bool
@@ -783,6 +953,7 @@ Returns `true` if this BIO needs to retry its last operation.
 #### do\_connect()
 
 Attempts to establish a connection to the host.
+
 ##### Returns
 
 - int
@@ -790,6 +961,7 @@ Attempts to establish a connection to the host.
 #### do\_accept()
 
 Attempts to accept the connected socket.
+
 ##### Returns
 
 - int
@@ -797,6 +969,7 @@ Attempts to accept the connected socket.
 #### error(code)
 
 Returns the last SSL error number.
+
 ##### Parameters
 
 - _int?_ **code**
@@ -808,6 +981,7 @@ Returns the last SSL error number.
 #### error\_string()
 
 Returns the last SSL error as string.
+
 ##### Returns
 
 - string
@@ -816,9 +990,11 @@ Returns the last SSL error as string.
 
 Frees this BIO and all associated resources.
 
+
 #### get\_pointer()
 
 Returns the raw OpenSSl BIO pointer.
+
 ##### Returns
 
 - ptr
@@ -865,6 +1041,7 @@ SSL context representation class
 #### SSLContext(method) &#8674; Constructor
 
 
+
 ##### Parameters
 
 - _ptr_ **method**
@@ -876,6 +1053,7 @@ SSL context representation class
 #### set\_verify(mode, disable)
 
 Enables or disables the verification flags for the given mode on the context.
+
 ##### Parameters
 
 - _int_ **mode**
@@ -889,6 +1067,7 @@ Enables or disables the verification flags for the given mode on the context.
 #### set\_verify\_locations(locations)
 
 Sets the default locations for trusted CA certificates.
+
 ##### Parameters
 
 - _string_ **locations**
@@ -897,10 +1076,11 @@ Sets the default locations for trusted CA certificates.
 #### load\_certs(cert_file, private_key_file)
 
 Loads the given SSL/TLS certificate pairs for the given SSL/TLS context.
+
 ##### Parameters
 
-- _{string|file}_ **cert_file**
-- _{string|file}_ **private_key_file**
+- _string|file_ **cert_file**
+- _string|file_ **private_key_file**
 
 ##### Returns
 
@@ -909,6 +1089,7 @@ Loads the given SSL/TLS certificate pairs for the given SSL/TLS context.
 #### set\_ciphers(ciphers)
 
 Sets the list of allowed ciphers. This list must be colon (:) separated.
+
 ##### Parameters
 
 - _string_ **ciphers**
@@ -921,9 +1102,11 @@ Sets the list of allowed ciphers. This list must be colon (:) separated.
 
 Frees this Context and all associated resources
 
+
 #### get\_pointer()
 
 Returns the raw OpenSSl SSL_CTX pointer.
+
 ##### Returns
 
 - ptr

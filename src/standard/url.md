@@ -46,6 +46,7 @@ if strict mode is enabled, space character is encoded with the
 percent (%) sign in order to conform with RFC 3986. Otherwise,
 is is encoded with the plus (+) sign in order to align with
 the default encoding used by modern browsers.
+
 ##### Parameters
 
 - _string_ **url**
@@ -61,6 +62,7 @@ the default encoding used by modern browsers.
 
 Decodes URL-encoded string. This function decodes any %## encoding in the given
 string and plus symbols ('+') to a space character.
+
 ##### Parameters
 
 - _string_ **url**
@@ -76,6 +78,7 @@ string and plus symbols ('+') to a space character.
 Parses given url string into a Url object. If the strict argument is 
 set to `true`, the parser will raise an Exception when it encounters 
 a malformed url.
+
 ##### Parameters
 
 - _string_ **url**
@@ -113,30 +116,60 @@ The Url class provides functionalities for parsing and processing URLs.
 
 #### Fields
 
-- **scheme**: The url scheme e.g. http, https, ftp, tcp etc.
-- **host**: The host information contained in the url
-- **port**: The port information contained in the url whenever the url doesn't 
+- **scheme**:
+
+  The url scheme e.g. http, https, ftp, tcp etc.
+
+- **host**:
+
+  The host information contained in the url
+
+- **port**:
+
+  The port information contained in the url whenever the url doesn't 
 indicate, we try to make a best guess based on the scheme.
-- **path**: The path of the URL.
+
+- **path**:
+
+  The path of the URL.
 @default /
-- **hash**: Hash information contained in the url and it's beginning is indicated by the 
+
+- **hash**:
+
+  Hash information contained in the url and it's beginning is indicated by the 
 hash (#) sign. This value is especially relevant to some http/https urls 
 and are usually references to the content of the document 
 at the given url
-- **query**: Query/Search information contained in the url and it's beginning is indicated by the 
+
+- **query**:
+
+  Query/Search information contained in the url and it's beginning is indicated by the 
 question (?) sign. This value is especially relevant to some http/https urls and are 
 usually used to convey data to endpoint based on the GET method.
-- **username**: Username information for authentication are sometimes embeded in urls. When such information 
+
+- **username**:
+
+  Username information for authentication are sometimes embeded in urls. When such information 
 exist, this property holds the information
-- **password**: Password information for authentication are sometimes embeded in urls. When such information 
+
+- **password**:
+
+  Password information for authentication are sometimes embeded in urls. When such information 
 exist, this property holds the information
-- **has\_slash**: `true` if the url contains the :// section. `false` otherwise.
-- **empty\_path** &#8674; _bool_: `true` if the original url contains a path segement even if its just an `/` and false if the 
+
+- **has\_slash**:
+
+  `true` if the url contains the :// section. `false` otherwise.
+
+- **empty\_path** &#8674; _bool_:
+
+  `true` if the original url contains a path segement even if its just an `/` and false if the 
 path value of `/` was implied.
 
 #### Methods
 
 #### Url(scheme, host, port, path, query, hash, username, password, has_slash, empty_path) &#8674; Constructor
+
 
 
 ##### Parameters
@@ -160,6 +193,7 @@ Returns the url authority.
 The authority component is preceded by a double slash ("//") and is
 terminated by the next slash ("/"), question mark ("?"), or number
 sign ("#") character, or by the end of the URI.
+
 ##### Returns
 
 - string
@@ -171,6 +205,7 @@ sign ("#") character, or by the end of the URI.
 
 Returns true if the host of the url is a valid ipv4 address
 and false otherwise.
+
 ##### Returns
 
 - bool
@@ -179,6 +214,7 @@ and false otherwise.
 
 Returns true if the host of the url is a valid ipv6 address
 and false otherwise.
+
 ##### Returns
 
 - bool
@@ -186,6 +222,7 @@ and false otherwise.
 #### absolute\_url()
 
 Returns absolute url string of the url object.
+
 ##### Returns
 
 - string
@@ -195,6 +232,7 @@ Returns absolute url string of the url object.
 Returns a string representation of the url object. This will 
 only be the same as the absolute url if the original string is 
 an absolute url.
+
 ##### Returns
 
 - string
