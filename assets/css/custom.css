@@ -16,6 +16,7 @@ div {
 .content h4 ~ p {
   padding-left: 1rem;
   margin-top: .5rem;
+  margin-bottom: .5rem;
 }
 
 .content h4 ~ pre, 
@@ -35,11 +36,13 @@ div {
 .content h5 {
   font-size: 1rem;
   margin-bottom: 0;
-  margin-top: 1rem;
+  margin-top: .5rem;
 }
 
-.content h5 ~ ul {
-  margin: 0.5rem 0 0.5rem 2rem;
+.content h5 + ul {
+  margin: 0.25rem 0.5rem 0.25rem 2rem;
+  font-size: .95rem;
+  margin-left: 4rem;
 }
 
 .content ul li p:first-child {
@@ -48,6 +51,15 @@ div {
 
 .content ul li p:last-child {
   margin-bottom: 0;
+}
+
+.content h5 + ul > li {
+  line-height: 1.5rem;
+}
+
+.content p ~ h5 {
+  font-size: .9rem;
+  margin-left: 3rem;
 }
 
 /* .content p ~ p {
