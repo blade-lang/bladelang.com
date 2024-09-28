@@ -242,10 +242,6 @@
       "/standard/zlib": {
         "source": "/standard/zlib", 
         "title": "zlib"
-      }, 
-      "/standard/array": {
-        "source": "/standard/array", 
-        "title": "array"
       }
     }
   }, 
