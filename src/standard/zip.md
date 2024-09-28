@@ -72,7 +72,7 @@ ZipItem represents a single file or directory in a zip archive.
 - **compression\_method** &#8674; _string_: The compression method for this file
 - **crc** &#8674; _string_: The crc32 checksum for the file
 - **last\_modified** &#8674; _Date_: The last modified date for the file
-- **compressed\_size** &#8674; _number_: The size of the file as compressed in the archive. You should note
+- **compressed\_size** &#8674; _number_: The size of the file as compressed in the archive. You should note 
 that this value is not often dependable
 - **uncompressed\_size** &#8674; _number_: The size of the file when extracted from the archive
 - **is\_encrypted** &#8674; _bool_: If this file is encrypted or not.

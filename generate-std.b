@@ -44,7 +44,7 @@ class ParsedClass {
 
 def cite(str) {
   var indenting = []
-  return '\n'.join(str.trim().split('\n').map(@(line) {
+  return '\n'.join(str.trim().split('/\n/', false).map(@(line) {
     var has_indent_level = line.trim().match('/^>{3,}/')
     var has_outdent_level = line.trim().match('/^<{3,}/')
     if has_indent_level {
@@ -81,7 +81,7 @@ def get_class_docs(module, klass) {
   # skip classes marked as internal in the documentation.
   if is_internal return ''
 
-  var doc = klass.doc.replace('/^@(printable|serializable|internal|iterable).*\\n?/m', '')
+  var doc = klass.doc.replace('/^@(printable|serializable|internal|iterable|number).*\\n?/m', '')
 
   result += '${doc}\n\n'
 

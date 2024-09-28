@@ -5,7 +5,7 @@ hashes as well as functions for getting informations from a bcrypt hash.
 ## Properties
 
 - **DEFAULT\_LOG2\_ROUNDS** &#8674; _number_: Default log2 rounds (default: 10).
-- **MAX\_EXECUTION\_TIME** &#8674; _number_: Maximum execution time for each cipher iteration in
+- **MAX\_EXECUTION\_TIME** &#8674; _number_: Maximum execution time for each cipher iteration in 
 milliseconds (default: 100).
 
 ## Functions

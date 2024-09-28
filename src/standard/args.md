@@ -69,7 +69,7 @@ Usage: myprogram call
 - **NONE**: value type none
 - **INT**: value type integer (allows numbers, but floors them to integers)
 - **NUMBER**: value type number
-- **BOOL**: value type boolean (accepts `1` and `0` as well as `true`
+- **BOOL**: value type boolean (accepts `1` and `0` as well as `true` 
 and `false` as valid values).
 - **STRING**: value type string
 - **LIST**: value type for list

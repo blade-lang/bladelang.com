@@ -5,7 +5,7 @@ of commonly used scientific and mathematical constants such as `PI`.
 
 ## Properties
 
-- **PI**: represents the ratio of the circumference of a circle
+- **PI**: represents the ratio of the circumference of a circle 
 to its diameter
 - **E**: represents Euler's number, the base of natural logarithms
 - **LOG\_10**: represents the natural logarithm of 10

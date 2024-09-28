@@ -100,142 +100,142 @@ cURL request and response informations for `get_info()`
 
 #### Fields
 
-- **EFFECTIVE\_URL** &#8674; _static_: Gets the last used effective URL. If follow redirects is enabled,
+- **EFFECTIVE\_URL** &#8674; _static_: Gets the last used effective URL. If follow redirects is enabled, 
 it may very well not be the same value you set in the original request.
-- **RESPONSE\_CODE** &#8674; _static_: The last received HTTP, FTP or SMTP response code. The value will be
+- **RESPONSE\_CODE** &#8674; _static_: The last received HTTP, FTP or SMTP response code. The value will be 
 zero if no server response code has been received.
-- **TOTAL\_TIME** &#8674; _static_: The total time in seconds for the previous transfer, including name resolving,
+- **TOTAL\_TIME** &#8674; _static_: The total time in seconds for the previous transfer, including name resolving, 
 TCP connect etc. The value represents the time in seconds, including fractions.
 - **NAMELOOKUP\_TIME** &#8674; _static_: The total time in seconds from the start until the name resolving was completed.
-- **CONNECT\_TIME** &#8674; _static_: The total time in seconds from the start until the connection to the remote host
+- **CONNECT\_TIME** &#8674; _static_: The total time in seconds from the start until the connection to the remote host 
 (or proxy) was completed.
-- **PRETRANSFER\_TIME** &#8674; _static_: The time, in seconds, it took from the start until a file transfer is just about
+- **PRETRANSFER\_TIME** &#8674; _static_: The time, in seconds, it took from the start until a file transfer is just about 
 to begin.
 
-This time-stamp includes all pre-transfer commands and negotiations that are
-specific to the particular protocol(s) involved. It includes the sending of the
+This time-stamp includes all pre-transfer commands and negotiations that are 
+specific to the particular protocol(s) involved. It includes the sending of the 
 protocol- specific protocol instructions that triggers a transfer.
 - **SIZE\_UPLOAD** &#8674; _static_: The total amount of bytes that were uploaded.
-- **SIZE\_DOWNLOAD** &#8674; _static_: The total amount of bytes that were  downloaded.  The amount is only for the
-latest transfer and will be reset again for each new transfer. This counts actual
-payload data, what's also commonly called body. All meta and header data are
+- **SIZE\_DOWNLOAD** &#8674; _static_: The total amount of bytes that were  downloaded.  The amount is only for the 
+latest transfer and will be reset again for each new transfer. This counts actual 
+payload data, what's also commonly called body. All meta and header data are 
 excluded and will not be counted in this number.
-- **SPEED\_DOWNLOAD** &#8674; _static_: The average download speed that curl measured for the complete download. Measured
+- **SPEED\_DOWNLOAD** &#8674; _static_: The average download speed that curl measured for the complete download. Measured 
 in bytes/second.
-- **SPEED\_UPLOAD** &#8674; _static_: The average upload speed that curl measured for the complete upload. Measured
+- **SPEED\_UPLOAD** &#8674; _static_: The average upload speed that curl measured for the complete upload. Measured 
 in bytes/second.
 - **HEADER\_SIZE** &#8674; _static_: The total size of all the headers received. Measured in number of bytes.
 - **REQUEST\_SIZE** &#8674; _static_: The total size of the issued requests. This is so far only for HTTP requests.
-- **SSL\_VERIFYRESULT** &#8674; _static_: The result of the server SSL certificate verification that was requested (using
+- **SSL\_VERIFYRESULT** &#8674; _static_: The result of the server SSL certificate verification that was requested (using 
 the `Options.SSL_VERIFYPEER` option).
-- **FILETIME** &#8674; _static_: The remote time of the retrieved document (in number of seconds since 1 jan 1970
-in the GMT/UTC time zone). If you get -1, it can be because of many reasons (it might
-be unknown, the server might hide it or the server doesn't support the command that
+- **FILETIME** &#8674; _static_: The remote time of the retrieved document (in number of seconds since 1 jan 1970 
+in the GMT/UTC time zone). If you get -1, it can be because of many reasons (it might 
+be unknown, the server might hide it or the server doesn't support the command that 
 tells document time etc) and the time of the document is unknown.
 
-You _MUST_ to collect this information before the transfer is made, by using the
+You _MUST_ to collect this information before the transfer is made, by using the 
 `Options.FILETIME` option to `set_option()` or you will unconditionally get a -1 back.
-- **CONTENT\_LENGTH\_DOWNLOAD** &#8674; _static_: The content-length of the download. This is the value read from the `Content-Length:`
+- **CONTENT\_LENGTH\_DOWNLOAD** &#8674; _static_: The content-length of the download. This is the value read from the `Content-Length:` 
 field. It is -1 if the size isn't known.
 - **CONTENT\_LENGTH\_UPLOAD** &#8674; _static_: The content-length of the upload. It is -1 if the size isn't known.
-- **STARTTRANSFER\_TIME** &#8674; _static_: The time, in seconds, it took from the start until the first byte is received by
-`curl`. This includes `PRETRANSFER_TIME` and also the time the server needs to
+- **STARTTRANSFER\_TIME** &#8674; _static_: The time, in seconds, it took from the start until the first byte is received by 
+`curl`. This includes `PRETRANSFER_TIME` and also the time the server needs to 
 calculate the result.
-- **CONTENT\_TYPE** &#8674; _static_: The content-type of the downloaded object. This is the value read from the
-`Content-Type:` field. If you get `nil`, it means that the server didn't send a
+- **CONTENT\_TYPE** &#8674; _static_: The content-type of the downloaded object. This is the value read from the 
+`Content-Type:` field. If you get `nil`, it means that the server didn't send a 
 valid Content-Type header or that the protocol used doesn't support this.
-- **REDIRECT\_TIME** &#8674; _static_: The total time, in seconds, it took for all redirection steps include name lookup,
+- **REDIRECT\_TIME** &#8674; _static_: The total time, in seconds, it took for all redirection steps include name lookup, 
 connect, pretransfer and transfer before final transaction was started.
 - **REDIRECT\_COUNT** &#8674; _static_: The total number of redirections that were actually followed.
-- **HTTP\_CONNECTCODE** &#8674; _static_: The last received HTTP proxy response code to a CONNECT request. The returned value
+- **HTTP\_CONNECTCODE** &#8674; _static_: The last received HTTP proxy response code to a CONNECT request. The returned value 
 will be zero if no such response code was available.
-- **HTTPAUTH\_AVAIL** &#8674; _static_: A bitmask indicating the authentication method(s) available according to the
+- **HTTPAUTH\_AVAIL** &#8674; _static_: A bitmask indicating the authentication method(s) available according to the 
 previous response.
-- **PROXYAUTH\_AVAIL** &#8674; _static_: A bitmask indicating the authentication method(s) available according to the
+- **PROXYAUTH\_AVAIL** &#8674; _static_: A bitmask indicating the authentication method(s) available according to the 
 previous response.
-- **OS\_ERRNO** &#8674; _static_: The errno variable from a connect failure.  Note that the value is only set on
-failure, it is not reset upon a successful operation. The number is OS and system
+- **OS\_ERRNO** &#8674; _static_: The errno variable from a connect failure.  Note that the value is only set on 
+failure, it is not reset upon a successful operation. The number is OS and system 
 specific.
-- **NUM\_CONNECTS** &#8674; _static_: How many new connections `curl` had to create to achieve the previous transfer
-(only the successful connects are counted). Combined with `REDIRECT_COUNT` you are
+- **NUM\_CONNECTS** &#8674; _static_: How many new connections `curl` had to create to achieve the previous transfer 
+(only the successful connects are counted). Combined with `REDIRECT_COUNT` you are 
 able to know how many times `curl` successfully reused existing connection(s) or not.
-- **COOKIELIST** &#8674; _static_: A list of all cookies curl knows (expired ones, too). If there are no cookies, an
+- **COOKIELIST** &#8674; _static_: A list of all cookies curl knows (expired ones, too). If there are no cookies, an 
 empty list is returned.
 
 
-> Cookies that were imported in the Set-Cookie format without a domain name may not
+> Cookies that were imported in the Set-Cookie format without a domain name may not 
 > exported by this option.
-- **FTP\_ENTRY\_PATH** &#8674; _static_: A string holding the path of the entry path. That is the initial path `curl` ended up
+- **FTP\_ENTRY\_PATH** &#8674; _static_: A string holding the path of the entry path. That is the initial path `curl` ended up 
 in when logging on to the remote FTP server. This value is `nil` if something is wrong.
-- **REDIRECT\_URL** &#8674; _static_: The URL a redirect would take you to if you would enable `FOLLOWLOCATION`. This can
+- **REDIRECT\_URL** &#8674; _static_: The URL a redirect would take you to if you would enable `FOLLOWLOCATION`. This can 
 come very handy if you think using the built-in `curl` redirect logic isn't good
-enough for you but you would still prefer to avoid implementing all the magic of
+enough for you but you would still prefer to avoid implementing all the magic of 
 figuring out the new URL.
-- **PRIMARY\_IP** &#8674; _static_: A string holding the IP address of the most recent connection done with this `curl`
+- **PRIMARY\_IP** &#8674; _static_: A string holding the IP address of the most recent connection done with this `curl` 
 handle.
-- **APPCONNECT\_TIME** &#8674; _static_: The time, in seconds, it took from the start until the SSL/SSH connect/handshake to
-the remote host was completed.  This time is most often very near to the
+- **APPCONNECT\_TIME** &#8674; _static_: The time, in seconds, it took from the start until the SSL/SSH connect/handshake to 
+the remote host was completed.  This time is most often very near to the 
 `PRETRANSFER_TIME` time, except for cases such as HTTP pipelining where the pretransfer
 time can be delayed due to waits in line for the pipeline and more.
-- **CERTINFO** &#8674; _static_: Lists with info about the certificate chain, assuming you had `Options.CERTINFO`
-enabled when the request was made. Information in each entry of the list is provided
-in a series of data in the format "name:content" where the content is for the specific
+- **CERTINFO** &#8674; _static_: Lists with info about the certificate chain, assuming you had `Options.CERTINFO` 
+enabled when the request was made. Information in each entry of the list is provided 
+in a series of data in the format "name:content" where the content is for the specific 
 named data.
-- **CONDITION\_UNMET** &#8674; _static_: The number `1` if the condition provided in the previous request didn't match
-(see `Options.TIMECONDITION`). Alas, if this returns a `1` you know that the
-reason you didn't get data in return is because it didn't fulfill the condition.
-This value will be zero if the condition was met. This can also return `1` if the
-server responded with a 304 HTTP status code, for example after sending a custom
+- **CONDITION\_UNMET** &#8674; _static_: The number `1` if the condition provided in the previous request didn't match 
+(see `Options.TIMECONDITION`). Alas, if this returns a `1` you know that the 
+reason you didn't get data in return is because it didn't fulfill the condition. 
+This value will be zero if the condition was met. This can also return `1` if the 
+server responded with a 304 HTTP status code, for example after sending a custom 
 "If-Match-" header.
  @static
 - **RTSP\_SESSION\_ID** &#8674; _static_: A string holding the most recent RTSP Session ID.
 
 
-> Applications wishing to resume an RTSP session on another connection should
+> Applications wishing to resume an RTSP session on another connection should 
 > retrieve this info before closing the active connection.
 - **RTSP\_CLIENT\_CSEQ** &#8674; _static_: The next CSeq that will be used by the application.
 - **RTSP\_SERVER\_CSEQ** &#8674; _static_: The next CSeq that is expected by the application.
 
 
-> Applications wishing to resume an RTSP session on another connection should retrieve
+> Applications wishing to resume an RTSP session on another connection should retrieve 
 > this info before closing the active connection.
 - **RTSP\_CSEQ\_RECV** &#8674; _static_: The most recently received CSeq from the server.
 - **PRIMARY\_PORT** &#8674; _static_: The destination port of the most recent connection done with the `curl` instance.
-- **LOCAL\_IP** &#8674; _static_: A string holding the IP address of the local end of most recent connection done
+- **LOCAL\_IP** &#8674; _static_: A string holding the IP address of the local end of most recent connection done 
 with the `curl` instance.
 - **LOCAL\_PORT** &#8674; _static_: The local port number of the most recent connection done with the `curl` instance.
 - **HTTP\_VERSION** &#8674; _static_: The HTTP version used in the last http connection.
-- **PROXY\_SSL\_VERIFYRESULT** &#8674; _static_: The result of the certificate verification that was requested (using the
+- **PROXY\_SSL\_VERIFYRESULT** &#8674; _static_: The result of the certificate verification that was requested (using the 
 `Options.PROXY_SSL_VERIFYPEER` option.
 - **PROTOCOL** &#8674; _static_: The protocol used in the last request.
-- **SCHEME** &#8674; _static_: A string holding the URL scheme used for the most recent connection done with
+- **SCHEME** &#8674; _static_: A string holding the URL scheme used for the most recent connection done with 
 this `curl` instance.
-- **TOTAL\_TIME\_T** &#8674; _static_: The total time in microseconds for the previous transfer, including name resolving,
+- **TOTAL\_TIME\_T** &#8674; _static_: The total time in microseconds for the previous transfer, including name resolving, 
 TCP connect etc.
 - **NAMELOOKUP\_TIME\_T** &#8674; _static_: The total time in microseconds from the start until the name resolving was completed.
-- **CONNECT\_TIME\_T** &#8674; _static_: The total time in microseconds from the start until the connection to the remote
+- **CONNECT\_TIME\_T** &#8674; _static_: The total time in microseconds from the start until the connection to the remote 
 host (or proxy) was completed.
-- **PRETRANSFER\_TIME\_T** &#8674; _static_: The total time in microseconds from the start until the file transfer is just about
-to begin. This includes all pre-transfer commands and negotiations that are specific
-to the particular protocol(s) involved. It does not involve the sending of the
+- **PRETRANSFER\_TIME\_T** &#8674; _static_: The total time in microseconds from the start until the file transfer is just about 
+to begin. This includes all pre-transfer commands and negotiations that are specific 
+to the particular protocol(s) involved. It does not involve the sending of the 
 protocol- specific request that triggers a transfer.
-- **STARTTRANSFER\_TIME\_T** &#8674; _static_: The total time in microseconds from the start until the first byte is received by
-`curl`. This includes `PRETRANSFER_TIME_T` and also the time the server needs to
+- **STARTTRANSFER\_TIME\_T** &#8674; _static_: The total time in microseconds from the start until the first byte is received by 
+`curl`. This includes `PRETRANSFER_TIME_T` and also the time the server needs to 
 calculate the result.
 - **REDIRECT\_TIME\_T** &#8674; _static_: The total time in microseconds it took for all redirection steps include name lookup,
-connect, pretransfer and transfer before final transaction was started. It contains
+connect, pretransfer and transfer before final transaction was started. It contains 
 the complete execution time for  multiple redirections.
-- **APPCONNECT\_TIME\_T** &#8674; _static_: The total time in microseconds from the start until the SSL/SSH connect/handshake
-to the remote host was completed.  This time is most often very near to the
-`PRETRANSFER_TIME_T` time, except for cases such as HTTP pipelining where the
+- **APPCONNECT\_TIME\_T** &#8674; _static_: The total time in microseconds from the start until the SSL/SSH connect/handshake 
+to the remote host was completed.  This time is most often very near to the 
+`PRETRANSFER_TIME_T` time, except for cases such as HTTP pipelining where the 
 pretransfer time can be delayed due to waits in line for the pipeline and more.
-- **RETRY\_AFTER** &#8674; _static_: The number of seconds the HTTP server suggests the client should wait until the
-next request is issued.
+- **RETRY\_AFTER** &#8674; _static_: The number of seconds the HTTP server suggests the client should wait until the 
+next request is issued. 
 
 
 
-> While the HTTP header might contain a fixed date string, the `RETRY_AFTER` will
-> always return number of seconds to wait - or zero if there was no header or the
+> While the HTTP header might contain a fixed date string, the `RETRY_AFTER` will 
+> always return number of seconds to wait - or zero if there was no header or the 
 > header couldn't be parsed.
 
 
@@ -484,7 +484,7 @@ Auth values for `Options.HTTPAUTH` and `Options.PROXYAUTH`
 - **DIGEST\_IE** &#8674; _static_: HTTP Digest authentication with IE flavour
 - **NTLM\_WB** &#8674; _static_: HTTP NTLM authentication delegated to winbind helper
 - **BEARER** &#8674; _static_: HTTP Bearer token authentication
-- **ONLY** &#8674; _static_: Use together with a single other type to force no authentication or
+- **ONLY** &#8674; _static_: Use together with a single other type to force no authentication or 
 just that single type.
 - **ANY** &#8674; _static_: All fine types set
 - **ANYSAFE** &#8674; _static_: All fine types except Basic
@@ -592,7 +592,7 @@ FTP: to use a different list command
 - **DIRLISTONLY** &#8674; _static_: bare names when listing directories
 - **APPEND** &#8674; _static_: Append instead of overwrite on upload!
 - **NETRC** &#8674; _static_: Specify whether to read the user+password from the .netrc or the URL.
-This must be one of the CURL_NETRC_ enums below.
+This must be one of the CURL_NETRC_ enums below. 
  @static
 - **FOLLOWLOCATION** &#8674; _static_: use Location: Luke!
 - **TRANSFERTEXT** &#8674; _static_: transfer data in text/ASCII format
@@ -631,7 +631,7 @@ provided hostname.
 operation. Set file name to "-" (dash) to make it go to stdout.
 - **SSL\_CIPHER\_LIST** &#8674; _static_: Specify which SSL ciphers to use
 - **HTTP\_VERSION** &#8674; _static_: Specify which HTTP version to use! This must be set to one of the
-CURL_HTTP_VERSION enums set below.
+CURL_HTTP_VERSION enums set below. 
  @static
 - **FTP\_USE\_EPSV** &#8674; _static_: Specifically switch on or off the FTP engine's use of the EPSV command. By
 default, that one will always be attempted before the more traditional
@@ -750,7 +750,7 @@ server for protocols that support it, SFTP/SCP/FILE
 - **NEW\_DIRECTORY\_PERMS** &#8674; _static_: Permission used when creating new directories on the remote
 server for protocols that support it, SFTP/SCP/FILE
 - **POSTREDIR** &#8674; _static_: Set the behavior of POST when redirecting. Values must be set to one
-of CURL_REDIR defines below. This used to be called CURLOPT_POST301
+of CURL_REDIR defines below. This used to be called CURLOPT_POST301 
  @static
 - **SSH\_HOST\_PUBLIC\_KEY\_MD5** &#8674; _static_: used by scp/sftp to verify the host's public key
 - **COPYPOSTFIELDS** &#8674; _static_: POST volatile input fields.
@@ -810,7 +810,7 @@ of milliseconds.
 - **TCP\_KEEPALIVE** &#8674; _static_: Set TCP keepalive
 - **TCP\_KEEPIDLE** &#8674; _static_: non-universal keepalive idle time (Linux, AIX, HP-UX, more)
 - **TCP\_KEEPINTVL** &#8674; _static_: non-universal keepalive interval (Linux, AIX, HP-UX, more)
-- **SSL\_OPTIONS** &#8674; _static_: Enable/disable specific SSL features with a bitmask, see CURLSSLOPT_
+- **SSL\_OPTIONS** &#8674; _static_: Enable/disable specific SSL features with a bitmask, see CURLSSLOPT_ 
  @static
 - **MAIL\_AUTH** &#8674; _static_: Set the SMTP auth originator
 - **SASL\_IR** &#8674; _static_: Enable/disable SASL initial response
@@ -872,7 +872,7 @@ proxy
 - **PROXY\_SSL\_CIPHER\_LIST** &#8674; _static_: Specify which SSL ciphers to use for proxy
 - **PROXY\_CRLFILE** &#8674; _static_: CRL file for proxy
 - **PROXY\_SSL\_OPTIONS** &#8674; _static_: Enable/disable specific SSL features with a bitmask for proxy, see
-CURLSSLOPT_
+CURLSSLOPT_ 
  @static
 - **PRE\_PROXY** &#8674; _static_: Name of pre proxy to use.
 - **PROXY\_PINNEDPUBLICKEY** &#8674; _static_: The public key in DER form used to validate the proxy public key

@@ -238,7 +238,7 @@
       "/standard/zlib": {
         "source": "/standard/zlib", 
         "title": "zlib"
-      },
+      }, 
       "/standard/imagine": {
         "source": "/standard/imagine", 
         "title": "imagine"
@@ -246,6 +246,10 @@
       "/standard/numberackup": {
         "source": "/standard/numberackup", 
         "title": "numberackup"
+      }, 
+      "/standard/array": {
+        "source": "/standard/array", 
+        "title": "array"
       }
     }
   }, 

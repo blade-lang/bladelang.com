@@ -57,12 +57,12 @@ By default, all these options are set to their exported values, adhering to the 
 For example: `<script>` JavaScript should not be parsed
 - **closing\_tags** &#8674; _readonly_ _list_: Tags which auto-close because they cannot be nested
 For example: `<p>Outer<p>Inner is <p>Outer</p><p>Inner</p>`
-- **tag\_ancestors** &#8674; _readonly_ _list_: Closing tags which have ancestor tags which may exist within
+- **tag\_ancestors** &#8674; _readonly_ _list_: Closing tags which have ancestor tags which may exist within 
 them which prevent the closing tag from auto-closing.
-For example: in `<li><ul><li></ul></li>`, the top-level `<li>`
+For example: in `<li><ul><li></ul></li>`, the top-level `<li>` 
 should not auto-close.
 - **void\_tags** &#8674; _readonly_ _list_: Tags which do not need the closing tag
-For example: `<img>` does not need `</img>`.
+For example: `<img>` does not need `</img>`
 
 ## Functions
 

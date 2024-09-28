@@ -6,69 +6,64 @@ Provides OpenSSL bindings for Blade.
 - **SSL\_FILETYPE\_PEM**: SSL_FILETYPE_PEM
 - **SSL\_FILETYPE\_ASN1**: SSL_FILETYPE_ASN1
 - **SSL\_VERIFY\_NONE**: 
+Server mode:
+:  The server will not send a client certificate request to the client, 
+   so the client will not send a certificate.
 
-  Server mode:
-  :  The server will not send a client certificate request to the client,
-     so the client will not send a certificate.
-  
-  Client mode:
-  :  If not using an anonymous cipher (by default disabled),
-     the server will send a certificate which will be checked. The handshake
-     will be continued regardless of the verification result.
-
+Client mode: 
+:  If not using an anonymous cipher (by default disabled), 
+   the server will send a certificate which will be checked. The handshake 
+   will be continued regardless of the verification result.
+<<<
 
 - **SSL\_VERIFY\_PEER**: 
+Server mode: 
+:  The server sends a client certificate request to the client. 
+   The certificate returned (if any) is checked. If the verification process fails, 
+   the TLS/SSL handshake is immediately terminated with an alert message containing 
+   the reason for the verification failure. The behaviour can be controlled by the 
+   additional SSL_VERIFY_FAIL_IF_NO_PEER_CERT, SSL_VERIFY_CLIENT_ONCE and 
+   SSL_VERIFY_POST_HANDSHAKE flags.
 
-  Server mode:
-  :  The server sends a client certificate request to the client.
-     The certificate returned (if any) is checked. If the verification process fails,
-     the TLS/SSL handshake is immediately terminated with an alert message containing
-     the reason for the verification failure. The behaviour can be controlled by the
-     additional SSL_VERIFY_FAIL_IF_NO_PEER_CERT, SSL_VERIFY_CLIENT_ONCE and
-     SSL_VERIFY_POST_HANDSHAKE flags.
-  
-  Client mode:
-  :  The server certificate is verified. If the verification process
-     fails, the TLS/SSL handshake is immediately terminated with an alert message
-     containing the reason for the verification failure. If no server certificate is sent,
-     because an anonymous cipher is used, SSL_VERIFY_PEER is ignored.
-
+Client mode:
+:  The server certificate is verified. If the verification process 
+   fails, the TLS/SSL handshake is immediately terminated with an alert message 
+   containing the reason for the verification failure. If no server certificate is sent, 
+   because an anonymous cipher is used, SSL_VERIFY_PEER is ignored.
+<<<
 
 - **SSL\_VERIFY\_FAIL\_IF\_NO\_PEER\_CERT**: 
+Server mode:
+:  If the client did not return a certificate, the TLS/SSL handshake is immediately 
+   terminated with a "handshake failure" alert. This flag must be used together 
+   with SSL_VERIFY_PEER.
 
-  Server mode:
-  :  If the client did not return a certificate, the TLS/SSL handshake is immediately
-     terminated with a "handshake failure" alert. This flag must be used together
-     with SSL_VERIFY_PEER.
-  
-  Client mode:
-  :  Ignored
-
+Client mode: 
+:  Ignored
+<<<
 
 - **SSL\_VERIFY\_CLIENT\_ONCE**: 
+Server mode:
+:  Only request a client certificate once during the connection. Do not 
+   ask for a client certificate again during renegotiation or post-authentication if a 
+   certificate was requested during the initial handshake. This flag must be used together 
+   with SSL_VERIFY_PEER.
 
-  Server mode:
-  :  Only request a client certificate once during the connection. Do not
-     ask for a client certificate again during renegotiation or post-authentication if a
-     certificate was requested during the initial handshake. This flag must be used together
-     with SSL_VERIFY_PEER.
-  
-  Client mode:
-  :  Ignored
-
+Client mode: 
+:  Ignored
+<<<
 
 - **SSL\_VERIFY\_POST\_HANDSHAKE**: 
+Server mode: 
+:  The server will not send a client certificate request during the initial 
+   handshake, but will send the request via SSL_verify_client_post_handshake(). This allows 
+   the SSL_CTX or SSL to be configured for post-handshake peer verification before the 
+   handshake occurs. This flag must be used together with SSL_VERIFY_PEER. TLSv1.3 only; no 
+   effect on pre-TLSv1.3 connections.
 
-  Server mode:
-  :  The server will not send a client certificate request during the initial
-     handshake, but will send the request via SSL_verify_client_post_handshake(). This allows
-     the SSL_CTX or SSL to be configured for post-handshake peer verification before the
-     handshake occurs. This flag must be used together with SSL_VERIFY_PEER. TLSv1.3 only; no
-     effect on pre-TLSv1.3 connections.
-  
-  Client mode:
-  :  Ignored
-
+Client mode: 
+:  Ignored
+<<<
 
 - **TLS\_method**: TLS method
 - **TLS\_client\_method**: TLS client method
@@ -80,19 +75,19 @@ Provides OpenSSL bindings for Blade.
 - **BIO\_NOCLOSE**: BIO_NOCLOSE
 - **BIO\_f\_ssl**: SSL BIO method f_ssl
 
-> I/O performed on an SSL BIO communicates using the SSL protocol
-> with the SSLs read and write BIOs. If an SSL connection is not
-> established then an attempt is made to establish one on the first
+> I/O performed on an SSL BIO communicates using the SSL protocol 
+> with the SSLs read and write BIOs. If an SSL connection is not 
+> established then an attempt is made to establish one on the first 
 > I/O call.
 - **BIO\_s\_connect**: SSL BIO method connect
 
-> Using connect BIOs, TCP/IP connections can be made and data
-> transferred using only BIO routines. In this way any platform
+> Using connect BIOs, TCP/IP connections can be made and data 
+> transferred using only BIO routines. In this way any platform 
 > specific operations are hidden by the BIO abstraction.
 - **BIO\_s\_accept**: SSL BIO method accept
 
-> Using accept BIOs, TCP/IP connections can be accepted and data
-> transferred using only BIO routines. In this way any platform specific
+> Using accept BIOs, TCP/IP connections can be accepted and data 
+> transferred using only BIO routines. In this way any platform specific 
 > operations are hidden by the BIO abstraction.
 
 ## Functions
@@ -182,6 +177,9 @@ Begins accepting data on SSL and returns `true` if successful or
 #### connect()
 
 Connects to an SSL server instance.
+
+
+@throws
 ##### Returns
 
 - bool
@@ -198,13 +196,14 @@ the total bytes written.
 
 - int
 
-#### read(length)
+#### read(length, is_blocking)
 
 Reads data off the I/O and returns it. Set _length_ to -1 to read 
 till no data is available in the stream.
 ##### Parameters
 
 - _int?_ **length**: : Default value is -1
+- _bool?_ **is_blocking**: : Default value is false
 
 ##### Returns
 
@@ -224,6 +223,38 @@ Returns the last SSL error number
 #### shutdown()
 
 Shutdown the SSL object.
+
+#### set\_tlsext\_host\_name(name)
+
+Sets the Server Name Indication (SNI) for use by Secure Sockets 
+Layer (SSL). This function should be called on a client SSL 
+session before the TLS handshake for the SNI extension 
+to be set properly.
+##### Parameters
+
+- _string_ **name**
+
+##### Returns
+
+- bool
+
+#### get\_peer\_certificate()
+
+Returns informations about the peer certificate in a dictionary.
+
+The returned information includes:
+
+- `subject_name`
+- `issuer_name`
+- `serial_number`
+- `not_before`
+- `not_after`
+- `public_key`
+- `extensions`
+- `algorithm`
+##### Returns
+
+- dict
 
 #### free()
 
@@ -256,23 +287,23 @@ Whenever a host is not given, the host will default to localhost.
 The default family for the socket is AF_INET.
 - **type** &#8674; _number_: The type of socket stream used by the socket.
 The default socket type is `SOCK_STREAM`.
-- **protocol** &#8674; _number_: The current operating protocol of the socket that controls the
+- **protocol** &#8674; _number_: The current operating protocol of the socket that controls the 
 underlying behavior of the socket. The default is `IPPROTO_TCP`.
 - **id** &#8674; _number_: The file descriptor id of the current socket on the host machine.
 - **is\_client** &#8674; _bool_: `true` when the socket is a client to a server socket, `false` otherwise.
-- **is\_bound** &#8674; _bool_: `true` when the socket is bound to a given port on the device, `false`
+- **is\_bound** &#8674; _bool_: `true` when the socket is bound to a given port on the device, `false` 
 otherwise.
 - **is\_connected** &#8674; _bool_: `true` when the socket is connected to a server socket, `false` otherwise.
-- **is\_listening** &#8674; _bool_: `true` when the socket is currently listening on a host device port as a
+- **is\_listening** &#8674; _bool_: `true` when the socket is currently listening on a host device port as a 
 server, `false` otherwise.
 - **is\_closed** &#8674; _bool_: `true` when the socket is closed, `false` otherwise.
 - **is\_shutdown** &#8674; _bool_: `true` when the socket is shutdown, `false` otherwise.
 - **is\_blocking** &#8674; _bool_: `true` when the socket is running in a blocking mode, `false` otherwise.
-- **shutdown\_reason** &#8674; _number_: The property holds the reason for which the last `shutdown` operation
+- **shutdown\_reason** &#8674; _number_: The property holds the reason for which the last `shutdown` operation 
 was called or `-1` if `shutdown` was never requested.
-- **send\_timeout** &#8674; _number_: The amount of time in milliseconds that the socket waits before it
+- **send\_timeout** &#8674; _number_: The amount of time in milliseconds that the socket waits before it 
 terminates a `send` operation. This is equal to the `SO_SNDTIMEO`.
-- **receive\_timeout** &#8674; _number_: The amount of time in milliseconds that the socket waits before it
+- **receive\_timeout** &#8674; _number_: The amount of time in milliseconds that the socket waits before it 
 terminates a `receive` operation. This is equal to the `SO_RCVTIMEO`.
 
 #### Methods
@@ -509,11 +540,11 @@ TLS server
 
 #### Fields
 
-- **cert\_file** &#8674; _string_: The SSL/TLS ceritificate file that will be used be used by a secured server for
+- **cert\_file** &#8674; _string_: The SSL/TLS ceritificate file that will be used be used by a secured server for 
 serving requests.
-- **private\_key\_file** &#8674; _string_: The SSL/TLS private key file that will be used be used by a secured server for
+- **private\_key\_file** &#8674; _string_: The SSL/TLS private key file that will be used be used by a secured server for 
 serving requests.
-- **verify\_certs** &#8674; _boolean_: This value controls whether the client certificate should be verified
+- **verify\_certs** &#8674; _boolean_: This value controls whether the client certificate should be verified 
 or not.
 
 #### Methods
@@ -842,12 +873,13 @@ SSL context representation class
 
 - Method must be a valid SSL method pointer.
 
-#### set\_verify(mode)
+#### set\_verify(mode, disable)
 
-Sets the verification flags for ctx to be the given mode.
+Enables or disables the verification flags for the given mode on the context.
 ##### Parameters
 
 - _int_ **mode**
+- _bool?_ **disable**: - Default: false
 
 ##### Notes
 

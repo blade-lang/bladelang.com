@@ -4,7 +4,7 @@ This module provides functions for interfacing with the underlying operating sys
 
 ## Properties
 
-- **platform** &#8674; _string_: The name of the current platform in string or `unknown` if
+- **platform** &#8674; _string_: The name of the current platform in string or `unknown` if 
 the platform name could not be determined.
 
 

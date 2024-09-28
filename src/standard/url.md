@@ -115,23 +115,23 @@ The Url class provides functionalities for parsing and processing URLs.
 
 - **scheme**: The url scheme e.g. http, https, ftp, tcp etc.
 - **host**: The host information contained in the url
-- **port**: The port information contained in the url whenever the url doesn't
+- **port**: The port information contained in the url whenever the url doesn't 
 indicate, we try to make a best guess based on the scheme.
 - **path**: The path of the URL.
 @default /
-- **hash**: Hash information contained in the url and it's beginning is indicated by the
-hash (#) sign. This value is especially relevant to some http/https urls
-and are usually references to the content of the document
+- **hash**: Hash information contained in the url and it's beginning is indicated by the 
+hash (#) sign. This value is especially relevant to some http/https urls 
+and are usually references to the content of the document 
 at the given url
-- **query**: Query/Search information contained in the url and it's beginning is indicated by the
-question (?) sign. This value is especially relevant to some http/https urls and are
+- **query**: Query/Search information contained in the url and it's beginning is indicated by the 
+question (?) sign. This value is especially relevant to some http/https urls and are 
 usually used to convey data to endpoint based on the GET method.
-- **username**: Username information for authentication are sometimes embeded in urls. When such information
+- **username**: Username information for authentication are sometimes embeded in urls. When such information 
 exist, this property holds the information
-- **password**: Password information for authentication are sometimes embeded in urls. When such information
+- **password**: Password information for authentication are sometimes embeded in urls. When such information 
 exist, this property holds the information
 - **has\_slash**: `true` if the url contains the :// section. `false` otherwise.
-- **empty\_path** &#8674; _bool_: `true` if the original url contains a path segement even if its just an `/` and false if the
+- **empty\_path** &#8674; _bool_: `true` if the original url contains a path segement even if its just an `/` and false if the 
 path value of `/` was implied.
 
 #### Methods

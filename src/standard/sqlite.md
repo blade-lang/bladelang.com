@@ -312,22 +312,22 @@ A cursor for navigation through sql results
 
 - **connection** &#8674; _readonly_: The SQLite3 connection that owns this cursor
 - **row\_count** &#8674; _readonly_: The number of rows in the cursor
-- **modified\_count** &#8674; _readonly_: This value hold the number of rows modified, inserted or deleted by the the query that
+- **modified\_count** &#8674; _readonly_: This value hold the number of rows modified, inserted or deleted by the the query that 
 owns this cursor provided the query is one of INSERT, UPDATE or DELETE statement.
 Executing any other type of SQL statement does not change this value from 0.
 
-Only changes made directly by the INSERT, UPDATE or DELETE statement are considered
-- auxiliary changes caused by triggers, foreign key actions or REPLACE constraint
+Only changes made directly by the INSERT, UPDATE or DELETE statement are considered 
+- auxiliary changes caused by triggers, foreign key actions or REPLACE constraint 
 resolution are not counted.
 
-Changes to a view that are intercepted by INSTEAD OF triggers are not counted.
-The value returned by `modified_count` immediately after an INSERT, UPDATE or DELETE
+Changes to a view that are intercepted by INSTEAD OF triggers are not counted. 
+The value returned by `modified_count` immediately after an INSERT, UPDATE or DELETE 
 statement run on a view is always zero. Only changes made to real tables are counted.
 
 
 
-> If a separate thread makes changes on the same database connection at the exact time
-> the original query was also making a change, the result of this value will become
+> If a separate thread makes changes on the same database connection at the exact time 
+> the original query was also making a change, the result of this value will become 
 > undependable.
 - **columns** &#8674; _readonly_: A list of the columns available in the result set.
 

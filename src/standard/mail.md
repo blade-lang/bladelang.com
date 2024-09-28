@@ -6,7 +6,7 @@ implementation for the SMTP, IMAP and POP3 mail exchange protocols.
 ## Properties
 
 - **TLS\_NONE**: Do not attempt to use SSL.
-- **TLS\_TRY**: Try using SSL, proceed as normal otherwise. Note that server
+- **TLS\_TRY**: Try using SSL, proceed as normal otherwise. Note that server 
 may close the connection if the negotiation does not succeed.
 - **TLS\_CONTROL**: Require SSL for the control connection or fail.
 - **TLS\_ALL**: Require SSL for all communication or fail.

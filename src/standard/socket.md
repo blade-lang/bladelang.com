@@ -214,23 +214,23 @@ Whenever a host is not given, the host will default to localhost.
 The default family for the socket is AF_INET.
 - **type** &#8674; _int_: The type of socket stream used by the socket.
 The default socket type is `SOCK_STREAM`.
-- **protocol** &#8674; _int_: The current operating protocol of the socket that controls the
+- **protocol** &#8674; _int_: The current operating protocol of the socket that controls the 
 underlying behavior of the socket. The default is `IPPROTO_TCP`.
 - **id** &#8674; _int_: The file descriptor id of the current socket on the host machine.
 - **is\_client** &#8674; _bool_: `true` when the socket is a client to a server socket, `false` otherwise.
-- **is\_bound** &#8674; _bool_: `true` when the socket is bound to a given port on the device, `false`
+- **is\_bound** &#8674; _bool_: `true` when the socket is bound to a given port on the device, `false` 
 otherwise.
 - **is\_connected** &#8674; _bool_: `true` when the socket is connected to a server socket, `false` otherwise.
-- **is\_listening** &#8674; _bool_: `true` when the socket is currently listening on a host device port as a
+- **is\_listening** &#8674; _bool_: `true` when the socket is currently listening on a host device port as a 
 server, `false` otherwise.
 - **is\_closed** &#8674; _bool_: `true` when the socket is closed, `false` otherwise.
 - **is\_shutdown** &#8674; _bool_: `true` when the socket is shutdown, `false` otherwise.
 - **is\_blocking** &#8674; _bool_: `true` when the socket is running in a blocking mode, `false` otherwise.
-- **shutdown\_reason** &#8674; _int_: The property holds the reason for which the last `shutdown` operation
+- **shutdown\_reason** &#8674; _int_: The property holds the reason for which the last `shutdown` operation 
 was called or `-1` if `shutdown` was never requested.
-- **send\_timeout** &#8674; _int_: The amount of time in milliseconds that the socket waits before it
+- **send\_timeout** &#8674; _int_: The amount of time in milliseconds that the socket waits before it 
 terminates a `send` operation. This is equal to the `SO_SNDTIMEO`.
-- **receive\_timeout** &#8674; _int_: The amount of time in milliseconds that the socket waits before it
+- **receive\_timeout** &#8674; _int_: The amount of time in milliseconds that the socket waits before it 
 terminates a `receive` operation. This is equal to the `SO_RCVTIMEO`.
 
 #### Methods

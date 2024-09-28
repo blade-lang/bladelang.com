@@ -187,7 +187,7 @@ Example,
 
 #### Methods
 
-#### Date(year, month, day, hour, minute, seconds) &#8674; Constructor
+#### Date(year, month, day, hour, minute, seconds, microseconds) &#8674; Constructor
 
 
 ##### Parameters
@@ -198,6 +198,7 @@ Example,
 - _number?_ **hour**
 - _number?_ **minute**
 - _number?_ **seconds**
+- _number?_ **microseconds**
 - _bool?_ **is_dst**
 
 ##### Notes
@@ -396,9 +397,33 @@ Example,
 #### unix\_time()
 
 Returns unix `mktime` equivalent of the current date.
+
+
+@deprecated - Use `to_time()` instead as it offers more precision.
 ##### Returns
 
 - number
+
+#### to\_time()
+
+Returns the Epoch timestamp in seconds for the given date.
+##### Returns
+
+- number
+
+#### to\_string()
+
+Returns a string representation of the date
+##### Returns
+
+- string
+
+#### to\_dict()
+
+Returns the date object as a dictionary.
+##### Returns
+
+- dict
 
 
 

@@ -248,10 +248,10 @@ Http request handler and object.
 #### Fields
 
 - **request\_uri** &#8674; _string_: The original request URL as sent in the raw request.
-- **path** &#8674; _string_: The requested path or file. E.g. if the Request URI is `/users?sort=desc`,
+- **path** &#8674; _string_: The requested path or file. E.g. if the Request URI is `/users?sort=desc`, 
 then the path is `/users`.
 - **method** &#8674; _string_: The HTTP method of the request: GET (the default), POST, PUT, etc.
-- **host** &#8674; _string_: The hostname derived from the `Host` header or the first instance of
+- **host** &#8674; _string_: The hostname derived from the `Host` header or the first instance of 
 `X-Forwarded-Host` if set.
 - **ip** &#8674; _string_: The IP address of the remote client that initiated the request.
 - **ipv6** &#8674; _string_: The IPv6 address of the remote client that initiated the request.
@@ -261,7 +261,7 @@ then the path is `/users`.
 - **body** &#8674; _dictionary_: A dictionary containing all data submitted in the request body.
 - **files** &#8674; _dictionary_: A dictionary containing the data of all files uploaded in the request.
 - **http\_version** &#8674; _string_: The HTTP version used for the request.
-- **auth\_method** &#8674; _Auth_: The HTTP authentication method to use when the uri contains a credential.
+- **auth\_method** &#8674; _Auth_: The HTTP authentication method to use when the uri contains a credential. 
 Default value is `Auth.ANY`.
 
 #### Methods
@@ -333,20 +333,20 @@ HTTP server.
 
 #### Fields
 
-- **host** &#8674; _string_: The host address to which this server will be bound. Default value is
+- **host** &#8674; _string_: The host address to which this server will be bound. Default value is 
 socket.IP_LOCAL (127.0.0.1)
 - **port** &#8674; _number_: The port to which this server will be bound to on the host.
 - **socket** &#8674; _{Socket_: The working Socket instance for the HttpServer.
 - **resuse\_address** &#8674; _bool_: A boolean value indicating whether to reuse socket addresses or not.
 Default value is `true`.
-- **read\_timeout** &#8674; _number_: The timeout in milliseconds after which an attempt to read clients
+- **read\_timeout** &#8674; _number_: The timeout in milliseconds after which an attempt to read clients 
 request data will be terminated. Default value is 2,000 (2 seconds).
-- **write\_timeout** &#8674; _number_: The timeout in milliseconds after which an attempt to write response data to
-clients will be terminated.
+- **write\_timeout** &#8674; _number_: The timeout in milliseconds after which an attempt to write response data to 
+clients will be terminated. 
 
-If we cannot send response to a client after the stipulated time, it will be
-assumed such clients have disconnected and existing connections for that
-client will be closed and their respective sockets will be discarded. Default
+If we cannot send response to a client after the stipulated time, it will be 
+assumed such clients have disconnected and existing connections for that 
+client will be closed and their respective sockets will be discarded. Default 
 value is 2,000 (2 seconds).
 
 #### Methods
@@ -464,23 +464,23 @@ Handles http requests.
 
 #### Fields
 
-- **user\_agent** &#8674; _string_: The user agent of the client used to make the request.
+- **user\_agent** &#8674; _string_: The user agent of the client used to make the request. 
 Default value &mdash; `Blade HTTP Client/1.0`.
-- **follow\_redirect** &#8674; _bool_: Indicates if we receive a redirect from a server, this flag tells us whether
+- **follow\_redirect** &#8674; _bool_: Indicates if we receive a redirect from a server, this flag tells us whether 
 we should follow it or not. Default value is `true`.
 - **skip\_hostname\_verification** &#8674; _bool_: Indicates if the site you're connecting to uses a different host name that what
-they have mentioned in their server certificate's commonName (or subjectAltName)
-fields, connection will fail. You can skip this check by setting to true, but this
+they have mentioned in their server certificate's commonName (or subjectAltName) 
+fields, connection will fail. You can skip this check by setting to true, but this 
 will make the connection less secure.
 - **skip\_peer\_verification** &#8674; _bool_: Indicates if you want to connect to a site who isn't using a certificate that is
-signed by one of the certs in the CA bundle you have, you can skip the verification
+signed by one of the certs in the CA bundle you have, you can skip the verification 
 of the server's certificate. This makes the connection A LOT LESS SECURE.
 - **referer** &#8674; _string_: The site that refers us to the current site
 - **ca\_cert** &#8674; _string_: If you have a CA cert for the server stored someplace else than in the default bundle.
 - **connect\_timeout** &#8674; _number_: The connect timeout duration in milliseconds. Default value is 60,000 (1 minute).
 - **receive\_timeout** &#8674; _number_: The receive timeout duration in milliseconds. Default value is 300,000 (5 minutes).
 - **headers** &#8674; _dict_: A dictionary of headers sent along with the request.
-- **no\_expect** &#8674; _bool_: Indicates whether to remove the expect header or not only applies to requests with
+- **no\_expect** &#8674; _bool_: Indicates whether to remove the expect header or not only applies to requests with 
 files in the body
 
 #### Methods
@@ -584,7 +584,7 @@ Represents the response to an Http request.
 - **headers** &#8674; _dictionary_: The HTTP response headers
 - **time\_taken** &#8674; _number_: Total time taken for the HTTP request that generated this HttpResponse to complete
 - **redirects** &#8674; _number_: The number of times the HTTP request that generated this HttpResponse was redirected.
-- **responder** &#8674; _string_: The final URL that provided the HttpResponse. This will sometimes differ from the
+- **responder** &#8674; _string_: The final URL that provided the HttpResponse. This will sometimes differ from the 
 original request URI.
 - **body** &#8674; _bytes_: The content of the HTTP response as bytes
 - **cookies** &#8674; _list_: The cookies to be sent back to the client
