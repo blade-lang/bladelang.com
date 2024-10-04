@@ -352,7 +352,7 @@ or throws one of SocketException or Exception if it fails.
 ##### Raises Exception
 
 - Exception
-@dies
+@raises
 
 
 
@@ -372,7 +372,7 @@ Sends an Http POST request and returns an HttpResponse.
 ##### Raises Exception
 
 - Exception
-@dies
+@raises
 
 
 
@@ -392,7 +392,7 @@ Sends an Http PUT request and returns an HttpResponse.
 ##### Raises Exception
 
 - Exception
-@dies
+@raises
 
 
 
@@ -412,7 +412,7 @@ Sends an Http PATCH request and returns an HttpResponse.
 ##### Raises Exception
 
 - Exception
-@dies
+@raises
 
 
 
@@ -431,7 +431,7 @@ Sends an Http DELETE request and returns an HttpResponse.
 ##### Raises Exception
 
 - Exception
-@dies
+@raises
 
 
 
@@ -450,7 +450,7 @@ Sends an Http OPTIONS request and returns an HttpResponse.
 ##### Raises Exception
 
 - Exception
-@dies
+@raises
 
 
 
@@ -469,7 +469,7 @@ Sends an Http TRACE request and returns an HttpResponse.
 ##### Raises Exception
 
 - Exception
-@dies
+@raises
 
 
 
@@ -488,7 +488,7 @@ Sends an Http HEAD request and returns an HttpResponse.
 ##### Raises Exception
 
 - Exception
-@dies
+@raises
 
 
 
@@ -517,7 +517,7 @@ Creates an new HttpServer instance.
 ##### Raises Exception
 
 - Exception
-@dies
+@raises
 
 
 
@@ -950,7 +950,7 @@ Sends an Http request and returns a HttpResponse.
 ##### Raises Exception
 
 - SocketException
-@dies
+@raises
 
 #### get(url, headers)
 
@@ -967,7 +967,7 @@ Sends an Http GET request and returns an HttpResponse.
 ##### Raises Exception
 
 - Exception
-@dies
+@raises
 
 #### post(url, data, headers)
 
@@ -985,7 +985,7 @@ Sends an Http POST request and returns an HttpResponse.
 ##### Raises Exception
 
 - Exception
-@dies
+@raises
 
 #### put(url, data, headers)
 
@@ -1003,7 +1003,7 @@ Sends an Http PUT request and returns an HttpResponse.
 ##### Raises Exception
 
 - Exception
-@dies
+@raises
 
 #### patch(url, data, headers)
 
@@ -1021,7 +1021,7 @@ Sends an Http PATCH request and returns an HttpResponse.
 ##### Raises Exception
 
 - Exception
-@dies
+@raises
 
 #### delete(url, headers)
 
@@ -1038,7 +1038,7 @@ Sends an Http DELETE request and returns an HttpResponse.
 ##### Raises Exception
 
 - Exception
-@dies
+@raises
 
 #### options(url, headers)
 
@@ -1055,7 +1055,7 @@ Sends an Http OPTIONS request and returns an HttpResponse.
 ##### Raises Exception
 
 - Exception
-@dies
+@raises
 
 #### trace(url, headers)
 
@@ -1072,7 +1072,7 @@ Sends an Http TRACE request and returns an HttpResponse.
 ##### Raises Exception
 
 - Exception
-@dies
+@raises
 
 #### head(url, headers)
 
@@ -1089,7 +1089,7 @@ Sends an Http HEAD request and returns an HttpResponse.
 ##### Raises Exception
 
 - Exception
-@dies
+@raises
 
 
 

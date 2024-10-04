@@ -6,11 +6,10 @@ reserved words (also refered to as Keywords in the rest of the documentation) mu
 as shown here. 
 
 **`and`** , **`as`** , **`assert`** , **`break`** , **`catch`** , **`class`** , 
-**`continue`** , **`def`** , **`default`** , **`die`** , **`do`** , **`echo`** ,
-**`else`** , **`false`** , **`finally`** , **`for`** , **`if`** , **`import`** ,
-**`in`** , **`iter`** , **`nil`** , **`or`** , **`parent`** , **`return`** ,
-**`self`** , **`static`** , **`true`** , **`try`** , **`using`** , **`var`** ,
-**`when`** , **`while`**.
+**`continue`** , **`def`** , **`default`** , **`do`** , **`echo`** ,**`else`** , 
+**`false`** ,  **`for`** , **`if`** , **`import`** ,**`in`** , **`iter`** , 
+**`nil`** , **`or`** , **`parent`** ,**`raise`** ,  **`return`** , **`self`** , 
+**`static`** , **`true`** , **`using`** , **`var`** , **`when`** , **`while`**.
 
 > **NOTE:**
 > 

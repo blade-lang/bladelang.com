@@ -1,6 +1,6 @@
 # Error Handling
 
-In this chapter, we'll be discussing the errors in Blade. Their types and how to raise and handle them.
+In this chapter, we'll be discussing the exceptions and error handling in Blade. Their types and how to raise and handle them.
 
 ## Reference
 
@@ -9,13 +9,13 @@ In this chapter, we'll be discussing the errors in Blade. Their types and how to
   - [Exceptions](#exceptions)
   - [Custom Exceptions](#custom-exceptions)
   - [Catching Exceptions](#catching-exceptions)
-  - [Finally...](#finally)
+      - [Why Blade doesn't have a Try..Catch mechanism.](#why-blade-doesnt-have-a-trycatch-mechanism)
+      - [Catching Exceptions in Blade](#catching-exceptions-in-blade)
   - [Asserts](#asserts)
 
 
 There are generally two types of errors that can occur in Blade &mdash; `Syntax Errors` and `Runtime Exceptions`. 
-A Syntax error occurs when you attempt to run an invalid program, while a Runtime Exception is any error that occurs 
-during the execution of the program. 
+A Syntax error occurs when you attempt to run an invalid program, while a Runtime Exception is any error that occurs during the execution of the program. 
 
 Blade typically reports Syntax errors looking like the below.
 
@@ -46,12 +46,12 @@ Unhandled Exception: list index 5 out of range
     <repl>:1 -> @.script()
 ```
 
-Blade allows us to manually trigger a Runtime Exception at any point in a program as well via the `die` keyword. 
+Blade allows us to manually trigger a Runtime Exception at any point in a program as well using the `raise` keyword. The raise keyword must be followed by an exception or a variable that contains an exception.
 
 For example:
 
 ```blade-repl
-%> die Exception('I was manually triggered')
+%> raise Exception('I was manually triggered')
 Unhandled Exception: I was manually triggered
   StackTrace:
     <repl>:1 -> @.script()
@@ -67,7 +67,7 @@ For example:
 
 ```blade-repl
 %> class MyCustomException < Exception {}
-%> die MyCustomException('Something happened')
+%> raise MyCustomException('Something happened')
 Unhandled MyCustomException: Something happened
   StackTrace:
     <repl>:1 -> @.script()
@@ -76,92 +76,96 @@ Unhandled MyCustomException: Something happened
 
 ## Catching Exceptions
 
-Blade supports _testing for_ and _catching_ Exceptions as well via the `try...catch...` block allowing graceful handling of 
-runtime errors that should have ordinarily halt the application. The `catch` block of the try/catch must specify the type of 
-Exception to be caught by that block and only that type of Exception or it's subclass will be affected by the `catch` block.
+Unlike most languages, Blade takes a unique approach to catching exceptions. Before we delve into how to catch exceptions in Blade, it is important to know the fundational reasons why Blade does it exactly the way it does.
 
-For example:
+#### Why Blade doesn't have a Try..Catch mechanism.
+
+A lot of C-like languages like Blade have a `try...catch..(finally...)` expression or a mechanism that implements the same. Other languages like Rust and Go have opted to implement a recover or unwind function. Blade does none of the above for simple reasons.
+
+To more understand Blade's approach, it is important to understand the need for a try...catch...finally... construct in the first place and why most programming languages have it.
+
+In any system that is capable of producing an error and/or raising an exception, users of the system will always find themselves in a situation where they need to recover from such errors and that is essentially what the try..catch.. construct attempts to solve.
+
+Irrespective of how a language chooses to allow users handle exceptions, the principal needs of the users of the language does not change. Generally, users waant to:
+
+- Catch and manage runtime errors, preventing program crashes.
+- Handle unexpected events or conditions.
+- Ensure program reliability and stability.
+- Simplify error identification and diagnosis.
+- Handle errors gracefully and continue execution after handling errors.
+
+If you take a careful and close look at the list above, you'll soon notice that the most important part of error handling is in the ability to catch errors. What this means in summary is that if you could efficiently catch and/or recover from errors, the rest of the construct itself is inconsequencial so long as a user can:
+
+- Understand the error's origin and context.
+- Define error handling logic.
+
+#### Catching Exceptions in Blade
+
+Blade's approach to error handling is as simple as it gets. Blade's error handling system is centered on what the user actually needs &mdash; **The catch block**.
+
+The center of Blade's exception handling is the catch block itself. In Blade, any code surrounded by the catch block never raise and exception. Rather, any exception raised within the catch block is passed on to the optional `catch variable` and the execution of code skips to the end of the catch block.
+
+The code below uses the catch block to make sure tha the exception raised never fires.
 
 ```blade-repl
-%> try {
-..   die Exception('Sucide!')
-.. } catch Exception {
-..   echo 'Ha!Ha!! You survived!'
+%> catch {
+..   raise Exception('Nothing happens!')
 .. }
-'Ha!Ha!! You survived!'
 ```
 
-The catch block can also catch the Exception into a variable, allowing us to manipulate and use the Exception object itself 
-for a fine grained error reporting or anything for that matter.
+To recover the exception raised in the catch block, Blade allows naming catch blocks and turn it into a regular variable by following the catch block with the `as` keyword followed by the variable name of the catch block. 
 
-For example:
+This variable will hold the exception raised in the catch block and can be treated by the caller at anytime in the lifetime of the application they choose to.
+
+The code below modifies the previous example by assigning a name to the catch block.
 
 ```blade-repl
-%> try {
-..   die Exception('Sucide!')
-.. } catch Exception e {
-..   echo '${e.message}? Bad Idea!'
-.. }
-'Sucide!? Bad Idea!'
+%> catch {
+..   raise Exception('Nothing happens!')
+.. } as e
+%> e
+<class Exception instance at 0x60000100c060>
 ```
 
-<!-- A try block may also have more than one corresponding catch block all treating different types of Exceptions as shown in the 
-following example.
+We can now handle the exception at any time in the application. The code below extract the type of the exception, the error message and the stacktrace.
 
 ```blade-repl
-``` -->
-
-
-## Finally...
-
-Most times, when we anticipate Exceptions in our code and wrap the code in a try/catch block, we want to be able to do 
-something or run a piece a code irrespective of whether an Exception occured or not. For this, Blade supports an optional 
-`finally` block.
-
-For example:
-
-```blade-repl
-%> try {
-..   echo 'No exception'
-.. } catch Exception {
-..   echo 'Something went wrong!'
-.. } finally {
-..   echo 'All is good'
+%> if e {
+..   echo e.type
+..   echo e.message
+..   echo e.stacktrace
 .. }
-'No exception'
-'All is good'
+'Exception'
+'Nothing happens!'
+'    <repl>:2 -> @.script()'
 ```
 
-Whenever the `finally` is present, The `catch` block may be omitted. 
+You can also check the type of exceptions using the `instance_of()` built-in function. This is particularly useful for custom exceptions but for most simple use-cases, checking the `exception.type` string is usually sufficient.
 
-For example:
-
-```blade-repl
-%> try {
-..   echo 'No exception'
-.. } finally {
-..   echo 'No catch occured!'
-.. }
-'No exception'
-'No catch occured!'
-```
-
-In this case, even though the Blade will halt the execution of the program whenever an Exception occurs, the _finally_ 
-block will still run irrespective of whether the program will halt or not (if no error occured.)
-
-
-For example:
+The code below uses the instance function to check the exception type while handling the error.
 
 ```blade-repl
-%> try {
-..   die Exception('No exception')
-.. } finally {
-..   echo 'I will still run'
+%> class MyCustomException < Exception {}
+%> 
+%> var x = 50
+%> 
+%> catch {
+..   if x == 50 {
+..     raise MyCustomException('Something custom happened')
+..   } else {
+..     raise Exception('Exception happened')
+..   }
+.. } as error
+%> 
+%> if instance_of(error, MyCustomException) {
+..   echo 'A custom exception was raised'
+..   echo error.message
+.. } else {
+..   echo 'Regular exception raised'
+..   echo error.message
 .. }
-'I will still run'
-Unhandled Exception: No exception
-  StackTrace:
-    <repl>:2 -> @.script()
+'A custom exception was raised'
+'Something custom happened'
 ```
 
 
@@ -169,7 +173,7 @@ Unhandled Exception: No exception
 
 Often times, we want to verify that one or more conditions are true before we continue execution otherwise, termiate the 
 function and/or process and stop it from going further. This can be achieved using complicated and/or nested `if...else...` 
-blocks with a messy use of the `die` command, but Blade offers a more intuitive approach via the `assert` command.
+blocks with a messy use of the `raise` command, but Blade offers a more intuitive approach via the `assert` command.
 
 For example:
 
@@ -185,7 +189,7 @@ Illegal State:
 ```
 
 The assert command also takes an optional error value of any value type that can be specified by separating the assertion 
-and the message by a comma (`,`). None string error messages will be converted to string before dieing.
+and the message by a comma (`,`). None string error messages will be converted to string before raising an Exception.
 
 For example:
 

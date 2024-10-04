@@ -135,7 +135,7 @@ def get_function_docs(depth, function, is_static) {
   var return_line = function.doc.match('/^@returns?[ ]+(?P<type>.*?)$/m')
   var example_line = function.doc.match('/^@example[ ]+(?P<sample>.*)$/m')
   var note_lines = function.doc.matches('/^@note[ ]+(?P<note>.*)$/m')
-  var throw_lines = function.doc.matches('/^@dies?[ ]+(?P<type>[^ ]+)[ ]+(?P<exception>.*)$/m')
+  var throw_lines = function.doc.matches('/^@raises?[ ]+(?P<type>[^ ]+)[ ]+(?P<exception>.*)$/m')
 
   var is_constructor = function.doc.match('/^@constructor\s*$/m')
   var is_default = function.doc.match('/^@default\s*$/m')
@@ -145,7 +145,7 @@ def get_function_docs(depth, function, is_static) {
   # skip functions marked as internal in the documentation.
   if is_internal return ''
 
-  var doc = function.doc.replace('/^@(params?|returns?|example|note|constructor|default|internal|dies?).*$/m', '').trim()
+  var doc = function.doc.replace('/^@(params?|returns?|example|note|constructor|default|internal|raises?).*$/m', '').trim()
   
   var result = '#### ${decl_line}'
   if is_constructor {

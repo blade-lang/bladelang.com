@@ -291,7 +291,7 @@ Why are these objects iterables?
 
 The answer is simple. Because the implement certain _decorators_ that tells Blade how to use them in a for loop, namely 
 &mdash; `@iter()` and `@itern()`. This is also the same technique empolyed by almost all native functions that allows users 
-to override/alter how they behave (e.g. `@string()` overrides `to_string()`).
+to override/alter how they behave (e.g. `@to_string()` overrides `to_string()`).
 
 Blade allows users to define decorators as desired. This gives library implementers a sleek way to offer streamlined features 
 from their package/modules by offering custom behaviors defined by decorators.
@@ -383,7 +383,7 @@ For example,
 
 As previously discussed, the result of most built-in functions with a general exception for all methods with names in 
 the format `is_...` support overrides from classes via decorators in the format `@[method name]`. For example, the 
-[`abs()`](./builtin-functions#abs) method can be overriden by implementing the decorator `@abs()`. The exception to this 
+[`abs()`](./builtin-functions#abs) method can be overriden by implementing the decorator `@to_abs()`. The exception to this 
 naming convenction are methods whose name are in the form `to_...` in which case the `to_` prepend will be omitted.
 
 For example:
@@ -397,14 +397,14 @@ For example:
 ..  var name = 'Kelvin'
 .. }
 %> to_string(Person())
-Unhandled Exception: undefined method '@string' in Person
+Unhandled Exception: undefined method '@to_string' in Person
   StackTrace:
     <repl>:1 -> @.script()
 %> 
 %> # with override
 %> class Person {
 ..   var name = 'Kelvin'
-..   @string() {
+..   @to_string() {
 ..     return '<Person ${self.name}>'
 ..   }
 .. }
@@ -413,7 +413,7 @@ Unhandled Exception: undefined method '@string' in Person
 ```
 
 The overriding decorator must accept `n - 1` arguments, where `n` is the number of arguments of the original built-in 
-functions. For example, the `to_string()` function accepts 1 parameter and the override `@string()` above accepts `1 - 1 = 0` arguments.
+functions. For example, the `to_string()` function accepts 1 parameter and the override `@to_string()` above accepts `1 - 1 = 0` arguments.
 
 Check the [builtin functions](./builtin-functions) documentation for more information on the functions that support value 
 overriding and those that do not.

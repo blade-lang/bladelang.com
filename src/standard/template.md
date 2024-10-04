@@ -885,7 +885,7 @@ dictionary is used to pass variable data to the template being processed.
 
 If a variable is required in the template and is missing in the variables 
 dictionary or the variables dictionary was not passed to the `render_string()` 
-call, the process dies with an Exception. The third argument allows specifying 
+call, the process raises an Exception. The third argument allows specifying 
 the source file/path of the template being processed and will default to 
 `<source>` when not passed.
 
@@ -933,7 +933,7 @@ processed and behaves exactly the same way as with [[Template.render_string]].
 tpl.render('my_template')
 ```
 
-The above example renders the template as is and will die if any variable is found in it. 
+The above example renders the template as is and will raise if any variable is found in it. 
 You can pass a variable the same way you do with [[Template.render_string]].
 
 ##### Parameters

@@ -590,7 +590,7 @@ Simply create a decorator for the function.
 ..     self.name = name
 ..   }
 .. 
-..   @string() {
+..   @to_string() {
 ..     return '<Animal ${self.name}>'
 ..   }
 .. }
@@ -601,7 +601,7 @@ Simply create a decorator for the function.
 %> to_string(animal)  # using to_string function to convert classes to string
 '<Animal Dog>'
 %> to_string(person)
-Unhandled Exception: undefined method '@string' in Person
+Unhandled Exception: undefined method '@to_string' in Person
   StackTrace:
     <repl>:1 -> @.script()
 ```
@@ -670,7 +670,7 @@ To convert a class into an iterable, simply implement the `@iter()` and `@itern(
 Blade comes with the built-in class `Exception` and all exceptions must derive from this class.
 
 ```blade-repl
-%> die Exception('I died')
+%> raise Exception('I died')
 Unhandled Exception: I died
   StackTrace:
     <repl>:1 -> @.script()
@@ -681,16 +681,21 @@ Unhandled Exception: I died
 ## Handling exceptions
 
 ```blade-repl
-%> try {
-..   var list = []
-..   echo list[1]
-.. } catch Exception e {
-..   echo 'Error: ${e.message}'  # there is also e.stacktrace
-.. } finally {
-..   echo "I'll run after all even if there is an error"
+%> catch {
+..   echo 'do something'
+..   raise Exception('there was an exception here')
+..   echo 'do something else'
+.. } as error
+'do something'
+%> 
+%> if error {
+..   echo error.type
+..   echo error.message
+..   echo error.stacktrace
 .. }
-'Error: list index 1 out of range'
-"I'll run after all even if there is an error"
+'Exception'
+'there was an exception here'
+'    <repl>:3 -> @.script()'
 ```
 [More](./tutorial/error-handling)
 
@@ -702,7 +707,7 @@ Simply subclass `Exception` as follows.
 ```blade-repl
 %> class CustomError < Exception {}
 %> 
-%> die CustomError('I died too!')
+%> raise CustomError('I died too!')
 Unhandled CustomError: I died too!
   StackTrace:
     <repl>:1 -> @.script()

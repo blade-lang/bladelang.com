@@ -249,7 +249,7 @@ Provides interface for parsing Blade code into Abstract Syntax Trees.
 
 - **DIE**:
 
-  die token
+  raise token
 
 - **DO**:
 
@@ -750,7 +750,7 @@ Break Stmt representation.
 
 ### _class_ DieStmt < _Stmt_
 
-Die Stmt representation.
+raise Stmt representation.
 
 
 

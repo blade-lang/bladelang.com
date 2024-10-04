@@ -56,13 +56,13 @@ built-in functions followed by their respective documentations.
 
 If _x_ is a number, this function returns the absolute value of the number _x_. 
 This is equivalent to `x >= 0 ? x : -x`. However, if _x_ is an instance of a class 
-_y_ and _y_ defines `@abs()`, then this functions returns `x.@abs()`. 
+_y_ and _y_ defines `@to_abs()`, then this functions returns `x.@to_abs()`. 
 
 #### bin(_x_: number | instance)
 
 If _x_ is a number, this function converts number _x_ to it's binary string and 
-returns the value. However, if _x_ is an instance of a class _y_ and _y_ defines `@bin()`, 
-then this functions returns `x.@bin()`. 
+returns the value. However, if _x_ is an instance of a class _y_ and _y_ defines `@to_bin()`, 
+then this functions returns `x.@to_bin()`. 
 
 #### bytes(_x_: number | list)
 
@@ -99,8 +99,8 @@ Returns `true` if the _object_ has a property _name_. Returns `false` otherwise.
 #### hex(_x_: number | instance)
 
 If _x_ is a number, this function converts number _x_ to its hexadecimal string and returns the 
-  value. However, if _x_ is an instance of a class _y_ and _y_ defines `@hex()`, then this 
-  functions returns `x.@hex()`. 
+  value. However, if _x_ is an instance of a class _y_ and _y_ defines `@to_hex()`, then this 
+  functions returns `x.@to_hex()`. 
 
 #### id(_x_: any)
 
@@ -114,8 +114,8 @@ Returns `true` if _x_ is an instance of the given class _y_ or `false` otherwise
 #### int([_x_: number | instance])
 
 If _x_ is not given, returns `0`. If _x_ is a number, converts the number to an integer and 
-  returns the integer. However, if _x_ is an instance of a class _y_ and _y_ defines `@int()`, 
-  then this functions returns `x.@int()`.
+  returns the integer. However, if _x_ is an instance of a class _y_ and _y_ defines `@to_int()`, 
+  then this functions returns `x.@to_int()`.
 
 #### is_bool(_x_: any)
 
@@ -192,8 +192,8 @@ Returns the least of the given numbers. _This method requires at least two numbe
 #### oct(_x_: number)
 
 If _x_ is a number, this function converts number _x_ to it's octal string and returns the 
-  value. However, if _x_ is an instance of a class _y_ and _y_ defines `@oct()`, then this 
-  functions returns `x.@oct()`. 
+  value. However, if _x_ is an instance of a class _y_ and _y_ defines `@to_oct()`, then this 
+  functions returns `x.@to_oct()`. 
 
 
 #### ord(_x_: char)
@@ -225,32 +225,32 @@ Returns the current epoch time in seconds.
 #### to_bool(_x_: any)
 
 Converts the given value into a boolean. If _x_ is an instance of class _y_ and _y_ defines 
-  `@bool()` decorator, returns `x.@bool()`.
+  `@to_bool()` decorator, returns `x.@to_bool()`.
 
 #### to_dict(_x_: any)
 
 Converts the given value into a dictionary. If _x_ is an instance of class _y_ and _y_ defines 
-  `@dict())` decorator, returns `x.@dict()`.
+  `@to_dict())` decorator, returns `x.@to_dict()`.
 
 #### to_int(_x_: number | instance)
 
 If _x_ is a number, converts the given value into an integer and returns the integer. If _x_ is 
-  an instance of a class and the class defines `@int()` decorator, returns `x.@int()`.
+  an instance of a class and the class defines `@to_int()` decorator, returns `x.@to_int()`.
 
 #### to_list(_x_: any)
 
 Converts the given value into a list. If _x_ is an instance of class _y_ and _y_ defines 
-  `@list()` decorator, returns `x.@list()`.
+  `@to_list()` decorator, returns `x.@to_list()`.
 
 #### to_number(_x_: any)
 
 Converts the given value into a number. If _x_ is an instance of class _y_ and _y_ defines 
-  `@number()` decorator, returns `x.@number()`.
+  `@to_number()` decorator, returns `x.@to_number()`.
 
 #### to_string(_x_: any)
 
 Converts the given value into a string. If _x_ is an instance of class _y_ and _y_ defines 
-  `@string()` decorator, returns `x.@string()`.
+  `@to_string()` decorator, returns `x.@to_string()`.
 
 #### typeof(_x_: any)
 

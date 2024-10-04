@@ -352,7 +352,7 @@ or throws one of SocketException or Exception if it fails.
 ##### Raises Exception
 
 - Exception
-@dies
+@raises
 
 
 
@@ -371,7 +371,7 @@ Sends an Http POST request and returns an HttpResponse.
 ##### Raises Exception
 
 - Exception
-@dies
+@raises
 
 
 
@@ -390,7 +390,7 @@ Sends an Http PUT request and returns an HttpResponse.
 ##### Raises Exception
 
 - Exception
-@dies
+@raises
 
 
 
@@ -408,7 +408,7 @@ Sends an Http DELETE request and returns an HttpResponse.
 ##### Raises Exception
 
 - Exception
-@dies
+@raises
 
 
 
@@ -427,7 +427,7 @@ Creates an new HttpServer instance.
 ##### Raises Exception
 
 - Exception
-@dies
+@raises
 
 
 
@@ -807,7 +807,7 @@ Sends an Http request and returns a HttpResponse.
 ##### Raises Exception
 
 - SocketException
-@dies
+@raises
 
 #### get(url)
 
@@ -823,7 +823,7 @@ Sends an Http GET request and returns an HttpResponse.
 ##### Raises Exception
 
 - Exception
-@dies
+@raises
 
 #### post(url, data)
 
@@ -840,7 +840,7 @@ Sends an Http POST request and returns an HttpResponse.
 ##### Raises Exception
 
 - Exception
-@dies
+@raises
 
 #### put(url, data)
 
@@ -857,7 +857,7 @@ Sends an Http PUT request and returns an HttpResponse.
 ##### Raises Exception
 
 - Exception
-@dies
+@raises
 
 #### delete(url)
 
@@ -873,7 +873,7 @@ Sends an Http DELETE request and returns an HttpResponse.
 ##### Raises Exception
 
 - Exception
-@dies
+@raises
 
 
 
