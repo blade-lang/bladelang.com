@@ -76,3 +76,17 @@ Converts a unicode character to it's equivalent hexadecimal string.
 
 
 
+#### bytes\_to\_decimal(bytes)
+
+Converts a bytes (binary data) to a decimal number.
+
+##### Parameters
+
+- _bytes_ **bytes**
+
+##### Returns
+
+- number
+
+
+

@@ -242,6 +242,10 @@
       "/standard/zlib": {
         "source": "/standard/zlib", 
         "title": "zlib"
+      }, 
+      "/standard/http_curl": {
+        "source": "/standard/http_curl", 
+        "title": "http_curl"
       }
     }
   }, 

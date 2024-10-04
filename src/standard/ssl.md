@@ -159,26 +159,6 @@ Returns a new instance of a TLSSocket.
 
 
 
-#### server(port, host)
-
-Creates an new TLSServer instance.
-
-
-
-
-@throws Exception, SocketExcepion, HttpException
-
-##### Parameters
-
-- _int_ **port**
-- _string?_ **host**
-
-##### Returns
-
-- TLSServer
-
-
-
 ## Classes
 
 ### _class_ SSL
@@ -661,65 +641,6 @@ Sets the underlying SSL context to use.
 ##### Parameters
 
 - _SSLContext_ **context**
-
-
-
-### _class_ TLSServer < _HttpServer_
-
-TLS server
-
-
-
-#### Properties
-
- - __@printable__
-
-#### Fields
-
-- **cert\_file** &#8674; _string_:
-
-  The SSL/TLS ceritificate file that will be used be used by a secured server for 
-serving requests.
-
-- **private\_key\_file** &#8674; _string_:
-
-  The SSL/TLS private key file that will be used be used by a secured server for 
-serving requests.
-
-- **verify\_certs** &#8674; _boolean_:
-
-  This value controls whether the client certificate should be verified 
-or not.
-
-#### Methods
-
-#### TLSServer(port, host) &#8674; Constructor
-
-
-
-##### Parameters
-
-- _int_ **port**
-- _string?_ **host**
-
-
-#### load\_certs(cert_file, private_key_file)
-
-Loads the given SSL/TLS certificate pairs for the given SSL/TLS context.
-
-##### Parameters
-
-- _string|file_ **cert_file**
-- _string|file|nil_ **private_key_file**
-
-##### Returns
-
-- bool
-
-#### listen()
-
-Binds to the instance port and host and starts listening for incoming 
-connection from HTTPS clients.
 
 
 

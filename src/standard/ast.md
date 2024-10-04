@@ -267,10 +267,6 @@ Provides interface for parsing Blade code into Abstract Syntax Trees.
 
   false token
 
-- **FINALLY**:
-
-  finally token
-
 - **FOR**:
 
   for token
@@ -318,10 +314,6 @@ Provides interface for parsing Blade code into Abstract Syntax Trees.
 - **TRUE**:
 
   true token
-
-- **TRY**:
-
-  try token
 
 - **USING**:
 
@@ -552,14 +544,14 @@ Exception raised for errors during parsing.
 
 #### Methods
 
-#### ParseException(token, message) &#8674; Constructor
+#### ParseException(message, token) &#8674; Constructor
 
 
 
 ##### Parameters
 
-- _Token_ **token**
 - _string_ **message**
+- _Token_ **token**
 
 
 
@@ -882,15 +874,14 @@ Catch Stmt representation.
 
 #### Methods
 
-#### CatchStmt(type, var_name, body) &#8674; Constructor
+#### CatchStmt(body, var_name) &#8674; Constructor
 
 
 
 ##### Parameters
 
-- _Stmt|any|nil_ **type**
-- _Stmt|any|nil_ **var_name**
 - _Stmt|any|nil_ **body**
+- _Stmt|any|nil_ **var_name**
 
 
 
@@ -913,30 +904,6 @@ Finally Stmt representation.
 ##### Parameters
 
 - _Stmt|any|nil_ **body**
-
-
-
-### _class_ TryStmt < _Stmt_
-
-Try Stmt representation.
-
-
-
-#### Properties
-
- - __@serializable__
-
-#### Methods
-
-#### TryStmt(body, catch_stmt, finally_stmt) &#8674; Constructor
-
-
-
-##### Parameters
-
-- _Stmt|any|nil_ **body**
-- _Stmt|any|nil_ **catch_stmt**
-- _Stmt|any|nil_ **finally_stmt**
 
 
 

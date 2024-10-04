@@ -1,53 +1,54 @@
 # http
-The `http` module provides a rich library to help in building HTTP 
-clients and servers. The module also provides a few generic abstractions 
+
+> **IMPORTANT NOTICE:**
+>
+> THIS MODULE IS DEPRECIATED AND WILL BE REMOVED FROM THE CORE
+> LIBRARY AS SOON AS THE PURE BLADE IMPLEMENTATION IS STABLE.
+> IT IS ONLY HERE FOR HISTORICAL REASONS AND TO SERVE AS A BASE
+> BENCHMARK FOR THE DEVELOPMENT OF THE `http` MODULE.
+>
+> YOU SHOULD USE THE `http` MODULE INSTEAD AS ITS MORE SUPPORTED,
+> AND ALL FURTHER DEVELOPMENTS TOWARDS HTTP WILL BE DONE THERE.
+>
+> BUG REPORTS AND ISSUES FOR THIS MODULE WILL NOT BE TREATED AS
+> PRIORITY.
+The `chttp` module provides a rich library to help in building HTTP
+clients and servers. The module also provides a few generic abstractions
 for simple HTTP operations such as a GET request.
-
 ### Examples
-
 The example below shows making a GET request to fetch a webpage.
-
 ```blade
-import http
-
-echo http.get('http://example.com')
+import chttp
+echo chttp.get('http://example.com')
 # <class HttpResponse instance at 0x600002adacd0>
 ```
-
-There is a `post()` and `put()` alternative to the `get()` method called 
+There is a `post()` and `put()` alternative to the `get()` method called
 above and they are documented below.
-
-For a more controlled HTTP request, you should use the HttpClient class. 
-Below is an example of such implementation that sets the timeout for 
+For a more controlled HTTP request, you should use the HttpClient class.
+Below is an example of such implementation that sets the timeout for
 receiving response back from the server to 30 seconds.
-
 ```blade
-import http
-
-var client = http.HttpClient()
+import chttp
+var client = chttp.HttpClient()
 client.receive_timeout = 30000 # Optional
 var res = client.send_request('http://example.com/endpoint?query=1', 'GET')
 echo res.body.to_string()
 ```
-
-Creating a server with the `http` module is also a breeze. 
-The example below shows an implementation of an HTTP API server listening on port 
+Creating a server with the `chttp` module is also a breeze.
+The example below shows an implementation of an HTTP API server listening on port
 3000 and simple returns the JSON of the request object itself.
-
 ```blade
-import http
+import chttp
 import json
-
-var server = http.server(3000)
+var server = chttp.server(3000)
 server.handle('GET', '/', @(request, response) {
   response.json(request)
 })
 server.listen()
 ```
-
-The `http` module does not make any assumption as to the type of data to be sent 
-in request bodies and for this reason, it should not be expected to automatically 
-convert dictionaries into JSON objects or create multipart/form-data request for you. 
+The `chttp` module does not make any assumption as to the type of data to be sent
+in request bodies and for this reason, it should not be expected to automatically
+convert dictionaries into JSON objects or create multipart/form-data request for you.
 Rather, it gives the tools required to craft any request body of your choice.
 
 ## Properties
@@ -313,14 +314,14 @@ Rather, it gives the tools required to craft any request body of your choice.
 
 #### set\_headers(headers)
 
-Sets the default request headers for the current module instance.
+Sets the request headers for the current module instance.
  
 This function returns HttpClient in order to allow for idiomatic 
 chaining such as:
 
 ```blade
-import http
-echo http.set_headers({
+import chttp
+echo chttp.set_headers({
   'Authorization': 'Bearer SomeAPIBearerToken',
   'Host': 'example.com',
 }).get('http://example.com/current-user').body.to_string()
@@ -336,7 +337,7 @@ echo http.set_headers({
 
 
 
-#### get(url, headers)
+#### get(url)
 
 Sends an Http GET request and returns an HttpResponse
 or throws one of SocketException or Exception if it fails.
@@ -344,7 +345,6 @@ or throws one of SocketException or Exception if it fails.
 ##### Parameters
 
 - _string_ **url**
-- _dict?_ **headers**
 
 ##### Returns
 
@@ -356,7 +356,7 @@ or throws one of SocketException or Exception if it fails.
 
 
 
-#### post(url, data, headers)
+#### post(url, data)
 
 Sends an Http POST request and returns an HttpResponse.
 
@@ -364,7 +364,6 @@ Sends an Http POST request and returns an HttpResponse.
 
 - _string_ **url**
 - _string|bytes|nil_ **data**
-- _dict?_ **headers**
 
 ##### Returns
 
@@ -376,7 +375,7 @@ Sends an Http POST request and returns an HttpResponse.
 
 
 
-#### put(url, data, headers)
+#### put(url, data)
 
 Sends an Http PUT request and returns an HttpResponse.
 
@@ -384,7 +383,6 @@ Sends an Http PUT request and returns an HttpResponse.
 
 - _string_ **url**
 - _string|bytes|nil_ **data**
-- _dict?_ **headers**
 
 ##### Returns
 
@@ -396,34 +394,13 @@ Sends an Http PUT request and returns an HttpResponse.
 
 
 
-#### patch(url, data, headers)
-
-Sends an Http PATCH request and returns an HttpResponse.
-
-##### Parameters
-
-- _string_ **url**
-- _string|bytes|nil_ **data**
-- _dict?_ **headers**
-
-##### Returns
-
-- HttpResponse
-##### Raises Exception
-
-- Exception
-@dies
-
-
-
-#### delete(url, headers)
+#### delete(url)
 
 Sends an Http DELETE request and returns an HttpResponse.
 
 ##### Parameters
 
 - _string_ **url**
-- _dict?_ **headers**
 
 ##### Returns
 
@@ -432,73 +409,6 @@ Sends an Http DELETE request and returns an HttpResponse.
 
 - Exception
 @dies
-
-
-
-#### options(url, headers)
-
-Sends an Http OPTIONS request and returns an HttpResponse.
-
-##### Parameters
-
-- _string_ **url**
-- _dict?_ **headers**
-
-##### Returns
-
-- HttpResponse
-##### Raises Exception
-
-- Exception
-@dies
-
-
-
-#### trace(url, headers)
-
-Sends an Http TRACE request and returns an HttpResponse.
-
-##### Parameters
-
-- _string_ **url**
-- _dict?_ **headers**
-
-##### Returns
-
-- HttpResponse
-##### Raises Exception
-
-- Exception
-@dies
-
-
-
-#### head(url, headers)
-
-Sends an Http HEAD request and returns an HttpResponse.
-
-##### Parameters
-
-- _string_ **url**
-- _dict?_ **headers**
-
-##### Returns
-
-- HttpResponse
-##### Raises Exception
-
-- Exception
-@dies
-
-
-
-#### client()
-
-Returns the default shared client.
-
-##### Returns
-
-- HttpClient
 
 
 
@@ -521,22 +431,13 @@ Creates an new HttpServer instance.
 
 
 
-#### tls\_server(port, host)
+#### client()
 
-Creates an new TLSServer instance.
-
-
-
-@throws Exception, SocketExcepion, HttpException
-
-##### Parameters
-
-- _int_ **port**
-- _string?_ **host**
+Returns the default client.
 
 ##### Returns
 
-- TLSServer
+- HttpClient
 
 
 
@@ -589,9 +490,9 @@ then the path is `/users`.
 
   A dictionary containing the entries of the URI query string.
 
-- **cookies** &#8674; _{list|dictionary_:
+- **cookies** &#8674; _dictionary_:
 
-  A list or dictionary containing the cookies sent with the request.
+  A dictionary containing the cookies sent with the request.
 
 - **body** &#8674; _dictionary_:
 
@@ -604,6 +505,11 @@ then the path is `/users`.
 - **http\_version** &#8674; _string_:
 
   The HTTP version used for the request.
+
+- **auth\_method** &#8674; _Auth_:
+
+  The HTTP authentication method to use when the uri contains a credential. 
+Default value is `Auth.ANY`.
 
 #### Methods
 
@@ -620,18 +526,37 @@ Parses a raw HTTP request string into a correct HttpRequest.
 
 - boolean
 
-#### send(uri, method, data, headers, options)
+#### send(uri, method, data, options)
 
-Send HTTP requests to the given uri for the given method 
-and data (if given).
+Sends the given request to the given uri using the given method and 
+optionally passing the data if given.
 
 ##### Parameters
 
-- _url_ **uri**
+- _Url_ **uri**
 - _string_ **method**
-- _string|bytes|dict|nil_ **data**
-- _dict?_ **headers**
+- _string|bytes|nil_ **data**
 - _dict?_ **options**
+
+##### Returns
+
+- HttpResponse
+
+#### to\_dict()
+
+Returns a dictionary representation of the HttpRequest instance.
+
+##### Returns
+
+- dict
+
+#### to\_string()
+
+Returns a string representation of the HttpRequest instance.
+
+##### Returns
+
+- string
 
 
 
@@ -808,65 +733,6 @@ connection from HTTP clients.
 
 
 
-### _class_ TLSServer < _HttpServer_
-
-TLS server
-
-
-
-#### Properties
-
- - __@printable__
-
-#### Fields
-
-- **cert\_file** &#8674; _string_:
-
-  The SSL/TLS certificate file that will be used be used by a secured server for
-serving requests.
-
-- **private\_key\_file** &#8674; _string_:
-
-  The SSL/TLS private key file that will be used be used by a secured server for 
-serving requests.
-
-- **verify\_certs** &#8674; _boolean_:
-
-  This value controls whether the client certificate should be verified 
-or not.
-
-#### Methods
-
-#### TLSServer(port, host) &#8674; Constructor
-
-
-
-##### Parameters
-
-- _int_ **port**
-- _string?_ **host**
-
-
-#### load\_certs(cert_file, private_key_file)
-
-Loads the given SSL/TLS certificate pairs for the given SSL/TLS context.
-
-##### Parameters
-
-- _string|file_ **cert_file**
-- _string|file|nil_ **private_key_file**
-
-##### Returns
-
-- bool
-
-#### listen()
-
-Binds to the instance port and host and starts listening for incoming 
-connection from HTTPS clients.
-
-
-
 ### _class_ HttpClient
 
 Handles http requests.
@@ -885,14 +751,14 @@ Default value &mdash; `Blade HTTP Client/1.0`.
   Indicates if we receive a redirect from a server, this flag tells us whether 
 we should follow it or not. Default value is `true`.
 
-- **verify\_hostname** &#8674; _bool_:
+- **skip\_hostname\_verification** &#8674; _bool_:
 
   Indicates if the site you're connecting to uses a different host name that what
 they have mentioned in their server certificate's commonName (or subjectAltName) 
 fields, connection will fail. You can skip this check by setting to true, but this 
 will make the connection less secure.
 
-- **verify\_peer** &#8674; _bool_:
+- **skip\_peer\_verification** &#8674; _bool_:
 
   Indicates if you want to connect to a site who isn't using a certificate that is
 signed by one of the certs in the CA bundle you have, you can skip the verification 
@@ -912,7 +778,7 @@ of the server's certificate. This makes the connection A LOT LESS SECURE.
 
 - **receive\_timeout** &#8674; _number_:
 
-  The receive timeout duration in milliseconds. Default value is 2,000 (2 seconds).
+  The receive timeout duration in milliseconds. Default value is 300,000 (5 minutes).
 
 - **headers** &#8674; _dict_:
 
@@ -925,24 +791,15 @@ files in the body
 
 #### Methods
 
-#### send\_request(uri, method, data, headers, options)
+#### send\_request(uri, method, data)
 
 Sends an Http request and returns a HttpResponse.
-
-
-
-
-
-   This can be very useful if you want to reuse the same 
-   instance for multiple requests and headers scenarios.
 
 ##### Parameters
 
 - _string_ **uri**
 - _string?_ **method**: : Default value is `GET`.
 - _string|dict|nil_ **data**
-- _dict?_ **headers**: : To override the instance options. 
-- _dict?_ **client**: request options
 
 ##### Returns
 
@@ -952,14 +809,13 @@ Sends an Http request and returns a HttpResponse.
 - SocketException
 @dies
 
-#### get(url, headers)
+#### get(url)
 
 Sends an Http GET request and returns an HttpResponse.
 
 ##### Parameters
 
 - _string_ **url**
-- _dict?_ **headers**
 
 ##### Returns
 
@@ -969,7 +825,7 @@ Sends an Http GET request and returns an HttpResponse.
 - Exception
 @dies
 
-#### post(url, data, headers)
+#### post(url, data)
 
 Sends an Http POST request and returns an HttpResponse.
 
@@ -977,7 +833,6 @@ Sends an Http POST request and returns an HttpResponse.
 
 - _string_ **url**
 - _string|bytes|nil_ **data**
-- _dict?_ **headers**
 
 ##### Returns
 
@@ -987,7 +842,7 @@ Sends an Http POST request and returns an HttpResponse.
 - Exception
 @dies
 
-#### put(url, data, headers)
+#### put(url, data)
 
 Sends an Http PUT request and returns an HttpResponse.
 
@@ -995,7 +850,6 @@ Sends an Http PUT request and returns an HttpResponse.
 
 - _string_ **url**
 - _string|bytes|nil_ **data**
-- _dict?_ **headers**
 
 ##### Returns
 
@@ -1005,83 +859,13 @@ Sends an Http PUT request and returns an HttpResponse.
 - Exception
 @dies
 
-#### patch(url, data, headers)
-
-Sends an Http PATCH request and returns an HttpResponse.
-
-##### Parameters
-
-- _string_ **url**
-- _string|bytes|nil_ **data**
-- _dict?_ **headers**
-
-##### Returns
-
-- HttpResponse
-##### Raises Exception
-
-- Exception
-@dies
-
-#### delete(url, headers)
+#### delete(url)
 
 Sends an Http DELETE request and returns an HttpResponse.
 
 ##### Parameters
 
 - _string_ **url**
-- _dict?_ **headers**
-
-##### Returns
-
-- HttpResponse
-##### Raises Exception
-
-- Exception
-@dies
-
-#### options(url, headers)
-
-Sends an Http OPTIONS request and returns an HttpResponse.
-
-##### Parameters
-
-- _string_ **url**
-- _dict?_ **headers**
-
-##### Returns
-
-- HttpResponse
-##### Raises Exception
-
-- Exception
-@dies
-
-#### trace(url, headers)
-
-Sends an Http TRACE request and returns an HttpResponse.
-
-##### Parameters
-
-- _string_ **url**
-- _dict?_ **headers**
-
-##### Returns
-
-- HttpResponse
-##### Raises Exception
-
-- Exception
-@dies
-
-#### head(url, headers)
-
-Sends an Http HEAD request and returns an HttpResponse.
-
-##### Parameters
-
-- _string_ **url**
-- _dict?_ **headers**
 
 ##### Returns
 
@@ -1128,8 +912,8 @@ Represents the response to an Http request.
 
 - **responder** &#8674; _string_:
 
-  The final URL that provided the HttpResponse. This will sometimes 
-differ from the original request URI.
+  The final URL that provided the HttpResponse. This will sometimes differ from the 
+original request URI.
 
 - **body** &#8674; _bytes_:
 
@@ -1138,11 +922,6 @@ differ from the original request URI.
 - **cookies** &#8674; _list_:
 
   The cookies to be sent back to the client
-
-- **certificate** &#8674; _dict|nil_:
-
-  The SSL certificate for the secure connection. This is only available 
-when visiting HTTPS/SSL/TLS secured websites.
 
 #### Methods
 
