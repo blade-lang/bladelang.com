@@ -3,7 +3,7 @@
 
 Welcome! This is the official documentation for Blade 0.0.86-alpha.
 
-> For the official package manager, test runner and repository server &mdash; [Nyssa](https://nyssa.bladelang.com), visit [https://nyssa.bladelang.com](https://nyssa.bladelang.com).
+> For the official package manager, test runner and repository server &mdash; [Nyssa](https://nyssa.bladelang.org), visit [https://nyssa.bladelang.org](https://nyssa.bladelang.org).
 
 <div style="color:red">This documentation is a work in progress!</div>
 

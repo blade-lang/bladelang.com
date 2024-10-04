@@ -247,7 +247,7 @@ Provides interface for parsing Blade code into Abstract Syntax Trees.
 
   default token
 
-- **DIE**:
+- **RAISE**:
 
   raise token
 
@@ -748,9 +748,9 @@ Break Stmt representation.
 
 
 
-### _class_ DieStmt < _Stmt_
+### _class_ RaiseStmt < _Stmt_
 
-raise Stmt representation.
+Raise Stmt representation.
 
 
 
@@ -760,7 +760,7 @@ raise Stmt representation.
 
 #### Methods
 
-#### DieStmt(exception) &#8674; Constructor
+#### RaiseStmt(exception) &#8674; Constructor
 
 
 
@@ -882,28 +882,6 @@ Catch Stmt representation.
 
 - _Stmt|any|nil_ **body**
 - _Stmt|any|nil_ **var_name**
-
-
-
-### _class_ FinallyStmt < _Stmt_
-
-Finally Stmt representation.
-
-
-
-#### Properties
-
- - __@serializable__
-
-#### Methods
-
-#### FinallyStmt(body) &#8674; Constructor
-
-
-
-##### Parameters
-
-- _Stmt|any|nil_ **body**
 
 
 

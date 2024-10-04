@@ -531,7 +531,7 @@ md.core.ruler.push('my_rule', @(state) {
 
 #### enable(list, ignore_invalid)
 
-Enable rules with given names. If any rule name not found - raises Exception.
+Enable rules with given names. If any rule name not found - dies Exception.
 Errors can be disabled by second param.
 Returns list of found rule names (if no exception happened).
 See also [[Ruler.disable]], [[Ruler.enable_only]].

@@ -246,6 +246,10 @@
       "/standard/http_curl": {
         "source": "/standard/http_curl", 
         "title": "http_curl"
+      }, 
+      "/standard/array": {
+        "source": "/standard/array", 
+        "title": "array"
       }
     }
   }, 

@@ -1,4 +1,4 @@
-# bladelang.com
+# bladelang.org
 
 The official website for the Blade programming language.
 

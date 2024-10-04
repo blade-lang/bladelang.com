@@ -306,13 +306,13 @@ You can define numbers over a range using Blade's range operator `..` and they c
 'Senegal is a country'
 'Mali is a country'
 %> 
-%> var details = {name: 'Blade', version: 0.5, website: 'https://bladelang.com'} 
+%> var details = {name: 'Blade', version: 0.5, website: 'https://bladelang.org'} 
 %> for key, value in details {
 ..   echo '${key} -> ${value}'
 .. }
 'name -> Blade'
 'version -> 0.5'
-'website -> https://bladelang.com'
+'website -> https://bladelang.org'
 ```
 [More](./tutorial/loops)
 

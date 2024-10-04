@@ -1,5 +1,5 @@
 # clib
-The `clib` module exposes Blade capabilites to interact with C
+The `clib` module exposes Blade capabilities to interact with C
 shared libraries. The workflow follows a simple approach.
 - Load the library
 - Define the function schematics
@@ -21,7 +21,7 @@ echo cos(23)
 # Close the library (this is a good practice, but not required)
 lib.close()
 ```
-The first argument to a definiton is the name of the function.
+The first argument to a definition is the name of the function.
 The second is its return type. If the function takes parameters,
 the parameter types follow immediately. (See below for a list of the
 available types.)
